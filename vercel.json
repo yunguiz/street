@@ -2,6 +2,11 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 60
+    }
+  },
   "crons": [
     {
       "path": "/api/bling/keep-alive",
@@ -14,7 +19,7 @@
   ],
   "rewrites": [
     {
-      "source": "/api/((?!bling/callback|bling/keep-alive|bling/sync|bling/sync-produtos|frete/calcular).*)",
+      "source": "/api/(.*)",
       "destination": "/api/index.ts"
     },
     {
