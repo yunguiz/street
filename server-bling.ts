@@ -682,165 +682,181 @@ export function registerBlingRoutes(app: express.Express, hooks?: { onTokensUpda
   });
 
   // 2. OAuth Callback Route (/bling/callback & /auth/callback - exchanges code for initial tokens & saves to DB)
-  app.get(['/bling/callback', '/bling/callback/', '/auth/callback', '/auth/callback/'], async (req: Request, res: Response) => {
-    const code = req.query.code as string;
-    const reqState = req.query.state as string;
-    const error = req.query.error as string;
+  // 2. OAuth Callback Route (/api/bling/callback, /bling/callback & /auth/callback - exchanges code for initial tokens & saves to DB)
+  app.get(
+    [
+      '/api/bling/callback',
+      '/api/bling/callback/',
+      '/bling/callback',
+      '/bling/callback/',
+      '/auth/callback',
+      '/auth/callback/',
+    ],
+    async (req: Request, res: Response) => {
+      const code = req.query.code as string;
+      const reqState = req.query.state as string;
+      const error = req.query.error as string;
 
-    console.log(`[Bling Callback] Path: ${req.path}, Received code: ${code ? code.slice(0, 8) + '...' : 'none'}, state: ${reqState}, error: ${error}`);
+      console.log(
+        `[Bling Callback] Path: ${req.path}, Received code: ${code ? code.slice(0, 8) + '...' : 'none'}, state: ${reqState}, error: ${error}`
+      );
 
-    if (error) {
-      return res.send(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8" />
-            <title>Erro de Autenticação Bling</title>
-            <style>
-              body { background: #0E0E0E; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-              .card { background: #181818; border: 1px solid #333; border-radius: 16px; padding: 32px; max-width: 480px; text-align: center; }
-              h2 { color: #E50914; margin-top: 0; }
-              p { color: #888; font-size: 14px; }
-              button { background: #E50914; color: #fff; border: 0; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-            </style>
-          </head>
-          <body>
-            <div class="card">
-              <h2>Falha na Autorização</h2>
-              <p>O Bling retornou o seguinte erro: ${error}</p>
-              <button onclick="window.close()">Fechar Janela</button>
-            </div>
-          </body>
-        </html>
-      `);
-    }
+      if (error) {
+        return res.send(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8" />
+              <title>Erro de Autenticação Bling</title>
+              <style>
+                body { background: #0E0E0E; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+                .card { background: #181818; border: 1px solid #333; border-radius: 16px; padding: 32px; max-width: 480px; text-align: center; }
+                h2 { color: #E50914; margin-top: 0; }
+                p { color: #888; font-size: 14px; }
+                button { background: #E50914; color: #fff; border: 0; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+              </style>
+            </head>
+            <body>
+              <div class="card">
+                <h2>Falha na Autorização</h2>
+                <p>O Bling retornou o seguinte erro: ${error}</p>
+                <button onclick="window.close()">Fechar Janela</button>
+              </div>
+            </body>
+          </html>
+        `);
+      }
 
-    if (!code) {
-      return res.send(`
-        <!DOCTYPE html>
-        <html>
-          <head><meta charset="utf-8" /><title>Código não informado</title></head>
-          <body style="background:#0E0E0E;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-            <div style="background:#181818;border:1px solid #333;border-radius:16px;padding:32px;text-align:center;">
-              <h3 style="color:#E50914;">Nenhum código de autorização recebido</h3>
-              <p style="color:#888;">Por favor, tente autorizar novamente pela Street Store.</p>
-              <button onclick="window.close()" style="background:#333;color:#fff;border:0;padding:8px 16px;border-radius:8px;cursor:pointer;">Fechar</button>
-            </div>
-          </body>
-        </html>
-      `);
-    }
+      if (!code) {
+        return res.send(`
+          <!DOCTYPE html>
+          <html>
+            <head><meta charset="utf-8" /><title>Código não informado</title></head>
+            <body style="background:#0E0E0E;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+              <div style="background:#181818;border:1px solid #333;border-radius:16px;padding:32px;text-align:center;">
+                <h3 style="color:#E50914;">Nenhum código de autorização recebido</h3>
+                <p style="color:#888;">Por favor, tente autorizar novamente pela Street Store.</p>
+                <button onclick="window.close()" style="background:#333;color:#fff;border:0;padding:8px 16px;border-radius:8px;cursor:pointer;">Fechar</button>
+              </div>
+            </body>
+          </html>
+        `);
+      }
 
-    try {
-      // Exchange authorization code for token using identical APP_URL resolution & matched callback path
-      const appUrl = resolveAppUrl(req);
-      const callbackPath = req.path.startsWith('/bling/callback') ? '/bling/callback' : '/auth/callback';
-      const redirectUri = `${appUrl}${callbackPath}`;
+      try {
+        const appUrl = resolveAppUrl(req);
+        const callbackPath = req.path.startsWith('/api/bling/callback')
+          ? '/api/bling/callback'
+          : req.path.startsWith('/bling/callback')
+            ? '/bling/callback'
+            : '/auth/callback';
+        const redirectUri = `${appUrl}${callbackPath}`;
 
-      await exchangeCodeForTokens(code, redirectUri);
-      hooks?.onTokensUpdated?.();
+        await exchangeCodeForTokens(code, redirectUri);
+        hooks?.onTokensUpdated?.();
 
-      return res.send(`
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8" />
-            <title>Bling ERP Conectado com Sucesso</title>
-            <style>
-              body {
-                background: #0E0E0E;
-                color: #ffffff;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                margin: 0;
-              }
-              .card {
-                background: #141414;
-                border: 1px solid #282828;
-                border-radius: 16px;
-                padding: 40px;
-                max-width: 440px;
-                text-align: center;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-              }
-              .badge {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 60px;
-                height: 60px;
-                background: #166534;
-                color: #4ade80;
-                border-radius: 50%;
-                font-size: 28px;
-                margin-bottom: 20px;
-              }
-              h2 {
-                font-size: 20px;
-                font-weight: 800;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin: 0 0 8px 0;
-                color: #fff;
-              }
-              p {
-                color: #9ca3af;
-                font-size: 13px;
-                line-height: 1.5;
-                margin: 0 0 20px 0;
-              }
-              .status {
-                font-size: 11px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                color: #22c55e;
-                font-weight: 700;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="card">
-              <div class="badge">✓</div>
-              <h2>Bling ERP Conectado!</h2>
-              <p>Sua conta da Street Store agora está autorizada e sincronizada com o Bling ERP v3.</p>
-              <div class="status">Sincronizando dados com o site...</div>
-              <script>
-                if (window.opener) {
-                  window.opener.postMessage({ type: 'OAUTH_AUTH_SUCCESS', provider: 'bling' }, '*');
-                  setTimeout(function() {
-                    window.close();
-                  }, 1200);
-                } else {
-                  setTimeout(function() {
-                    window.location.href = '/';
-                  }, 1500);
+        return res.send(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8" />
+              <title>Bling ERP Conectado com Sucesso</title>
+              <style>
+                body {
+                  background: #0E0E0E;
+                  color: #ffffff;
+                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100vh;
+                  margin: 0;
                 }
-              </script>
-            </div>
-          </body>
-        </html>
-      `);
-    } catch (err: any) {
-      console.error('[Bling Callback Exchange Error]:', err);
-      return res.send(`
-        <!DOCTYPE html>
-        <html>
-          <head><meta charset="utf-8" /><title>Erro na troca do token Bling</title></head>
-          <body style="background:#0E0E0E;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
-            <div style="background:#181818;border:1px solid #441111;border-radius:16px;padding:32px;max-width:500px;text-align:center;">
-              <h3 style="color:#E50914;">Erro ao trocar código por token no Bling</h3>
-              <p style="color:#bbb;font-size:13px;">${err.message || String(err)}</p>
-              <p style="color:#888;font-size:12px;">Dica: Verifique se a URL de redirecionamento está configurada no app do Bling ou cole o token manualmente no painel.</p>
-              <button onclick="window.close()" style="background:#E50914;color:#fff;border:0;padding:10px 20px;border-radius:8px;font-weight:bold;cursor:pointer;">Fechar</button>
-            </div>
-          </body>
-        </html>
-      `);
+                .card {
+                  background: #141414;
+                  border: 1px solid #282828;
+                  border-radius: 16px;
+                  padding: 40px;
+                  max-width: 440px;
+                  text-align: center;
+                  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+                }
+                .badge {
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 60px;
+                  height: 60px;
+                  background: #166534;
+                  color: #4ade80;
+                  border-radius: 50%;
+                  font-size: 28px;
+                  margin-bottom: 20px;
+                }
+                h2 {
+                  font-size: 20px;
+                  font-weight: 800;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin: 0 0 8px 0;
+                  color: #fff;
+                }
+                p {
+                  color: #9ca3af;
+                  font-size: 13px;
+                  line-height: 1.5;
+                  margin: 0 0 20px 0;
+                }
+                .status {
+                  font-size: 11px;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  color: #22c55e;
+                  font-weight: 700;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="card">
+                <div class="badge">✓</div>
+                <h2>Bling ERP Conectado!</h2>
+                <p>Sua conta da Street Store agora está autorizada e sincronizada com o Bling ERP v3.</p>
+                <div class="status">Sincronizando dados com o site...</div>
+                <script>
+                  if (window.opener) {
+                    window.opener.postMessage({ type: 'OAUTH_AUTH_SUCCESS', provider: 'bling' }, '*');
+                    setTimeout(function() {
+                      window.close();
+                    }, 1200);
+                  } else {
+                    setTimeout(function() {
+                      window.location.href = '/';
+                    }, 1500);
+                  }
+                </script>
+              </div>
+            </body>
+          </html>
+        `);
+      } catch (err: any) {
+        console.error('[Bling Callback Exchange Error]:', err);
+        return res.send(`
+          <!DOCTYPE html>
+          <html>
+            <head><meta charset="utf-8" /><title>Erro na troca do token Bling</title></head>
+            <body style="background:#0E0E0E;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+              <div style="background:#181818;border:1px solid #441111;border-radius:16px;padding:32px;max-width:500px;text-align:center;">
+                <h3 style="color:#E50914;">Erro ao trocar código por token no Bling</h3>
+                <p style="color:#bbb;font-size:13px;">${err.message || String(err)}</p>
+                <p style="color:#888;font-size:12px;">Dica: Verifique se a URL de redirecionamento está configurada no app do Bling ou cole o token manualmente no painel.</p>
+                <button onclick="window.close()" style="background:#E50914;color:#fff;border:0;padding:10px 20px;border-radius:8px;font-weight:bold;cursor:pointer;">Fechar</button>
+              </div>
+            </body>
+          </html>
+        `);
+      }
     }
-  });
+  );
 
   // 3. Manual exchange of code via API
   app.post('/api/bling/exchange-code', async (req: Request, res: Response) => {
