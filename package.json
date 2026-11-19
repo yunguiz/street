@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && npx esbuild server.ts --bundle --platform=node --target=node20 --format=esm --outfile=api/server.js --external:lightningcss",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --target=node20 --format=cjs --outfile=api/server.cjs --packages=external",
     "start": "tsx server.ts",
     "clean": "rm -rf dist server.js api/server.js",
     "lint": "tsc --noEmit"
