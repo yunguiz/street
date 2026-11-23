@@ -34,6 +34,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-HD-VOID-BLK-01',
       barcode: '7898561230012',
+      nuvemshopId: 'NV-980123',
       blingId: 'BL-449102',
       weightGrams: 850,
       dimensionsCm: { width: 32, height: 10, depth: 38 }
@@ -69,6 +70,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-CG-TACT-BLK-02',
       barcode: '7898561230029',
+      nuvemshopId: 'NV-980124',
       blingId: 'BL-449103',
       weightGrams: 620,
       dimensionsCm: { width: 30, height: 6, depth: 35 }
@@ -104,6 +106,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-SNK-STAR85-03',
       barcode: '7898561230036',
+      nuvemshopId: 'NV-980125',
       blingId: 'BL-449104',
       weightGrams: 1100,
       dimensionsCm: { width: 34, height: 14, depth: 24 }
@@ -139,6 +142,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-TS-CROWN-04',
       barcode: '7898561230043',
+      nuvemshopId: 'NV-980126',
       blingId: 'BL-449105',
       weightGrams: 340,
       dimensionsCm: { width: 28, height: 3, depth: 32 }
@@ -174,6 +178,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-CAP-URB-05',
       barcode: '7898561230050',
+      nuvemshopId: 'NV-980127',
       blingId: 'BL-449106',
       weightGrams: 160,
       dimensionsCm: { width: 22, height: 12, depth: 20 }
@@ -209,6 +214,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-BAG-CORD-06',
       barcode: '7898561230067',
+      nuvemshopId: 'NV-980128',
       blingId: 'BL-449107',
       weightGrams: 280,
       dimensionsCm: { width: 18, height: 22, depth: 7 }
@@ -244,6 +250,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-SH-COURT-07',
       barcode: '7898561230074',
+      nuvemshopId: 'NV-980129',
       blingId: 'BL-449108',
       weightGrams: 310,
       dimensionsCm: { width: 26, height: 4, depth: 28 }
@@ -279,6 +286,7 @@ const LOCAL_PRODUCTS: Product[] = [
     integration: {
       sku: 'SS-CHN-CUBAN-08',
       barcode: '7898561230081',
+      nuvemshopId: 'NV-980130',
       blingId: 'BL-449109',
       weightGrams: 140,
       dimensionsCm: { width: 12, height: 3, depth: 12 }

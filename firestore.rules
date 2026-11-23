@@ -19,66 +19,10 @@ service cloud.firestore {
         && (!('avatarText' in data) || (data.avatarText is string && data.avatarText.size() <= 4));
     }
 
-    function isSignedIn() {
-      return request.auth != null;
-    }
-
-    function isOwner(userId) {
-      return isSignedIn() && request.auth.uid == userId;
-    }
-
-    function incoming() {
-      return request.resource.data;
-    }
-
-    function existing() {
-      return resource.data;
-    }
-
-    function isValidUserProfile(data, userId) {
-      return data.keys().hasAll(['uid', 'name', 'email', 'phone', 'createdAt', 'updatedAt'])
-        && data.keys().hasOnly(['uid', 'name', 'email', 'phone', 'createdAt', 'updatedAt'])
-        && data.uid is string && data.uid == userId
-        && data.name is string && data.name.size() >= 2 && data.name.size() <= 80
-        && data.email is string && data.email.size() >= 5 && data.email.size() <= 160
-        && data.phone is string && data.phone.size() >= 10 && data.phone.size() <= 20
-        && data.createdAt is timestamp
-        && data.updatedAt is timestamp;
-    }
-
-    match /users/{userId} {
-      allow get: if isOwner(userId);
-      allow list: if false;
-      allow create: if isOwner(userId)
-        && isValidId(userId)
-        && isValidUserProfile(incoming(), userId)
-        && incoming().createdAt == request.time
-        && incoming().updatedAt == request.time;
-      allow update: if isOwner(userId)
-        && isValidUserProfile(incoming(), userId)
-        && incoming().uid == existing().uid
-        && incoming().email == existing().email
-        && incoming().createdAt == existing().createdAt
-        && incoming().updatedAt == request.time
-        && incoming().diff(existing()).affectedKeys().hasOnly(['name', 'phone', 'updatedAt']);
-      allow delete: if false;
-    }
-
     match /reviews/{reviewId} {
       allow read: if true;
       allow create: if isValidId(reviewId) && isValidReview(request.resource.data);
       allow update, delete: if false;
-    }
-
-    // Server-only OAuth credentials (integrations/bling) managed exclusively by Cloud Functions / Vercel Admin SDK
-    match /integrations/{integrationId} {
-      allow read, write: if false;
-    }
-
-    // Catalog synced in batches from Bling ERP via Admin SDK; public storefront read-only
-    match /products/{productId} {
-      allow read: if true;
-      allow write: if false;
     }
 
     // Default deny catch-all

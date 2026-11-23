@@ -13,18 +13,12 @@ import { FavoritesDrawer } from './components/FavoritesDrawer';
 import { SearchBar } from './components/SearchBar';
 import { OrderTrackingModal } from './components/OrderTrackingModal';
 import { PoliciesAndFaqModal, PolicyTab } from './components/PoliciesAndFaqModal';
+import { BlingSyncModal } from './components/BlingSyncModal';
 import { StreetwearRailSection } from './components/StreetwearRailSection';
 import { Product, ProductCategory, CartItem } from './types';
-import { getLiveCatalog } from './services/catalog';
-import { AdminBlingSyncPage } from './components/AdminBlingSyncPage';
-import { CustomerAuthModal, AuthModalMode } from './components/CustomerAuthModal';
-import {
-  CustomerProfile,
-  logoutCustomer,
-  subscribeToCustomerAuth,
-} from './services/auth';
+import { getLiveCatalog } from './services/nuvemshop';
 
-function StorefrontApp() {
+export default function App() {
   // Cart state persisted to localStorage
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
@@ -65,82 +59,71 @@ function StorefrontApp() {
   const [activeSubcategory, setActiveSubcategory] = useState<string | undefined>(undefined);
   const [brandFilter, setBrandFilter] = useState<string | undefined>(undefined);
 
-  // Live products loaded automatically from Bling ERP & official store catalog
+  const [isBlingSyncOpen, setIsBlingSyncOpen] = useState(false);
+  const [blingSyncTargetProduct, setBlingSyncTargetProduct] = useState<Product | null>(null);
+
+  // Live products loaded from Nuvemshop API with instant fallback
   const [products, setProducts] = useState<Product[]>([]);
-  const [isCatalogLive, setIsCatalogLive] = useState(false);
+  const [isNuvemshopLive, setIsNuvemshopLive] = useState(false);
   const [mercadoPagoSuccessBanner, setMercadoPagoSuccessBanner] = useState<string | null>(null);
 
-  // Customer authentication state (Firebase Auth + Firestore users/{uid})
-  const [currentUser, setCurrentUser] = useState<CustomerProfile | null>(null);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [authModalMode, setAuthModalMode] = useState<AuthModalMode>('register');
-  const [authModalReason, setAuthModalReason] = useState<string | null>(null);
-  const [pendingCheckoutAfterAuth, setPendingCheckoutAfterAuth] = useState(false);
+  const handleOpenBlingSync = (product?: Product) => {
+    setBlingSyncTargetProduct(product || null);
+    setIsBlingSyncOpen(true);
+  };
 
-  useEffect(() => {
-    const unsubscribe = subscribeToCustomerAuth((profile) => {
-      setCurrentUser(profile);
+  const handleRefreshCatalog = () => {
+    getLiveCatalog(true).then((res) => {
+      if (res.products && res.products.length > 0) {
+        setProducts(res.products);
+        setIsNuvemshopLive(res.isLive);
+      }
     });
-    return () => unsubscribe();
-  }, []);
+  };
 
-  // Automatic real-time catalog sync with Bling ERP
+  // Automatic real-time catalog sync with Nuvemshop and Bling ERP
   useEffect(() => {
     let mounted = true;
-    const followUpTimers: number[] = [];
-
-    const applyCatalogResult = (res: Awaited<ReturnType<typeof getLiveCatalog>>) => {
-      if (!mounted) return;
-      if (Array.isArray(res.products) && res.products.length > 0) {
-        setProducts((prev) => {
-          if (prev.length !== res.products.length) return res.products;
-          const hasChange = res.products.some(
-            (p, i) =>
-              p.price !== prev[i]?.price ||
-              p.stockCount !== prev[i]?.stockCount ||
-              p.name !== prev[i]?.name ||
-              p.images?.[0] !== prev[i]?.images?.[0]
-          );
-          return hasChange ? res.products : prev;
-        });
-      }
-      setIsCatalogLive(res.isLive);
-    };
 
     // 1. Initial live catalog fetch
-    getLiveCatalog().then(applyCatalogResult);
+    getLiveCatalog().then((res) => {
+      if (mounted) {
+        setProducts(res.products);
+        setIsNuvemshopLive(res.isLive);
+      }
+    });
 
     // 2. Periodic background synchronization every 45 seconds
     const intervalId = setInterval(() => {
-      getLiveCatalog().then(applyCatalogResult);
+      getLiveCatalog().then((res) => {
+        if (mounted && res.products.length > 0) {
+          setProducts((prev) => {
+            if (prev.length !== res.products.length) return res.products;
+            const hasChange = res.products.some(
+              (p, i) => p.price !== prev[i]?.price || p.stockCount !== prev[i]?.stockCount || p.name !== prev[i]?.name
+            );
+            return hasChange ? res.products : prev;
+          });
+          setIsNuvemshopLive(res.isLive);
+        }
+      });
     }, 45000);
 
-    // 3. Instant automatic revalidation when tab regains focus
+    // 3. Instant revalidation when tab regains focus (e.g. after updating on Nuvemshop or Bling)
     const handleFocus = () => {
-      getLiveCatalog(false).then(applyCatalogResult);
+      getLiveCatalog(true).then((res) => {
+        if (mounted && res.products.length > 0) {
+          setProducts(res.products);
+          setIsNuvemshopLive(res.isLive);
+        }
+      });
     };
     window.addEventListener('focus', handleFocus);
-
-    // 4. Listen for OAuth completion to pull live Bling catalog automatically
-    const handleOAuthMessage = (event: MessageEvent) => {
-      const origin = event.origin || '';
-      if (!origin.endsWith('.run.app') && !origin.includes('localhost') && origin !== window.location.origin) {
-        return;
-      }
-      if (event.data?.type === 'OAUTH_AUTH_SUCCESS' && event.data?.provider === 'bling') {
-        getLiveCatalog(true).then(applyCatalogResult);
-        followUpTimers.push(window.setTimeout(() => getLiveCatalog(true).then(applyCatalogResult), 4500));
-        followUpTimers.push(window.setTimeout(() => getLiveCatalog(true).then(applyCatalogResult), 12000));
-      }
-    };
-    window.addEventListener('message', handleOAuthMessage);
 
     return () => {
       mounted = false;
       clearInterval(intervalId);
-      followUpTimers.forEach((t) => clearTimeout(t));
       window.removeEventListener('focus', handleFocus);
-      window.removeEventListener('message', handleOAuthMessage);
     };
   }, []);
 
@@ -267,17 +250,6 @@ function StorefrontApp() {
     setCartItems([]);
   };
 
-  const openCustomerAuth = (
-    mode: AuthModalMode = 'register',
-    reason: string | null = null,
-    resumeCheckout: boolean = false
-  ) => {
-    setAuthModalMode(mode);
-    setAuthModalReason(reason);
-    setPendingCheckoutAfterAuth(resumeCheckout);
-    setIsAuthModalOpen(true);
-  };
-
   const handleBuyNow = (
     product: Product,
     size: string,
@@ -290,17 +262,6 @@ function StorefrontApp() {
     }
     handleAddToCart(product, size, color, quantity);
     setSelectedProduct(null);
-
-    if (!currentUser) {
-      setIsCartOpen(false);
-      openCustomerAuth(
-        'register',
-        'Para finalizar sua compra, crie seu cadastro ou entre na sua conta.',
-        true
-      );
-      return;
-    }
-
     setCartInitialStep('checkout');
     setIsCartOpen(true);
   };
@@ -324,11 +285,6 @@ function StorefrontApp() {
       <Header
         cartCount={totalCartCount}
         favoritesCount={favorites.length}
-        currentUser={currentUser}
-        onOpenAuth={(mode) => openCustomerAuth(mode || 'register', null, false)}
-        onLogout={() => {
-          void logoutCustomer();
-        }}
         onOpenCart={() => setIsCartOpen(true)}
         onOpenFavorites={() => setIsFavoritesOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -340,6 +296,7 @@ function StorefrontApp() {
           setPoliciesInitialTab(tab);
           setIsPoliciesOpen(true);
         }}
+        onOpenBlingSync={() => handleOpenBlingSync()}
         activeCategory={activeCategory}
         onSelectCategory={(cat, subcat) => {
           setActiveCategory(cat);
@@ -373,7 +330,7 @@ function StorefrontApp() {
       {/* 4. Clean Catalog Section */}
       <CatalogSection
         products={products}
-        isCatalogLive={isCatalogLive}
+        isCatalogLive={isNuvemshopLive}
         catalogCount={products.length}
         activeCategory={activeCategory}
         activeSubcategory={activeSubcategory}
@@ -387,6 +344,7 @@ function StorefrontApp() {
         }}
         onOpenProduct={(prod) => setSelectedProduct(prod)}
         onQuickAdd={handleQuickAdd}
+        onOpenBlingSync={() => handleOpenBlingSync()}
       />
 
       {/* 4.5 Interactive 3D Clothing Rail Gallery Section */}
@@ -442,6 +400,7 @@ function StorefrontApp() {
         onClose={() => setSelectedProduct(null)}
         onAddToCart={handleAddToCart}
         onBuyNow={handleBuyNow}
+        onOpenBlingSync={handleOpenBlingSync}
       />
 
       {/* Slide-over Cart Drawer */}
@@ -453,40 +412,9 @@ function StorefrontApp() {
         onRemoveItem={handleRemoveItem}
         onClearCart={handleClearCart}
         initialStep={cartInitialStep}
-        currentUser={currentUser}
-        onRequireAuth={() => {
-          setIsCartOpen(false);
-          openCustomerAuth(
-            'register',
-            'Para concluir o pagamento, entre ou crie seu cadastro rápido.',
-            true
-          );
-        }}
         onOpenTracking={(orderNum) => {
           setTrackingInitialQuery(orderNum || '');
           setIsTrackingOpen(true);
-        }}
-      />
-
-      {/* Customer Registration & Login Modal */}
-      <CustomerAuthModal
-        isOpen={isAuthModalOpen}
-        initialMode={authModalMode}
-        reasonMessage={authModalReason}
-        onClose={() => {
-          setIsAuthModalOpen(false);
-          setAuthModalReason(null);
-          setPendingCheckoutAfterAuth(false);
-        }}
-        onSuccess={(profile) => {
-          setCurrentUser(profile);
-          setIsAuthModalOpen(false);
-          setAuthModalReason(null);
-          if (pendingCheckoutAfterAuth) {
-            setPendingCheckoutAfterAuth(false);
-            setCartInitialStep('checkout');
-            setIsCartOpen(true);
-          }
         }}
       />
 
@@ -526,17 +454,14 @@ function StorefrontApp() {
           setIsTrackingOpen(true);
         }}
       />
+
+      {/* Bling ERP Image Synchronizer Modal */}
+      <BlingSyncModal
+        isOpen={isBlingSyncOpen}
+        onClose={() => setIsBlingSyncOpen(false)}
+        targetProduct={blingSyncTargetProduct}
+        onCatalogRefresh={handleRefreshCatalog}
+      />
     </div>
   );
-}
-
-export default function App() {
-  const pathname =
-    typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') : '';
-
-  if (pathname === '/admin/bling') {
-    return <AdminBlingSyncPage />;
-  }
-
-  return <StorefrontApp />;
 }

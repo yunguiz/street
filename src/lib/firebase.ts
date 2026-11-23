@@ -1,13 +1,9 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 
 // Initialize Firebase App singleton
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-
-// Initialize Firebase Authentication
-export const auth = getAuth(app);
 
 // CRITICAL: Initialize Firestore using the specific provisioned database ID
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
@@ -47,8 +43,8 @@ export function handleFirestoreError(error: unknown, operationType: OperationTyp
   const errInfo: FirestoreErrorInfo = {
     error: error instanceof Error ? error.message : String(error),
     authInfo: {
-      userId: auth.currentUser?.uid ?? null,
-      email: auth.currentUser?.email ?? null,
+      userId: null,
+      email: null,
     },
     operationType,
     path,

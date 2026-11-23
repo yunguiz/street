@@ -17,17 +17,6 @@ import { Product } from '../types';
 export function isProductHidden(product: Partial<Product> | any): boolean {
   if (!product) return false;
 
-  // Automatically hide any out-of-stock product from the site
-  if (typeof product.stockCount === 'number' && product.stockCount <= 0) {
-    return true;
-  }
-  if (typeof product.stock === 'number' && product.stock <= 0 && product.stockCount === undefined) {
-    return true;
-  }
-  if (String(product.tag || '').toUpperCase().trim() === 'SEM ESTOQUE') {
-    return true;
-  }
-
   const rawName = String(product.name || '').toLowerCase();
   const rawSku = String(product.integration?.sku || product.sku || '').toLowerCase();
   const rawDesc = String(product.description || '').toLowerCase();

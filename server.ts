@@ -4,42 +4,19 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import QRCode from 'qrcode';
-import { registerBlingRoutes, blingRouter, blingAuthInterceptorMiddleware, fetchFromBling, loadBlingTokens, ensureBlingAuthorized, refreshBlingToken } from './server-bling';
-import { registerMelhorEnvioRoutes, startMelhorEnvioAutoSync } from './server-melhor-envio';
-import { hasFirebaseAdminEnv, hasFirestoreBlingToken, getValidBlingToken as getFirestoreValidToken } from './lib/blingToken';
-import { syncAllBlingProdutosToFirestore } from './lib/blingSyncProdutos';
+import { registerBlingRoutes, fetchFromBling, loadBlingTokens } from './server-bling';
 import { BLING_STOCK_PRODUCTS, BLING_CATALOG_META } from './src/data/blingCatalog';
 import { filterVisibleProducts } from './src/lib/hiddenProducts';
 import {
   applyBlingImageOverrides,
   recordProductImage,
-  syncImagesFromBling,
-  extractImagesFromBlingItem,
-  loadImageStore,
-  saveImageStore,
-  clearImageCache,
-  stripResizeAndCompressionParams,
-  applyImageRecordToStore,
-  getBlingImagesForProduct,
-  isPlaceholderImageUrl,
-  isLegacyExternalUrl,
-  isThumbnailLikeUrl,
-  isImageSyncRunning,
-  setCatalogFetchInProgress,
-  getLastBlingImageSyncTime
+  syncImagesFromBlingAndNuvemshop,
+  extractImagesFromBlingItem
 } from './server-bling-images';
-import {
-  createStoreOrder,
-  trackStoreOrders,
-  requestStoreOrderReturn
-} from './server-orders';
 
 dotenv.config();
 
-const __filename =
-  typeof import.meta?.url === 'string'
-    ? fileURLToPath(import.meta.url)
-    : path.resolve(process.cwd(), 'server.ts');
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
@@ -48,34 +25,23 @@ const PORT = parseInt(process.env.PORT || '3000', 10);
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// In-memory catalog cache for instant responses and automatic background sync (up to 1350 Bling products)
+// Nuvemshop Credentials
+const NUVEMSHOP_USER_ID = process.env.NUVEMSHOP_USER_ID || '6486155';
+const NUVEMSHOP_ACCESS_TOKEN = process.env.NUVEMSHOP_ACCESS_TOKEN || 'e2ec763eeec1a6dd2c1b07e00cddad99ff1bf133';
+const NUVEMSHOP_USER_AGENT = process.env.NUVEMSHOP_USER_AGENT || 'StreetStore (streetstore364@gmail.com)';
+const NUVEMSHOP_API_BASE = 'https://api.nuvemshop.com.br/v1';
+
+// In-memory catalog cache for instant responses and real-time auto-sync
 let catalogCache: {
   products: any[];
   count: number;
-  blingConnected: boolean;
-  blingCount: number;
-  blingRawCount: number;
-  blingError: string | null;
-  hiddenCount?: number;
-  totalRegisteredItems?: number;
-  uniqueModels?: number;
-  totalUnitsInStock?: number;
   timestamp: number;
 } | null = null;
-const CATALOG_CACHE_TTL_MS = 2 * 60 * 1000; // 2 minutes fresh TTL with silent stale-while-revalidate
+const CATALOG_CACHE_TTL_MS = 60 * 1000; // 60 seconds auto-revalidation
 
 export function invalidateCatalogCache() {
   catalogCache = null;
-  console.log('[Catalog Cache] Invalidated. Rebuilding fresh catalog from Bling ERP...');
-}
-
-export function reapplyImagesToCachedCatalog() {
-  if (catalogCache && Array.isArray(catalogCache.products)) {
-    catalogCache = {
-      ...catalogCache,
-      products: applyBlingImageOverrides(catalogCache.products),
-    };
-  }
+  console.log('[Catalog Cache] Invalidated. Next request will fetch fresh data from Nuvemshop & Bling.');
 }
 
 // Mercado Pago Credentials
@@ -84,6 +50,26 @@ const MERCADO_PAGO_ACCESS_TOKEN = process.env.MERCADO_PAGO_ACCESS_TOKEN || 'APP_
 const MERCADO_PAGO_CLIENT_ID = process.env.MERCADO_PAGO_CLIENT_ID || '1812187507012211';
 const MERCADO_PAGO_CLIENT_SECRET = process.env.MERCADO_PAGO_CLIENT_SECRET || 'TOLV7NTDfnsd0F1HsbQFwU2CmOfXG1z9';
 const MERCADO_PAGO_API_BASE = 'https://api.mercadopago.com';
+
+async function fetchFromNuvemshop(endpoint: string, options: RequestInit = {}) {
+  const url = `${NUVEMSHOP_API_BASE}/${NUVEMSHOP_USER_ID}${endpoint}`;
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      'Authentication': `bearer ${NUVEMSHOP_ACCESS_TOKEN}`,
+      'User-Agent': NUVEMSHOP_USER_AGENT,
+      'Content-Type': 'application/json',
+      ...(options.headers || {})
+    }
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Nuvemshop API error [${response.status}]: ${errorText}`);
+  }
+
+  return response.json();
+}
 
 // Robust HTML cleaning function that strips <p>, <br>, tags and entities
 function cleanDescription(raw?: string): string {
@@ -140,7 +126,7 @@ function detectColorFromName(name: string): { name: string; hex: string } | null
   return null;
 }
 
-// Map product category and title to app categories
+// Map Nuvemshop category and title to app categories
 function mapCategoryAndSubcategory(
   productName: string,
   categories?: Array<{ name?: { pt?: string } | string }>
@@ -191,131 +177,253 @@ function mapCategoryAndSubcategory(
   return { category: 'roupas', subcategory: 'camisetas' };
 }
 
-let activeCatalogBuildPromise: Promise<{
-  success: boolean;
-  count: number;
-  products: any[];
-  blingConnected: boolean;
-  blingCount: number;
-  blingRawCount: number;
-  blingError: string | null;
-  hiddenCount: number;
-  totalRegisteredItems: number;
-  blingRegisteredSKUs: number;
-  uniqueModels: number;
-  totalUnitsInStock: number;
-  syncedAt: string;
-}> | null = null;
-
-async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
-  if (activeCatalogBuildPromise) {
-    return activeCatalogBuildPromise;
+// API Routes
+app.get('/api/nuvemshop/status', async (_req: Request, res: Response) => {
+  try {
+    const storeInfo = await fetchFromNuvemshop('/store');
+    res.json({
+      connected: true,
+      storeId: NUVEMSHOP_USER_ID,
+      name: storeInfo.name?.pt || storeInfo.name || 'Street Store',
+      url: storeInfo.url_with_protocol || 'https://www.streetstore.com.br',
+      email: storeInfo.email || 'streetstore364@gmail.com'
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      connected: false,
+      error: error.message || 'Falha ao conectar com Nuvemshop'
+    });
   }
+});
 
-  activeCatalogBuildPromise = (async () => {
-    const products: any[] = [];
-    let blingConnected = false;
-    let blingCount = 0;
-    let blingRawCount = 0;
-    let blingError: string | null = null;
-    const zeroStockFromBlingKeys = new Set<string>();
+app.get('/api/nuvemshop/products', async (req: Request, res: Response) => {
+  try {
+    const forceRefresh = req.query.refresh === 'true' || req.query._t !== undefined;
+    const isCacheFresh = catalogCache && (Date.now() - catalogCache.timestamp < CATALOG_CACHE_TTL_MS);
 
-    // Merge all live products from Bling ERP seamlessly when connected (supports all 1411+ items & variations)
+    if (!forceRefresh && isCacheFresh && catalogCache) {
+      return res.json({
+        success: true,
+        count: catalogCache.count,
+        products: catalogCache.products,
+        cached: true,
+        syncedAt: new Date(catalogCache.timestamp).toISOString()
+      });
+    }
+
+    // Fetch up to 200 products from Nuvemshop (per_page=200 or paginated pages)
+    let rawProducts: any[] = [];
+    
+    try {
+      const page1 = await fetchFromNuvemshop('/products?per_page=200&page=1&published=true');
+      if (Array.isArray(page1)) {
+        rawProducts.push(...page1);
+      }
+      
+      // If page 1 filled all 200 or exactly 100, try page 2 if needed
+      if (rawProducts.length >= 100 && rawProducts.length < 200) {
+        try {
+          const page2 = await fetchFromNuvemshop('/products?per_page=100&page=2&published=true');
+          if (Array.isArray(page2)) {
+            rawProducts.push(...page2);
+          }
+        } catch {
+          // Page 2 does not exist, which is normal when store has fewer items
+        }
+      }
+    } catch (fetchErr) {
+      console.warn('Fallback fetching with per_page=100:', fetchErr);
+      const fallbackPage = await fetchFromNuvemshop('/products?per_page=100&page=1&published=true');
+      if (Array.isArray(fallbackPage)) {
+        rawProducts = fallbackPage;
+      }
+    }
+
+    // Deduplicate Nuvemshop products by normalized title (merge variants & images into a single canonical product)
+    const deduplicatedRawProducts: any[] = [];
+    const seenNuvemTitles = new Map<string, any>();
+
+    rawProducts.forEach((p) => {
+      const rawTitle = (p.name?.pt || p.name || 'Produto Street Store').trim();
+      const normKey = rawTitle.toLowerCase().replace(/\s+/g, ' ');
+
+      if (!seenNuvemTitles.has(normKey)) {
+        seenNuvemTitles.set(normKey, p);
+        deduplicatedRawProducts.push(p);
+      } else {
+        // Merge extra images and variants into the primary product so all colors/sizes are kept
+        const canonical = seenNuvemTitles.get(normKey);
+        if (Array.isArray(p.images) && Array.isArray(canonical.images)) {
+          p.images.forEach((img: any) => {
+            const hasImg = canonical.images.some((ci: any) => ci.src === img.src || ci.id === img.id);
+            if (!hasImg) canonical.images.push(img);
+          });
+        }
+        if (Array.isArray(p.variants) && Array.isArray(canonical.variants)) {
+          p.variants.forEach((v: any) => {
+            const hasVariant = canonical.variants.some((cv: any) => cv.sku === v.sku || cv.id === v.id);
+            if (!hasVariant) canonical.variants.push(v);
+          });
+        }
+      }
+    });
+
+    const cappedProducts = deduplicatedRawProducts;
+    
+    // Transform into frontend Product schema
+    const products = cappedProducts.map((p, idx) => {
+      const name = p.name?.pt || p.name || 'Produto Street Store';
+      const variants = p.variants || [];
+      const firstVariant = variants[0] || {};
+      
+      const priceVal = parseFloat(firstVariant.promotional_price || firstVariant.price || '99.90');
+      const comparePriceVal = parseFloat(firstVariant.compare_at_price || firstVariant.price || `${priceVal + 40}`);
+      
+      // Collect sizes from all variants
+      const sizesSet = new Set<string>();
+      variants.forEach((v: any) => {
+        if (v.values && v.values.length > 0) {
+          v.values.forEach((val: any) => {
+            const sizeStr = typeof val === 'object' ? val.pt || val.es || '' : String(val);
+            if (sizeStr) sizesSet.add(sizeStr.trim());
+          });
+        }
+      });
+
+      const { category, subcategory } = mapCategoryAndSubcategory(name, p.categories);
+
+      // Determine sizes based on real variants
+      let finalSizes: string[] = [];
+      if (sizesSet.size > 0) {
+        const rawSizes = Array.from(sizesSet);
+        const isNumeric = rawSizes.every(s => !isNaN(Number(s)));
+        if (isNumeric) {
+          finalSizes = rawSizes.sort((a, b) => Number(a) - Number(b));
+        } else {
+          const clothesOrder = ['PP', 'P', 'M', 'G', 'GG', 'XG', 'XGG', 'G1', 'G2', 'G3', 'G4'];
+          finalSizes = rawSizes.sort((a, b) => {
+            const idxA = clothesOrder.indexOf(a.toUpperCase());
+            const idxB = clothesOrder.indexOf(b.toUpperCase());
+            if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+            return a.localeCompare(b);
+          });
+        }
+      } else {
+        // Items with no size variants (glasses, accessories, single size items)
+        finalSizes = ['Tamanho Único'];
+      }
+
+      // Determine real colors from attributes, variants, and product name
+      const rawAttrs = (p.attributes || []).map((a: any) => (typeof a === 'object' && a.pt ? a.pt : (typeof a === 'string' ? a : ''))).join(' ');
+      const combinedColorSearch = `${name} ${rawAttrs}`;
+
+      const detectedColorsMap = new Map<string, { name: string; hex: string }>();
+      for (const c of COLOR_PALETTE) {
+        if (c.regex.test(combinedColorSearch)) {
+          detectedColorsMap.set(c.name, { name: c.name, hex: c.hex });
+        }
+      }
+
+      let finalColors: { name: string; hex: string }[] = [];
+      if (detectedColorsMap.size > 0) {
+        finalColors = Array.from(detectedColorsMap.values());
+      } else {
+        finalColors = [{ name: 'Cor Única', hex: '#1C1C1C' }];
+      }
+
+      // Collect product images
+      const images: string[] = (p.images && p.images.length > 0)
+        ? p.images.map((img: any) => img.src)
+        : ['https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85'];
+
+      const totalStock = variants.reduce((sum: number, v: any) => sum + (v.stock ?? 0), 0);
+
+      // Determine product tag
+      let tag: 'NOVO DROP' | 'MAIS VENDIDO' | 'POUCAS UNIDADES' | null = null;
+      if (totalStock > 0 && totalStock <= 3) {
+        tag = 'POUCAS UNIDADES';
+      } else if (idx < 6) {
+        tag = 'NOVO DROP';
+      } else if (idx % 3 === 0) {
+        tag = 'MAIS VENDIDO';
+      }
+
+      // Consistent rating
+      const hash = String(p.id).split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+      const rating = 4.8 + ((hash % 3) / 10);
+      const reviewsCount = 18 + (hash % 60);
+
+      const cleanedDesc = cleanDescription(p.description?.pt || p.description);
+
+      return {
+        id: `nuvem-${p.id}`,
+        name,
+        category,
+        subcategory,
+        price: isNaN(priceVal) ? 119.90 : priceVal,
+        originalPrice: isNaN(comparePriceVal) || comparePriceVal <= priceVal ? priceVal * 1.3 : comparePriceVal,
+        tag,
+        rating,
+        reviewsCount,
+        images,
+        sizes: finalSizes,
+        colors: finalColors,
+        description: cleanedDesc || 'Modelagem autêntica corte boxy, tecido robusto e caimento streetwear impecável com acabamento premium para impor presença.',
+        stockCount: totalStock,
+        details: {
+          composition: category === 'calcados' 
+            ? 'Solado em borracha vulcanizada de alta durabilidade' 
+            : (category === 'acessorios' ? 'Material premium de alta durabilidade e acabamento reforçado' : '100% Algodão Penteado Premium'),
+          weight: category === 'calcados' ? '900g o par' : (category === 'acessorios' ? '120g' : '350g/m² Heavyweight'),
+          modelInfo: category === 'acessorios' ? 'Tamanho e formato ergonômico' : 'Modelagem autêntica corte boxy / Caimento solto',
+          origin: 'Nacional // Fabricado no Brasil',
+        },
+        integration: {
+          sku: firstVariant.sku || `SKU-${p.id}`,
+          barcode: firstVariant.barcode || `789${p.id}`,
+          nuvemshopId: String(p.id),
+          blingId: `BLING-${p.id}`,
+          weightGrams: Math.round(parseFloat(firstVariant.weight || '0.350') * 1000),
+          dimensionsCm: {
+            width: parseFloat(firstVariant.width || '25'),
+            height: parseFloat(firstVariant.height || '25'),
+            depth: parseFloat(firstVariant.depth || '5'),
+          },
+        },
+        canonicalUrl: p.canonical_url || `https://www.streetstore.com.br`,
+        variantsList: variants.map((v: any) => ({
+          id: v.id,
+          sku: v.sku,
+          price: parseFloat(v.promotional_price || v.price || '0'),
+          comparePrice: parseFloat(v.compare_at_price || v.price || '0'),
+          stock: v.stock || 0,
+          size: v.values?.[0]?.pt || v.values?.[0] || 'Tamanho Único',
+        })),
+      };
+    });
+
+    // Merge all products from Bling ERP seamlessly (target up to 1191 items)
     try {
       const blingTokens = loadBlingTokens();
-      const hasRemoteBling = hasFirebaseAdminEnv() ? await hasFirestoreBlingToken() : false;
-      if (blingTokens?.access_token || blingTokens?.refresh_token || hasRemoteBling) {
-        // Interceptor pré-sincronização: verifica validade/expiração e renova via refresh_token antes da paginação
-        const tokenReady = await ensureBlingAuthorized({ verifyLive: true });
-        if (!tokenReady) {
-          throw new Error('Token do Bling expirado ou inválido; renovação automática pendente de nova autorização OAuth.');
-        }
-        setCatalogFetchInProgress(true);
-        const MAX_BLING_PRODUCTS = 10000;
+      if (blingTokens?.access_token) {
         const blingRaw: any[] = [];
-        const seenBlingIds = new Set<number>();
-        const pushUniqueBling = (items: any[]) => {
-          for (const it of items) {
-            if (it?.situacao === 'I' || it?.situacao === 'E') continue;
-            if (it?.id && !seenBlingIds.has(it.id) && blingRaw.length < MAX_BLING_PRODUCTS) {
-              seenBlingIds.add(it.id);
-              blingRaw.push(it);
-            }
-          }
-        };
-
-        // 1. Fetch ALL active pages (criterio=2: Ativos) until Bling returns < 100 items
-        for (let p = 1; p <= 100 && blingRaw.length < MAX_BLING_PRODUCTS; p++) {
+        // Fetch ALL pages (up to 30 pages = 3000 items) to pull complete Bling inventory
+        for (let p = 1; p <= 30; p++) {
           try {
-            const pageData = await fetchFromBling(`/produtos?pagina=${p}&limite=100&criterio=2`);
+            const pageData = await fetchFromBling(`/produtos?pagina=${p}&limite=100`);
             const items = pageData?.data || [];
             if (items.length > 0) {
-              pushUniqueBling(items);
+              blingRaw.push(...items);
             }
             if (items.length < 100) break;
-            await new Promise(resolve => setTimeout(resolve, 140));
-          } catch (pageErr: any) {
-            console.warn(`[Bling Sync] Stopped pagination at page ${p}:`, pageErr?.message || pageErr);
+          } catch {
             break;
           }
         }
 
-        blingConnected = true;
-        blingRawCount = blingRaw.length;
-        console.log(`[Bling Sync] Fetched ${blingRaw.length} total raw active items (limit ${MAX_BLING_PRODUCTS}) from Bling ERP.`);
+        console.log(`[Bling Sync] Fetched ${blingRaw.length} total raw items from Bling ERP.`);
 
-        // 2. Fetch REAL stock balances via /estoques/saldos in chunks of 50 (2 parallel chunks per pace cycle)
-        const realStockMap = new Map<number, number>();
-        let stockApiQueried = false;
-        const allBlingIds = blingRaw.map((bp: any) => bp.id).filter(Boolean);
-        const stockChunks: number[][] = [];
-        for (let i = 0; i < allBlingIds.length; i += 50) {
-          stockChunks.push(allBlingIds.slice(i, i + 50));
-        }
-
-        for (let i = 0; i < stockChunks.length; i += 2) {
-          const pair = stockChunks.slice(i, i + 2);
-          await Promise.all(
-            pair.map(async (chunk) => {
-              try {
-                const qs = chunk.map((id: number) => `idsProdutos[]=${id}`).join('&');
-                const stockRes = await fetchFromBling(`/estoques/saldos?${qs}`);
-                stockApiQueried = true;
-                const entries = stockRes?.data || [];
-                for (const entry of entries) {
-                  const pId = entry?.produto?.id;
-                  if (pId) {
-                    const bal = entry.saldoVirtualTotal ?? entry.saldoFisicoTotal ?? entry.saldoFisico ?? 0;
-                    realStockMap.set(Number(pId), Math.max(0, Number(bal) || 0));
-                  }
-                }
-              } catch (stockChunkErr: any) {
-                console.warn(`[Bling Stock] Chunk fetch notice:`, stockChunkErr?.message || stockChunkErr);
-              }
-            })
-          );
-          if (i + 2 < stockChunks.length) {
-            await new Promise(resolve => setTimeout(resolve, 260));
-          }
-        }
-
-        // When explicitly requested, ensure high-res internal Bling images sync without racing catalog build
-        if (options?.forceImageSync && Date.now() - getLastBlingImageSyncTime() > 3 * 60 * 1000) {
-          syncImagesFromBling({ onBatchSaved: () => reapplyImagesToCachedCatalog() })
-            .then(() => reapplyImagesToCachedCatalog())
-            .catch(() => {});
-        }
-
-        // Index by Bling ID so parent products (formato === 'V') & their child variations (idProdutoPai) always stay unified
-        const byBlingId = new Map<number, any>();
-        blingRaw.forEach((bp: any) => {
-          if (bp.id) byBlingId.set(bp.id, bp);
-        });
-        const referencedParentIds = new Set<number>();
-        blingRaw.forEach((bp: any) => {
-          if (bp.idProdutoPai) referencedParentIds.add(bp.idProdutoPai);
-        });
-
+        // Group variations by idProdutoPai or base product title
         const productGroups: Record<string, {
           id: number;
           baseName: string;
@@ -326,39 +434,25 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
         }> = {};
 
         blingRaw.forEach((bp: any) => {
-          const parentId = bp.idProdutoPai
-            ? Number(bp.idProdutoPai)
-            : (bp.formato === 'V' || referencedParentIds.has(bp.id) ? Number(bp.id) : null);
-          const parentItem = parentId ? byBlingId.get(parentId) : null;
-          const sourceForTitle = parentItem || bp;
-          const rawName = (sourceForTitle.nome || bp.nome || '').trim();
-          const baseName = rawName.split(':')[0].trim();
-          const groupKey = parentId ? `parent:${parentId}` : `name:${baseName.toUpperCase()}`;
+          const rawName = (bp.nome || '').trim();
+          const parts = rawName.split(':');
+          const baseName = parts[0].trim();
+          const groupKey = String(bp.idProdutoPai || baseName.toUpperCase());
 
           if (!productGroups[groupKey]) {
             const { category, subcategory } = mapCategoryAndSubcategory(baseName);
             productGroups[groupKey] = {
-              id: parentId || bp.id,
+              id: bp.id,
               baseName,
               items: [],
-              price: parseFloat(sourceForTitle.preco || bp.preco || '99.90'),
+              price: parseFloat(bp.preco || '99.90'),
               category,
               subcategory,
             };
           }
 
-          if (parentId && bp.id === parentId) {
-            productGroups[groupKey].items.unshift(bp);
-            if (bp.preco && parseFloat(bp.preco) > 0) {
-              productGroups[groupKey].price = parseFloat(bp.preco);
-            }
-          } else {
-            productGroups[groupKey].items.push(bp);
-          }
+          productGroups[groupKey].items.push(bp);
         });
-
-        // Sort newest Bling product IDs first so recently registered products show up right at the top
-        const sortedGroups = Object.values(productGroups).sort((a, b) => Number(b.id) - Number(a.id));
 
         const existingSkus = new Set(products.map(p => p.integration?.sku));
         const existingNames = new Set(products.map(p => p.name.toLowerCase().trim()));
@@ -393,72 +487,21 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
         };
 
         let addedFromBlingCount = 0;
-        const imageStore = loadImageStore();
-        let imageStoreDirty = false;
-        const groupsNeedingDetailFetch: Array<{ id: number; sku: string; baseName: string; productRef: any }> = [];
 
-        for (const [gIdx, group] of sortedGroups.entries()) {
+        Object.values(productGroups).forEach((group, gIdx) => {
           const firstItem = group.items[0];
           const groupSku = firstItem?.codigo || `BLING-${group.id}`;
           const normalizedBaseName = group.baseName.toLowerCase().trim();
 
-          // Extract ALL images across parent & variation items (preferring full-res over /produtos list /t/ thumbnails)
-          const blingImagesSet = new Set<string>();
-          for (const it of group.items) {
-            const itemImgs = extractImagesFromBlingItem(it);
-            for (const url of itemImgs) {
-              blingImagesSet.add(url);
-            }
-            const fullResItemImgs = itemImgs.filter(u => !isThumbnailLikeUrl(u));
-            if (fullResItemImgs.length > 0) {
-              if (
-                applyImageRecordToStore(
-                  imageStore,
-                  {
-                    sku: it.codigo,
-                    id: it.id,
-                    parentId: it.idProdutoPai || group.id,
-                    name: group.baseName
-                  },
-                  fullResItemImgs
-                )
-              ) {
-                imageStoreDirty = true;
-              }
-            }
-          }
-          const blingExtractedImages = Array.from(blingImagesSet);
-          const fullResBlingExtracted = blingExtractedImages.filter(u => !isThumbnailLikeUrl(u));
-
-          if (fullResBlingExtracted.length > 0) {
-            if (
-              applyImageRecordToStore(
-                imageStore,
-                {
-                  sku: groupSku,
-                  id: group.id,
-                  name: group.baseName
-                },
-                fullResBlingExtracted
-              )
-            ) {
-              imageStoreDirty = true;
-            }
-          }
-
-          // If product already in catalog, sync stock, price, and any newly extracted Bling images
+          // If product already in catalog from Nuvemshop, sync stock and price
           if (existingNames.has(normalizedBaseName)) {
             const match = products.find(p => p.name.toLowerCase().trim() === normalizedBaseName);
             if (match) {
               const totalBlingStock = group.items.reduce((acc, it) => acc + (it.estoque?.saldoVirtualTotal || it.estoque?.saldoFisico || 0), 0);
               if (totalBlingStock > 0) match.stockCount = totalBlingStock;
               if (group.price > 0) match.price = group.price;
-              if (blingExtractedImages.length > 0) {
-                const existingReal = (match.images || []).filter((u: string) => !isPlaceholderImageUrl(u));
-                match.images = Array.from(new Set([...blingExtractedImages, ...existingReal]));
-              }
             }
-            continue;
+            return;
           }
 
           // Build sizes array from item variants
@@ -508,65 +551,16 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
             finalColors = [{ name: 'Cor Única', hex: '#1C1C1C' }];
           }
 
-          const resolveItemStock = (it: any): number => {
-            if (realStockMap.has(Number(it.id))) {
-              return realStockMap.get(Number(it.id))!;
-            }
-            const summaryStock = it.estoque?.saldoVirtualTotal ?? it.estoque?.saldoFisicoTotal ?? it.estoque?.saldoFisico;
-            if (summaryStock !== undefined && summaryStock !== null) {
-              return Math.max(0, Number(summaryStock) || 0);
-            }
-            return stockApiQueried ? 0 : 0;
-          };
+          // Total stock across variants
+          const totalStock = group.items.reduce((acc, it) => {
+            const s = it.estoque?.saldoVirtualTotal ?? it.estoque?.saldoFisicoTotal ?? it.estoque?.saldoFisico ?? 5;
+            return acc + (s > 0 ? s : 0);
+          }, 0);
 
-          const variantsList = group.items.map(it => {
-            const szParts = (it.nome || '').split(':');
-            const vSize = szParts.length > 1 ? szParts[1].trim() : (finalSizes[0] || 'Tamanho Único');
-            const vStock = resolveItemStock(it);
-            return {
-              id: it.id,
-              sku: it.codigo || `${groupSku}-${vSize}`,
-              price: parseFloat(it.preco || String(group.price || '119.90')),
-              stock: vStock,
-              size: vSize
-            };
-          });
-
-          // Total stock across parent/variants
-          const totalStock = variantsList.reduce((acc, v) => acc + Math.max(0, v.stock), 0);
-
-          // Automatically hide out-of-stock products from the storefront
-          if (totalStock <= 0) {
-            zeroStockFromBlingKeys.add(normalizedBaseName);
-            if (groupSku) zeroStockFromBlingKeys.add(String(groupSku).toUpperCase().trim());
-            for (const it of group.items) {
-              if (it.codigo) zeroStockFromBlingKeys.add(String(it.codigo).toUpperCase().trim());
-            }
-            continue;
-          }
-
-          // Keep only in-stock sizes if product has size variations
-          const inStockSizes = sizesList.length > 0
-            ? finalSizes.filter(sz => variantsList.some(v => v.size === sz && v.stock > 0))
-            : finalSizes;
-          const activeSizes = inStockSizes.length > 0 ? inStockSizes : finalSizes;
-
-          // Select images: 1. Full-res live/cached midia.imagens.internas[0].link -> 2. List fallback -> 3. Presets
-          const cachedBlingImages = getBlingImagesForProduct({
-            name: group.baseName,
-            integration: { sku: groupSku, blingId: String(group.id) },
-            variantsList
-          }) || [];
-          const cachedFullRes = cachedBlingImages.filter(u => !isThumbnailLikeUrl(u));
-          const combinedFullRes = Array.from(new Set([...fullResBlingExtracted, ...cachedFullRes]));
-
+          // Select images
           let images: string[] = [];
-          if (combinedFullRes.length > 0) {
-            images = combinedFullRes;
-          } else if (cachedBlingImages.length > 0) {
-            images = cachedBlingImages;
-          } else if (blingExtractedImages.length > 0) {
-            images = blingExtractedImages;
+          if (firstItem?.imagemURL) {
+            images.push(firstItem.imagemURL);
           } else if (normalizedBaseName.includes('chinelo') || normalizedBaseName.includes('havaianas')) {
             images = imagePresets.chinelos;
           } else if (group.category === 'calcados') {
@@ -585,21 +579,21 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
           const rawBlingDesc = firstItem?.descricaoCurta || firstItem?.descricaoComplementar || '';
           const cleanedBlingDesc = cleanDescription(rawBlingDesc) || `${group.baseName} - Produto autêntico da Street Store. Acabamento reforçado, resistência e caimento streetwear impecável para compor seu kit no dia a dia.`;
 
-          const productObj = {
+          products.push({
             id: `bling-${group.id}`,
             name: group.baseName,
             category: group.category,
             subcategory: group.subcategory,
             price: priceVal,
             originalPrice: Math.round(priceVal * 1.3),
-            tag: totalStock <= 3 ? 'POUCAS UNIDADES' : (gIdx < 12 ? 'NOVO DROP' : null),
+            tag: totalStock > 0 && totalStock <= 3 ? 'POUCAS UNIDADES' : (gIdx < 4 ? 'NOVO DROP' : null),
             rating: 4.8 + ((group.id % 3) / 10),
             reviewsCount: 15 + (group.id % 40),
             images,
-            sizes: activeSizes,
+            sizes: finalSizes,
             colors: finalColors,
             description: cleanedBlingDesc,
-            stockCount: totalStock,
+            stockCount: totalStock > 0 ? totalStock : 8,
             details: {
               composition: group.category === 'calcados' ? 'Solado em borracha vulcanizada de alta durabilidade' : (group.category === 'acessorios' ? 'Material premium de alta durabilidade' : '100% Algodão Premium Heavyweight'),
               weight: group.category === 'calcados' ? '900g o par' : (group.category === 'acessorios' ? '120g' : '380g/m² Heavyweight'),
@@ -609,6 +603,7 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
             integration: {
               sku: groupSku,
               barcode: firstItem?.codigo || `789${group.id}`,
+              nuvemshopId: String(group.id),
               blingId: String(group.id),
               weightGrams: Math.round(parseFloat(firstItem?.pesoBruto || firstItem?.pesoLiquido || '0.450') * 1000),
               dimensionsCm: {
@@ -618,78 +613,28 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
               },
             },
             canonicalUrl: 'https://www.streetstore.com.br',
-            variantsList
-          };
+            variantsList: group.items.map(it => {
+              const szParts = (it.nome || '').split(':');
+              const vSize = szParts.length > 1 ? szParts[1].trim() : (finalSizes[0] || 'Tamanho Único');
+              return {
+                id: it.id,
+                sku: it.codigo || `${groupSku}-${vSize}`,
+                price: parseFloat(it.preco || String(priceVal)),
+                stock: it.estoque?.saldoVirtualTotal ?? it.estoque?.saldoFisico ?? 5,
+                size: vSize
+              };
+            })
+          });
 
-          const hasLowResOnly = images.length > 0 && images.every(u =>
-            isPlaceholderImageUrl(u) || isThumbnailLikeUrl(u)
-          );
-          if ((blingExtractedImages.length === 0 && images.every(u => isPlaceholderImageUrl(u))) || hasLowResOnly) {
-            groupsNeedingDetailFetch.push({
-              id: group.id,
-              sku: groupSku,
-              baseName: group.baseName,
-              productRef: productObj
-            });
-          }
-
-          products.push(productObj);
           existingSkus.add(groupSku);
           existingNames.add(normalizedBaseName);
           addedFromBlingCount++;
-        }
+        });
 
-        // If background image sync isn't already running, fetch up to 10 missing high-res items inline & queue full background sync
-        if (groupsNeedingDetailFetch.length > 0) {
-          if (!isImageSyncRunning()) {
-            const inlineBatch = groupsNeedingDetailFetch.slice(0, 10);
-            console.log(`[Bling Sync] ${groupsNeedingDetailFetch.length} products lacked full-res images in /produtos summary. Fetching detail media for ${inlineBatch.length}...`);
-            for (const target of inlineBatch) {
-              try {
-                const detail = await fetchFromBling(`/produtos/${target.id}`);
-                const fullData = detail?.data || detail;
-                const detailImgs = extractImagesFromBlingItem(fullData);
-                if (detailImgs.length > 0) {
-                  target.productRef.images = detailImgs;
-                  if (
-                    applyImageRecordToStore(
-                      imageStore,
-                      { sku: target.sku, id: target.id, name: target.baseName },
-                      detailImgs
-                    )
-                  ) {
-                    imageStoreDirty = true;
-                  }
-                }
-                await new Promise(resolve => setTimeout(resolve, 350));
-              } catch {
-                // continue gracefully
-              }
-            }
-
-            if (groupsNeedingDetailFetch.length > inlineBatch.length) {
-              syncImagesFromBling({ onBatchSaved: () => invalidateCatalogCache() })
-                .then(() => invalidateCatalogCache())
-                .catch(() => {});
-            }
-          } else {
-            console.log(`[Bling Sync] Background high-res image sync already active (${groupsNeedingDetailFetch.length} products awaiting detail media).`);
-          }
-        }
-
-        if (imageStoreDirty) {
-          saveImageStore(imageStore);
-        }
-
-        blingCount = addedFromBlingCount;
         console.log(`[Bling Sync] Successfully merged ${addedFromBlingCount} unique product models from Bling ERP into storefront catalog.`);
       }
-    } catch (blingErr: any) {
-      blingError = blingErr?.message || String(blingErr);
-      blingConnected = Boolean(loadBlingTokens()?.access_token);
-      console.warn('[Catalog] Notice during Bling merge:', blingError);
-    } finally {
-      setCatalogFetchInProgress(false);
+    } catch (blingErr) {
+      console.warn('[Catalog] Notice during Bling merge:', blingErr);
     }
 
     // Helper to extract base product name (strips variation labels, sizes, colors)
@@ -746,20 +691,13 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
           });
         }
 
-        // Merge images (prioritize high-res original Bling photos, strip resize params/placeholders/legacy URLs)
+        // Merge images (up to 6)
         if (Array.isArray(item.images)) {
-          const allCombined = [...canonical.images.map((u: string) => stripResizeAndCompressionParams(u))];
-          item.images.forEach((rawImg: string) => {
-            const img = stripResizeAndCompressionParams(rawImg);
-            if (img && !allCombined.includes(img)) {
-              allCombined.push(img);
+          item.images.forEach((img: string) => {
+            if (!canonical.images.includes(img) && canonical.images.length < 6) {
+              canonical.images.push(img);
             }
           });
-          const realOnly = allCombined.filter((img: string) => !isPlaceholderImageUrl(img));
-          const nativeBlingOnly = realOnly.filter((img: string) => !isLegacyExternalUrl(img));
-          const pool = nativeBlingOnly.length > 0 ? nativeBlingOnly : (realOnly.length > 0 ? realOnly : allCombined);
-          const nonThumb = pool.filter((img: string) => !isThumbnailLikeUrl(img));
-          canonical.images = (nonThumb.length > 0 ? nonThumb : pool).slice(0, 8);
         }
 
         // Merge variantsList
@@ -774,103 +712,37 @@ async function buildAndCacheCatalog(options?: { forceImageSync?: boolean }) {
       }
     }
 
-    // 1. Ingest live Bling ERP products
+    // 1. Ingest Nuvemshop and live Bling products
     products.forEach((p) => ingestOrAggregate(p));
 
-    // 2. Fall back to baseline catalog ONLY when Bling ERP is disconnected or returned zero active items
-    if (!blingConnected || blingRawCount === 0) {
-      BLING_STOCK_PRODUCTS.forEach((bp) => {
-        if ((bp.stockCount ?? 0) <= 0) return;
-        const baseNameKey = extractBaseProductName(bp.name).toLowerCase().replace(/\s+/g, ' ');
-        const skuKey = String(bp.integration?.sku || '').toUpperCase().trim();
-        if (zeroStockFromBlingKeys.has(baseNameKey) || (skuKey && zeroStockFromBlingKeys.has(skuKey))) {
-          return;
-        }
-        ingestOrAggregate(bp);
-      });
-    }
+    // 2. Ingest curated / baseline Bling products
+    BLING_STOCK_PRODUCTS.forEach((bp) => ingestOrAggregate(bp));
 
     const allConsolidatedProducts = Array.from(consolidatedMap.values());
-    const inStockProducts = allConsolidatedProducts.filter((p) => (p.stockCount ?? 0) > 0);
-    const visibleProducts = filterVisibleProducts(inStockProducts);
+    const visibleProducts = filterVisibleProducts(allConsolidatedProducts);
     const finalProducts = applyBlingImageOverrides(visibleProducts);
 
-    console.log(`[Catalog Engine] Processed inventory: ${finalProducts.length} in-stock visible models (${allConsolidatedProducts.length - inStockProducts.length} out-of-stock auto-hidden, ${inStockProducts.length - visibleProducts.length} hidden per store rules).`);
+    console.log(`[Catalog Engine] Processed inventory: ${finalProducts.length} unique visible models (${allConsolidatedProducts.length - finalProducts.length} items hidden per store rules).`);
 
-    const hiddenCount = allConsolidatedProducts.length - finalProducts.length;
-    const totalRegisteredItems = BLING_CATALOG_META?.totalRegisteredRawSKUs || 1003;
-    const uniqueModels = finalProducts.length;
-    const totalUnitsInStock = finalProducts.reduce((sum, p) => sum + (p.stockCount || 0), 0);
-    const nowTs = Date.now();
-
-    // Save to cache atomically for instant storefront responses & automatic background sync
+    // Save to cache for instant response & auto-sync
     catalogCache = {
       products: finalProducts,
       count: finalProducts.length,
-      blingConnected,
-      blingCount,
-      blingRawCount,
-      blingError,
-      hiddenCount,
-      totalRegisteredItems,
-      uniqueModels,
-      totalUnitsInStock,
-      timestamp: nowTs
+      timestamp: Date.now()
     };
 
-    return {
+    res.json({
       success: true,
       count: finalProducts.length,
       products: finalProducts,
-      blingConnected,
-      blingCount,
-      blingRawCount,
-      blingError,
-      hiddenCount,
-      totalRegisteredItems,
-      blingRegisteredSKUs: totalRegisteredItems,
-      uniqueModels,
-      totalUnitsInStock,
-      syncedAt: new Date(nowTs).toISOString()
-    };
-  })().finally(() => {
-    activeCatalogBuildPromise = null;
-  });
-
-  return activeCatalogBuildPromise;
-}
-
-// Unified Storefront Catalog API (Bling ERP v3 up to 1350 items + Automatic Stock & High-Res Images)
-app.get('/api/catalog/products', async (req: Request, res: Response) => {
-  try {
-    const forceRefresh = req.query.refresh === 'true' || req.query._t !== undefined;
-    const isCacheFresh = catalogCache && (Date.now() - catalogCache.timestamp < CATALOG_CACHE_TTL_MS);
-
-    if (!forceRefresh && catalogCache) {
-      if (!isCacheFresh) {
-        // Stale-while-revalidate: serve immediately and pull latest 1350 Bling items silently in background
-        buildAndCacheCatalog({ forceImageSync: false }).catch(() => {});
-      }
-      return res.json({
-        success: true,
-        count: catalogCache.count,
-        products: catalogCache.products,
-        blingConnected: catalogCache.blingConnected,
-        blingCount: catalogCache.blingCount,
-        blingRawCount: catalogCache.blingRawCount,
-        blingError: catalogCache.blingError,
-        hiddenCount: catalogCache.hiddenCount ?? 0,
-        totalRegisteredItems: catalogCache.totalRegisteredItems ?? 1003,
-        blingRegisteredSKUs: catalogCache.totalRegisteredItems ?? 1003,
-        uniqueModels: catalogCache.uniqueModels ?? catalogCache.count,
-        totalUnitsInStock: catalogCache.totalUnitsInStock ?? 0,
-        cached: true,
-        syncedAt: new Date(catalogCache.timestamp).toISOString()
-      });
-    }
-
-    const payload = await buildAndCacheCatalog({ forceImageSync: req.query.refresh === 'true' });
-    return res.json(payload);
+      hiddenCount: allConsolidatedProducts.length - finalProducts.length,
+      totalRegisteredItems: (BLING_CATALOG_META?.totalRegisteredRawSKUs || 1003) + rawProducts.length,
+      blingRegisteredSKUs: BLING_CATALOG_META?.totalRegisteredRawSKUs || 1003,
+      nuvemshopRegisteredProducts: rawProducts.length,
+      uniqueModels: finalProducts.length,
+      totalUnitsInStock: finalProducts.reduce((sum, p) => sum + (p.stockCount || 0), 0),
+      syncedAt: new Date().toISOString()
+    });
   } catch (error: any) {
     console.error('Error fetching products:', error);
     res.status(500).json({
@@ -878,6 +750,13 @@ app.get('/api/catalog/products', async (req: Request, res: Response) => {
       error: error.message || 'Erro ao consultar produtos'
     });
   }
+});
+
+// Real-time Webhook for Nuvemshop (products/updated, products/created, products/deleted)
+app.post(['/api/webhooks/nuvemshop', '/api/nuvemshop/webhook'], (req: Request, res: Response) => {
+  console.log('[Webhook] Nuvemshop product/stock update event received:', req.body?.event || req.headers['x-event']);
+  invalidateCatalogCache();
+  res.status(200).json({ received: true, message: 'Nuvemshop webhook processed. Catalog invalidated for fresh sync.' });
 });
 
 // Real-time Webhook for Bling ERP (estoque, produtos, imagens)
@@ -923,28 +802,16 @@ app.post(['/api/webhooks/bling', '/api/bling/webhook'], async (req: Request, res
 });
 
 // Direct Catalog Revalidation / Sync Trigger
-app.all('/api/catalog/refresh', (req: Request, res: Response) => {
-  if (req.query.clearImages === 'true') {
-    clearImageCache(true);
-  }
+app.all('/api/catalog/refresh', (_req: Request, res: Response) => {
   invalidateCatalogCache();
-  res.json({ success: true, message: 'Cache do catálogo limpo e sincronizado com sucesso!' });
+  res.json({ success: true, message: 'Catálogo sincronizado com sucesso!' });
 });
 
-// Clear cached images & catalog cache so full high-resolution Bling images are reloaded
-app.all(['/api/bling/clear-cache', '/api/bling/clear-image-cache'], (_req: Request, res: Response) => {
-  clearImageCache(true);
-  invalidateCatalogCache();
-  res.json({ success: true, message: 'Cache de imagens e do catálogo limpos com sucesso!' });
-});
-
-// Full Bling ERP Image Synchronizer (Interceptado por blingAuthInterceptorMiddleware)
-app.all(['/api/bling/sync-images', '/api/bling/sync-media'], blingAuthInterceptorMiddleware, async (req: Request, res: Response) => {
+// Full Bling ERP & Nuvemshop Image Synchronizer
+app.all(['/api/bling/sync-images', '/api/bling/sync-media'], async (_req: Request, res: Response) => {
   try {
-    const clearCache = req.query.clearCache === 'true' || req.body?.clearCache === true;
-    const result = await syncImagesFromBling({
-      clearCache,
-      onBatchSaved: () => invalidateCatalogCache()
+    const result = await syncImagesFromBlingAndNuvemshop({
+      fetchFromNuvemshopFn: fetchFromNuvemshop
     });
     invalidateCatalogCache();
     res.json(result);
@@ -1013,9 +880,7 @@ app.post('/api/products/upload-image', (req: Request, res: Response) => {
       .replace(/[^a-zA-Z0-9_-]/g, '_')
       .slice(0, 40);
     const finalFilename = `${cleanBase}_${Date.now()}.${ext}`;
-    const uploadsDir = process.env.VERCEL
-      ? path.resolve('/tmp', 'uploads')
-      : path.resolve(process.cwd(), 'public/assets/uploads');
+    const uploadsDir = path.resolve(process.cwd(), 'public/assets/uploads');
     if (!fs.existsSync(uploadsDir)) {
       fs.mkdirSync(uploadsDir, { recursive: true });
     }
@@ -1054,6 +919,34 @@ app.get('/api/bling/catalog-meta', (_req: Request, res: Response) => {
   });
 });
 
+app.get('/api/nuvemshop/categories', async (_req: Request, res: Response) => {
+  try {
+    const categories = await fetchFromNuvemshop('/categories');
+    res.json({ success: true, categories });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.post('/api/nuvemshop/checkout-link', (req: Request, res: Response) => {
+  try {
+    const { items } = req.body;
+    // Build redirect link to Street Store cart
+    const baseUrl = 'https://www.streetstore.com.br';
+    
+    // If specific variant is provided, direct add
+    if (items && items.length === 1 && items[0].variantId) {
+      const url = `${baseUrl}/cart/add?variant_id=${items[0].variantId}&quantity=${items[0].quantity || 1}`;
+      return res.json({ success: true, url });
+    }
+
+    // Default to main store cart
+    return res.json({ success: true, url: `${baseUrl}/checkout` });
+  } catch (error: any) {
+    return res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 // Newsletter Subscription
 const newsletterSubscribers = new Set<string>();
 
@@ -1085,15 +978,216 @@ app.post('/api/newsletter', (req: Request, res: Response) => {
   }
 });
 
-// Track Order with Store Database + Bling ERP & Melhor Envio
-app.get('/api/orders/track', async (req: Request, res: Response) => {
+// Helper: Create official order in Nuvemshop to trigger real customer confirmation email & Melhor Envio fulfillment
+async function createNuvemshopOrder(params: {
+  customer: {
+    name?: string;
+    email: string;
+    phone?: string;
+    cpf?: string;
+  };
+  items: Array<{
+    id?: string;
+    variantId?: number;
+    name: string;
+    price: number;
+    quantity: number;
+    selectedSize?: string;
+  }>;
+  shippingAddress?: {
+    street?: string;
+    number?: string;
+    neighborhood?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+    name?: string;
+    phone?: string;
+  };
+  paymentMethod: string;
+  paymentId: string | number;
+  total: number;
+}): Promise<{ success: boolean; id?: number; number?: string; error?: string }> {
+  try {
+    console.log('[Nuvemshop] Creating real order for customer:', params.customer.email);
+
+    let defaultVariantId = 1367749096; // fallback variant ID from store
+    try {
+      const pData = await fetchFromNuvemshop('/products?per_page=5');
+      if (Array.isArray(pData) && pData[0]?.variants?.[0]?.id) {
+        defaultVariantId = pData[0].variants[0].id;
+      }
+    } catch {
+      // fallback preserved
+    }
+
+    const orderProducts = (params.items && params.items.length > 0)
+      ? params.items.map((it) => {
+          let vId = it.variantId;
+          if (!vId && it.id?.startsWith('nuvem-')) {
+            const rawId = it.id.replace('nuvem-', '');
+            const parsed = parseInt(rawId, 10);
+            if (!isNaN(parsed)) vId = parsed;
+          }
+          return {
+            variant_id: vId || defaultVariantId,
+            quantity: it.quantity || 1,
+            price: Number(it.price || 99.90).toFixed(2),
+          };
+        })
+      : [
+          {
+            variant_id: defaultVariantId,
+            quantity: 1,
+            price: Number(params.total || 99.90).toFixed(2)
+          }
+        ];
+
+    const fullName = params.customer.name?.trim() || 'Cliente Street Store';
+    const nameParts = fullName.split(' ');
+    const firstName = nameParts[0] || 'Cliente';
+    const lastName = nameParts.slice(1).join(' ') || 'Street';
+
+    const orderPayload = {
+      customer: {
+        name: fullName,
+        email: params.customer.email,
+        phone: params.customer.phone || '31984806556',
+        identification: params.customer.cpf ? String(params.customer.cpf).replace(/\D/g, '') : undefined
+      },
+      products: orderProducts,
+      shipping_address: {
+        first_name: firstName,
+        last_name: lastName,
+        address: params.shippingAddress?.street || 'Rua Principal',
+        number: params.shippingAddress?.number || '100',
+        floor: '',
+        locality: params.shippingAddress?.neighborhood || 'Centro',
+        city: params.shippingAddress?.city || 'Belo Horizonte',
+        province: params.shippingAddress?.state || 'Minas Gerais',
+        zipcode: (params.shippingAddress?.zip || '30000000').replace(/\D/g, ''),
+        country: 'BR',
+        phone: params.customer.phone || '31984806556'
+      },
+      billing_address: {
+        first_name: firstName,
+        last_name: lastName,
+        address: params.shippingAddress?.street || 'Rua Principal',
+        number: params.shippingAddress?.number || '100',
+        floor: '',
+        locality: params.shippingAddress?.neighborhood || 'Centro',
+        city: params.shippingAddress?.city || 'Belo Horizonte',
+        province: params.shippingAddress?.state || 'Minas Gerais',
+        zipcode: (params.shippingAddress?.zip || '30000000').replace(/\D/g, ''),
+        country: 'BR',
+        phone: params.customer.phone || '31984806556'
+      },
+      payment_status: 'paid',
+      gateway: 'mercadopago',
+      gateway_name: 'Mercado Pago Transparente',
+      send_fulfillment_email: true,
+      send_confirmation_email: true,
+      note: `[PEDIDO PAGO] Mercado Pago Transparente (${params.paymentMethod}). Transação ID: ${params.paymentId}. Total: R$ ${params.total.toFixed(2)}.`
+    };
+
+    const res = await fetch(`${NUVEMSHOP_API_BASE}/${NUVEMSHOP_USER_ID}/orders`, {
+      method: 'POST',
+      headers: {
+        'Authentication': `bearer ${NUVEMSHOP_ACCESS_TOKEN}`,
+        'User-Agent': NUVEMSHOP_USER_AGENT,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(orderPayload)
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      console.warn('[Nuvemshop] Order create notice:', data);
+      return { success: false, error: data.message || 'Erro ao sincronizar com Nuvemshop' };
+    }
+
+    console.log(`[Nuvemshop] Order #${data.number} (ID: ${data.id}) created successfully! Email notification dispatched.`);
+    return {
+      success: true,
+      id: data.id,
+      number: `#${data.number}`
+    };
+  } catch (error: any) {
+    console.error('[Nuvemshop] Error creating order:', error);
+    return { success: false, error: error.message };
+  }
+}
+
+// 2. Track Order with Melhor Envio live integration
+app.get('/api/nuvemshop/orders/track', async (req: Request, res: Response) => {
   try {
     const q = (req.query.q as string || '').trim();
     if (!q) {
       return res.status(400).json({ success: false, error: 'Informe o número do pedido ou seu e-mail para rastreamento.' });
     }
 
-    const orders = await trackStoreOrders(q);
+    const cleanQ = q.replace(/^#/, '');
+    const endpoint = `/orders?q=${encodeURIComponent(cleanQ)}`;
+    
+    let rawOrders: any[] = [];
+    try {
+      const data = await fetchFromNuvemshop(endpoint);
+      if (Array.isArray(data)) {
+        rawOrders = data;
+      }
+    } catch (e) {
+      console.warn('Query /orders?q failed:', e);
+    }
+
+    // If query is numeric and returned no results, try single order lookup
+    if (rawOrders.length === 0 && /^\d+$/.test(cleanQ)) {
+      try {
+        const single = await fetchFromNuvemshop(`/orders/${cleanQ}`);
+        if (single && single.id) {
+          rawOrders = [single];
+        }
+      } catch {
+        // ignore
+      }
+    }
+
+    // Format for frontend
+    const orders = rawOrders.map((o: any) => ({
+      orderNumber: `#${o.number}`,
+      orderId: o.id,
+      status: o.status,
+      paymentStatus: o.payment_status || 'paid',
+      shippingStatus: o.shipping_status || 'unshipped',
+      shippingCarrier: o.shipping_carrier_name || 'Melhor Envio',
+      trackingNumber: o.shipping_tracking_number || null,
+      trackingUrl: o.shipping_tracking_url || (o.shipping_tracking_number ? `https://melhorenvio.com.br/rastreio/${o.shipping_tracking_number}` : null),
+      customer: {
+        name: o.customer?.name || o.contact_name || 'Cliente Street Store',
+        email: o.customer?.email || o.contact_email || '',
+        phone: o.customer?.phone || o.contact_phone || ''
+      },
+      shippingAddress: o.shipping_address ? {
+        address: o.shipping_address.address || '',
+        number: o.shipping_address.number || '',
+        locality: o.shipping_address.locality || '',
+        city: o.shipping_address.city || '',
+        province: o.shipping_address.province || '',
+        zipcode: o.shipping_address.zipcode || '',
+        country: o.shipping_address.country || 'BR'
+      } : undefined,
+      products: (o.products || []).map((p: any) => ({
+        name: p.name,
+        price: parseFloat(p.price || '0'),
+        quantity: p.quantity,
+        variant: p.variant_values?.[0] || '',
+        image: p.image?.src || ''
+      })),
+      total: parseFloat(o.total || '0'),
+      createdAt: o.created_at,
+      paidAt: o.paid_at,
+      shippedAt: o.shipped_at
+    }));
+
     return res.json({
       success: true,
       orders
@@ -1108,34 +1202,55 @@ app.get('/api/orders/track', async (req: Request, res: Response) => {
   }
 });
 
-// Request Return / Exchange (Melhor Envio Reverse Logistics Integration)
-app.post('/api/orders/:id/return', (req: Request, res: Response) => {
+// 3. Request Return / Exchange (Melhor Envio Reverse Logistics Integration)
+app.post('/api/nuvemshop/orders/:id/return', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const {
-      orderNumber,
-      customerEmail,
-      customerName,
-      customerPhone,
-      reason,
-      actionRequested,
-      selectedItems,
-      details
+    const { 
+      orderNumber, 
+      customerEmail, 
+      customerName, 
+      customerPhone, 
+      reason, 
+      actionRequested, 
+      selectedItems, 
+      details 
     } = req.body;
 
-    const result = requestStoreOrderReturn({
-      orderId: id,
-      orderNumber: orderNumber || `#${id}`,
-      customerEmail: customerEmail || '',
-      customerName,
-      customerPhone,
-      reason,
-      actionRequested,
-      selectedItems: Array.isArray(selectedItems) ? selectedItems : [],
-      details: details || ''
-    });
+    const protocol = `DEV-${String(orderNumber || id).replace(/\D/g, '').slice(-4) || 'ST'}-${Math.floor(1000 + Math.random() * 9000)}`;
 
-    return res.json(result);
+    const returnNote = `[SOLICITAÇÃO DE DEVOLUÇÃO / LOGÍSTICA REVERSA MELHOR ENVIO]
+Protocolo: ${protocol}
+Data: ${new Date().toLocaleString('pt-BR')}
+Cliente: ${customerName || 'Cliente'} (${customerEmail}) - Tel: ${customerPhone || 'N/A'}
+Motivo: ${reason}
+Ação solicitada: ${actionRequested}
+Peças: ${Array.isArray(selectedItems) ? selectedItems.join(', ') : 'Itens do Pedido'}
+Observações: ${details || 'Nenhuma observação informada.'}`;
+
+    // Update Nuvemshop order with owner_note
+    try {
+      await fetch(`${NUVEMSHOP_API_BASE}/${NUVEMSHOP_USER_ID}/orders/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Authentication': `bearer ${NUVEMSHOP_ACCESS_TOKEN}`,
+          'User-Agent': NUVEMSHOP_USER_AGENT,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          owner_note: returnNote
+        })
+      });
+      console.log(`[Nuvemshop] Return note attached to order ${id} with protocol ${protocol}`);
+    } catch (apiErr) {
+      console.warn('Could not update order owner_note in Nuvemshop:', apiErr);
+    }
+
+    return res.json({
+      success: true,
+      protocol,
+      message: 'Solicitação de devolução registrada com sucesso na Nuvemshop e vinculada ao Melhor Envio.'
+    });
   } catch (error: any) {
     return res.status(500).json({
       success: false,
@@ -1300,10 +1415,8 @@ interface LocalPayment {
   payer?: any;
   items?: any[];
   shippingAddress?: any;
-  shippingServiceId?: number;
-  shippingCarrier?: string;
-  orderId?: number;
-  orderNumber?: string;
+  nuvemOrderId?: number;
+  nuvemOrderNumber?: string;
 }
 
 const localPaymentsMap = new Map<string, LocalPayment>();
@@ -1361,7 +1474,7 @@ function generatePixBRCode(params: {
 // 3. Create Direct Pix Payment via Mercado Pago v1/payments with zero external redirects
 app.post('/api/mercadopago/create-pix', async (req: Request, res: Response) => {
   try {
-    const { amount, description, payer, items, shippingAddress, shippingServiceId, shippingCarrier } = req.body;
+    const { amount, description, payer, items, shippingAddress } = req.body;
 
     const numericAmount = parseFloat(Number(amount).toFixed(2));
     if (!numericAmount || numericAmount <= 0) {
@@ -1465,9 +1578,7 @@ app.post('/api/mercadopago/create-pix', async (req: Request, res: Response) => {
       createdAt: Date.now(),
       payer,
       items,
-      shippingAddress,
-      shippingServiceId,
-      shippingCarrier
+      shippingAddress
     });
 
     return res.json({
@@ -1509,14 +1620,15 @@ app.post('/api/mercadopago/confirm-pix/:id', async (req: Request, res: Response)
         });
       }
 
+      // If already approved previously
       if (payment.status === 'approved') {
         return res.json({
           success: true,
           approved: true,
           status: 'approved',
           statusDetail: 'accredited',
-          orderNumber: payment.orderNumber,
-          orderId: payment.orderId,
+          nuvemOrderNumber: payment.nuvemOrderNumber,
+          nuvemOrderId: payment.nuvemOrderId,
           message: 'Pagamento Pix aprovado com sucesso!'
         });
       }
@@ -1560,23 +1672,20 @@ app.post('/api/mercadopago/confirm-pix/:id', async (req: Request, res: Response)
         payment.statusDetail = 'accredited';
         payment.dateApproved = matchedMpPayment.date_approved || new Date().toISOString();
 
-        // Create official store order & sync with Bling ERP if not created yet
-        if (!payment.orderId) {
-          const orderRes = await createStoreOrder({
+        // Create official Nuvemshop order if not created yet
+        if (!payment.nuvemOrderId) {
+          const nuvemRes = await createNuvemshopOrder({
             customer: payment.payer || { email: 'streetstore364@gmail.com' },
             items: payment.items || [],
             shippingAddress: payment.shippingAddress,
-            shippingServiceId: payment.shippingServiceId,
-            shippingCarrier: payment.shippingCarrier,
             paymentMethod: 'Pix Instantâneo Mercado Pago',
             paymentId: matchedMpPayment.id,
             total: payment.amount
           });
 
-          if (orderRes.success) {
-            payment.orderId = orderRes.id;
-            payment.orderNumber = orderRes.number;
-            invalidateCatalogCache();
+          if (nuvemRes.success) {
+            payment.nuvemOrderId = nuvemRes.id;
+            payment.nuvemOrderNumber = nuvemRes.number;
           }
         }
 
@@ -1587,8 +1696,8 @@ app.post('/api/mercadopago/confirm-pix/:id', async (req: Request, res: Response)
           approved: true,
           status: 'approved',
           statusDetail: 'accredited',
-          orderNumber: payment.orderNumber,
-          orderId: payment.orderId,
+          nuvemOrderNumber: payment.nuvemOrderNumber,
+          nuvemOrderId: payment.nuvemOrderId,
           message: 'Pagamento Pix identificado e aprovado pelo Mercado Pago!'
         });
       }
@@ -1681,20 +1790,18 @@ app.get('/api/mercadopago/payment-status/:id', async (req: Request, res: Respons
               p.statusDetail = 'accredited';
               p.dateApproved = match.date_approved || new Date().toISOString();
               
-              if (!p.orderId) {
-                const orderRes = await createStoreOrder({
+              if (!p.nuvemOrderId) {
+                const nuvemRes = await createNuvemshopOrder({
                   customer: p.payer || { email: 'streetstore364@gmail.com' },
                   items: p.items || [],
                   shippingAddress: p.shippingAddress,
-                  shippingServiceId: p.shippingServiceId,
-                  shippingCarrier: p.shippingCarrier,
                   paymentMethod: 'Pix Instantâneo Mercado Pago',
                   paymentId: match.id,
                   total: p.amount
                 });
-                if (orderRes.success) {
-                  p.orderId = orderRes.id;
-                  p.orderNumber = orderRes.number;
+                if (nuvemRes.success) {
+                  p.nuvemOrderId = nuvemRes.id;
+                  p.nuvemOrderNumber = nuvemRes.number;
                 }
               }
               localPaymentsMap.set(id, p);
@@ -1712,8 +1819,8 @@ app.get('/api/mercadopago/payment-status/:id', async (req: Request, res: Respons
         status: p.status,
         statusDetail: p.statusDetail,
         dateApproved: p.dateApproved,
-        orderNumber: p.orderNumber,
-        orderId: p.orderId
+        nuvemOrderNumber: p.nuvemOrderNumber,
+        nuvemOrderId: p.nuvemOrderId
       });
     }
 
@@ -1761,9 +1868,7 @@ app.post('/api/mercadopago/process-card', async (req: Request, res: Response) =>
       paymentMethodId, 
       payer,
       items,
-      shippingAddress,
-      shippingServiceId,
-      shippingCarrier
+      shippingAddress
     } = req.body;
 
     let cardToken = clientToken;
@@ -1871,13 +1976,13 @@ app.post('/api/mercadopago/process-card', async (req: Request, res: Response) =>
       });
     }
 
-    // Sync order on card approval & register in Bling ERP if connected
-    let orderNumber: string | undefined = undefined;
-    let orderId: number | undefined = undefined;
+    // Sync order with Nuvemshop on card approval to trigger confirmation email & Melhor Envio
+    let nuvemOrderNumber: string | undefined = undefined;
+    let nuvemOrderId: number | undefined = undefined;
 
     if (paymentResult.status === 'approved') {
       try {
-        const orderRes = await createStoreOrder({
+        const nuvemRes = await createNuvemshopOrder({
           customer: {
             name: fullName,
             email,
@@ -1886,19 +1991,16 @@ app.post('/api/mercadopago/process-card', async (req: Request, res: Response) =>
           },
           items: items || [],
           shippingAddress,
-          shippingServiceId,
-          shippingCarrier,
           paymentMethod: `Cartão de Crédito ${installments}x (${methodId})`,
           paymentId: paymentResult.id,
           total: parseFloat(Number(transactionAmount).toFixed(2))
         });
-        if (orderRes.success) {
-          orderNumber = orderRes.number;
-          orderId = orderRes.id;
-          invalidateCatalogCache();
+        if (nuvemRes.success) {
+          nuvemOrderNumber = nuvemRes.number;
+          nuvemOrderId = nuvemRes.id;
         }
       } catch (err) {
-        console.warn('Could not register store order after card approval:', err);
+        console.warn('Could not sync Nuvemshop order after card approval:', err);
       }
     }
 
@@ -1911,8 +2013,8 @@ app.post('/api/mercadopago/process-card', async (req: Request, res: Response) =>
       installments: paymentResult.installments,
       paymentMethodId: paymentResult.payment_method_id,
       dateApproved: paymentResult.date_approved,
-      orderNumber,
-      orderId
+      nuvemOrderNumber,
+      nuvemOrderId
     });
 
   } catch (error: any) {
@@ -1936,23 +2038,8 @@ app.all(['/checkout/api_integration', '/checkout/api_integration/*'], (_req: Req
   res.status(200).json({ status: 'ok', received: true });
 });
 
-// 7. Bling ERP Integration Routes (OAuth & Data sync) + explicit /api/bling router mount
-registerBlingRoutes(app, {
-  onTokensUpdated: () => {
-    invalidateCatalogCache();
-    buildAndCacheCatalog({ forceImageSync: false })
-      .catch(() => {})
-      .finally(() => {
-        syncImagesFromBling({ onBatchSaved: () => reapplyImagesToCachedCatalog() })
-          .then(() => reapplyImagesToCachedCatalog())
-          .catch(() => {});
-      });
-  }
-});
-app.use('/api/bling', blingRouter);
-
-// 8. Melhor Envio Logistics Routes (OAuth, Shipping Quotes, Labels & Tracking)
-registerMelhorEnvioRoutes(app);
+// 7. Bling ERP Integration Routes (OAuth & Data sync)
+registerBlingRoutes(app);
 
 // Vite & Static file handler
 async function setupViteOrStatic() {
@@ -1984,99 +2071,6 @@ async function setupViteOrStatic() {
   if (!process.env.VERCEL) {
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`Street Store Full-Stack Server running on port ${PORT}`);
-
-      // 1. Automatically keep Melhor Envio connected, tokens refreshed, & shipments synced on startup + periodically
-      startMelhorEnvioAutoSync();
-
-      // 2. Automatically validate/refresh Bling token & sync ALL products (1411+) + stock + Firestore on startup
-      ensureBlingAuthorized({ verifyLive: true })
-        .then((authorized) => {
-          if (!authorized) {
-            console.log('[Startup Bling Auth] Sessão Bling ausente ou pendente de autorização OAuth.');
-            return;
-          }
-          const jobs: Promise<unknown>[] = [
-            buildAndCacheCatalog({ forceImageSync: false })
-              .then((catResult) => {
-                console.log(`[Startup Bling Catalog] ${catResult.count} produtos em estoque pré-carregados (Bling bruto: ${catResult.blingRawCount}).`);
-              })
-              .catch((err) => {
-                console.warn('[Startup Bling Catalog] Notice:', err?.message || err);
-              }),
-          ];
-
-          if (hasFirebaseAdminEnv()) {
-            jobs.push(
-              syncAllBlingProdutosToFirestore({ enrichHighResImages: false })
-                .then((syncFs) => {
-                  console.log(`[Startup Bling Firestore] ${syncFs.totalImportado} itens sincronizados em ${syncFs.documentosGravados} docs.`);
-                })
-                .catch((err) => {
-                  console.warn('[Startup Bling Firestore] Notice:', err?.message || err);
-                })
-            );
-          }
-
-          return Promise.all(jobs).finally(async () => {
-            if (!(await ensureBlingAuthorized())) return;
-            syncImagesFromBling({ onBatchSaved: () => reapplyImagesToCachedCatalog() })
-              .then((syncRes) => {
-                reapplyImagesToCachedCatalog();
-                console.log(`[Startup Bling Sync] ${syncRes.message}`);
-              })
-              .catch((err) => {
-                console.warn('[Startup Bling Sync] Notice:', err?.message || err);
-              });
-          });
-        })
-        .catch(() => {});
-
-      // 3. Proactive Bling OAuth keepalive every 3 hours (renews automatically via Firestore & SQLite)
-      const tokenKeepaliveTimer = setInterval(async () => {
-        try {
-          if (hasFirebaseAdminEnv() && (await hasFirestoreBlingToken())) {
-            await getFirestoreValidToken();
-          } else {
-            const t = loadBlingTokens();
-            if (t?.refresh_token) {
-              await refreshBlingToken();
-            }
-          }
-        } catch {
-          // retry on next cycle
-        }
-      }, 3 * 60 * 60 * 1000);
-      if (typeof tokenKeepaliveTimer.unref === 'function') tokenKeepaliveTimer.unref();
-
-      // 4. Periodic background auto-sync: refresh all Bling products & stock every 3 min + Firestore & full-res photos every 15 min
-      const catalogSyncTimer = setInterval(async () => {
-        try {
-          if (await ensureBlingAuthorized()) {
-            await buildAndCacheCatalog({ forceImageSync: false });
-          }
-        } catch {
-          // ignore
-        }
-      }, 3 * 60 * 1000);
-      if (typeof catalogSyncTimer.unref === 'function') catalogSyncTimer.unref();
-
-      const imageSyncTimer = setInterval(async () => {
-        try {
-          if (await ensureBlingAuthorized({ verifyLive: true })) {
-            if (hasFirebaseAdminEnv()) {
-              syncAllBlingProdutosToFirestore({ enrichHighResImages: false }).catch(() => {});
-            }
-            if (!isImageSyncRunning()) {
-              syncImagesFromBling({ onBatchSaved: () => reapplyImagesToCachedCatalog() })
-                .then(() => reapplyImagesToCachedCatalog())
-                .catch(() => {});
-            }
-          }
-        } catch {
-          // ignore
-        }
-      }, 15 * 60 * 1000);
-      if (typeof imageSyncTimer.unref === 'function') imageSyncTimer.unref();
     });
   }
 }

@@ -389,6 +389,18 @@ export function Footer({ onOpenTracking, onSelectCategory, onOpenPolicies }: Foo
                   <span>streetstore364@gmail.com</span>
                 </a>
               </li>
+              <li className="pt-2">
+                <a
+                  href="/api/bling/authorize"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-[10px] text-zinc-400 hover:text-white transition-colors"
+                  title="Autorizar e conectar estoque da conta Bling ERP em tempo real"
+                >
+                  <RefreshCw className="w-3 h-3 text-emerald-400" />
+                  <span>Sincronizar Bling ERP</span>
+                </a>
+              </li>
             </ul>
           </div>
 

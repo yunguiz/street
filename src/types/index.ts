@@ -31,10 +31,11 @@ export interface Product {
     modelInfo: string;
     origin: string;
   };
-  // Bling ERP API structure
+  // Nuvemshop & Bling API readiness structure
   integration: {
     sku: string;
     barcode: string;
+    nuvemshopId: string;
     blingId: string;
     weightGrams: number;
     dimensionsCm: { width: number; height: number; depth: number };

@@ -21,8 +21,7 @@ import {
   Lock,
   Sparkles,
   CheckCircle2,
-  HelpCircle,
-  MapPin
+  HelpCircle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { loadMercadoPago } from '@mercadopago/sdk-js';
@@ -34,11 +33,6 @@ import {
   processTransparentCardPayment, 
   MercadoPagoPixResponse
 } from '../services/mercadopago';
-import {
-  calculateShippingQuotes,
-  ShippingOption
-} from '../services/shipping';
-import { CustomerProfile } from '../services/auth';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -49,8 +43,6 @@ interface CartDrawerProps {
   onClearCart: () => void;
   initialStep?: 'cart' | 'checkout';
   onOpenTracking?: (orderNumber?: string) => void;
-  currentUser?: CustomerProfile | null;
-  onRequireAuth?: () => void;
 }
 
 // Formatters and Brand Detector
@@ -105,14 +97,6 @@ function detectCardBrand(cardNumber: string): 'visa' | 'master' | 'elo' | 'amex'
   return 'unknown';
 }
 
-function formatCep(value: string): string {
-  const digits = value.replace(/\D/g, '').slice(0, 8);
-  if (digits.length > 5) {
-    return `${digits.slice(0, 5)}-${digits.slice(5)}`;
-  }
-  return digits;
-}
-
 export function CartDrawer({
   isOpen,
   onClose,
@@ -121,9 +105,7 @@ export function CartDrawer({
   onRemoveItem,
   onClearCart,
   initialStep = 'cart',
-  onOpenTracking,
-  currentUser = null,
-  onRequireAuth
+  onOpenTracking
 }: CartDrawerProps) {
   // Step state: 'cart' (Review items) or 'checkout' (Transparent Payment)
   const [step, setStep] = useState<'cart' | 'checkout'>(initialStep);
@@ -175,15 +157,6 @@ export function CartDrawer({
     }
   });
 
-  // Auto-fill checkout fields from logged-in customer profile
-  useEffect(() => {
-    if (currentUser) {
-      if (currentUser.name) setCustomerName(currentUser.name);
-      if (currentUser.email) setCustomerEmail(currentUser.email);
-      if (currentUser.phone) setCustomerPhone(currentUser.phone);
-    }
-  }, [currentUser]);
-
   // Credit Card Form Fields (Checkout Transparente)
   const [cardNumber, setCardNumber] = useState('');
   const [cardholderName, setCardholderName] = useState('');
@@ -199,50 +172,11 @@ export function CartDrawer({
     id?: string | number;
     amount?: number;
     method?: string;
-    orderNumber?: string;
+    nuvemOrderNumber?: string;
     customerEmail?: string;
   } | null>(null);
 
   const pollIntervalRef = useRef<any>(null);
-
-  // Shipping & Melhor Envio state
-  const [shippingCep, setShippingCep] = useState(() => {
-    try {
-      return localStorage.getItem('street_shipping_cep') || '';
-    } catch {
-      return '';
-    }
-  });
-  const [shippingLoading, setShippingLoading] = useState(false);
-  const [shippingError, setShippingError] = useState<string | null>(null);
-  const [shippingOptions, setShippingOptions] = useState<ShippingOption[]>([]);
-  const [shippingLive, setShippingLive] = useState(false);
-  const [isPickup, setIsPickup] = useState(false);
-  const [selectedShippingOption, setSelectedShippingOption] = useState<ShippingOption | null>(null);
-
-  const [shippingAddress, setShippingAddress] = useState<{
-    street: string;
-    number: string;
-    complement: string;
-    neighborhood: string;
-    city: string;
-    state: string;
-  }>(() => {
-    try {
-      const saved = localStorage.getItem('street_shipping_address');
-      if (saved) return JSON.parse(saved);
-    } catch {
-      // ignore
-    }
-    return {
-      street: '',
-      number: '',
-      complement: '',
-      neighborhood: '',
-      city: '',
-      state: ''
-    };
-  });
 
   // Mercado Pago SDK from @mercadopago/sdk-js initialized with .env key
   const MP_PUBLIC_KEY = (import.meta as any).env?.VITE_MERCADO_PAGO_PUBLIC_KEY || 'APP_USR-b72ab0f6-ad03-4238-9070-602d5bfd942a';
@@ -278,115 +212,20 @@ export function CartDrawer({
   const missingForFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
   const freeShippingProgress = Math.min(100, (subtotal / freeShippingThreshold) * 100);
 
-  // Cheapest option qualifies for Free Shipping above R$ 299
-  const cheapestOptionId = shippingOptions.length > 0
-    ? shippingOptions.reduce((min, opt) => (opt.price < min.price ? opt : min), shippingOptions[0]).id
-    : null;
-
-  const getOptionEffectivePrice = (opt: ShippingOption): number => {
-    if (subtotal >= freeShippingThreshold && opt.id === cheapestOptionId) {
-      return 0;
-    }
-    return opt.price;
-  };
-
   // 5% discount when paying with Pix
   const pixSpecialDiscountPercent = activePaymentMethod === 'pix' ? 5 : 0;
   const totalDiscountPercent = appliedDiscount + pixSpecialDiscountPercent;
   const discountValue = (subtotal * totalDiscountPercent) / 100;
-  const shippingFee =
-    subtotal === 0 || isPickup
-      ? 0
-      : selectedShippingOption
-        ? getOptionEffectivePrice(selectedShippingOption)
-        : subtotal >= freeShippingThreshold
-          ? 0
-          : 18.90;
+  const shippingFee = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : 18.90;
   const total = Math.max(0.01, subtotal - discountValue + shippingFee);
 
-  const handleCalculateShipping = async (cepOverride?: string) => {
-    const cleanCep = (cepOverride ?? shippingCep).replace(/\D/g, '').slice(0, 8);
-    if (cleanCep.length !== 8) {
-      setShippingError('Informe um CEP válido com 8 dígitos.');
-      return;
-    }
-
-    setShippingLoading(true);
-    setShippingError(null);
-    try {
-      localStorage.setItem('street_shipping_cep', formatCep(cleanCep));
-    } catch {
-      // ignore
-    }
-
-    try {
-      const [quoteRes, viaCepRes] = await Promise.all([
-        calculateShippingQuotes({
-          cep: cleanCep,
-          cartTotal: subtotal,
-          items: items.map((it) => ({
-            id: it.product.id,
-            price: it.product.price,
-            quantity: it.quantity,
-            weight: 0.4
-          }))
-        }),
-        fetch(`https://viacep.com.br/ws/${cleanCep}/json/`).then((r) => r.json()).catch(() => null)
-      ]);
-
-      if (viaCepRes && !viaCepRes.erro) {
-        setShippingAddress((prev) => {
-          const next = {
-            ...prev,
-            street: viaCepRes.logradouro || prev.street,
-            neighborhood: viaCepRes.bairro || prev.neighborhood,
-            city: viaCepRes.localidade || prev.city,
-            state: viaCepRes.uf || prev.state
-          };
-          try {
-            localStorage.setItem('street_shipping_address', JSON.stringify(next));
-          } catch {
-            // ignore
-          }
-          return next;
-        });
-      }
-
-      if (quoteRes.success && quoteRes.options && quoteRes.options.length > 0) {
-        setShippingOptions(quoteRes.options);
-        setShippingLive(Boolean(quoteRes.live));
-        setIsPickup(false);
-        const existingMatch = selectedShippingOption
-          ? quoteRes.options.find((o) => o.id === selectedShippingOption.id)
-          : null;
-        setSelectedShippingOption(existingMatch || quoteRes.options[0]);
-      } else {
-        setShippingError(quoteRes.error || 'Não foi possível calcular o frete para este CEP.');
-      }
-    } catch {
-      setShippingError('Erro ao consultar frete no Melhor Envio.');
-    } finally {
-      setShippingLoading(false);
-    }
-  };
-
-  // Re-calculate automatically when drawer opens with saved 8-digit CEP
-  useEffect(() => {
-    const clean = shippingCep.replace(/\D/g, '');
-    if (isOpen && items.length > 0 && clean.length === 8 && shippingOptions.length === 0) {
-      handleCalculateShipping(clean);
-    }
-  }, [isOpen, items.length]);
-
-  // Save customer info & shipping address
+  // Save customer info
   const saveCustomerInfo = () => {
     try {
       if (customerName) localStorage.setItem('street_customer_name', customerName);
       if (customerEmail) localStorage.setItem('street_customer_email', customerEmail);
       if (customerCpf) localStorage.setItem('street_customer_cpf', customerCpf);
       if (customerPhone) localStorage.setItem('street_customer_phone', customerPhone);
-      if (shippingCep) localStorage.setItem('street_shipping_cep', shippingCep);
-      localStorage.setItem('street_shipping_address', JSON.stringify(shippingAddress));
     } catch {
       // ignore
     }
@@ -402,10 +241,10 @@ export function CartDrawer({
             clearInterval(pollIntervalRef.current);
             setPaymentApproved(true);
             setApprovedPaymentDetails({
-              id: res.orderNumber || pixData.paymentId,
+              id: res.nuvemOrderNumber || pixData.paymentId,
               amount: total,
               method: 'Pix Instantâneo (Aprovado)',
-              orderNumber: res.orderNumber,
+              nuvemOrderNumber: res.nuvemOrderNumber,
               customerEmail: customerEmail
             });
             confetti({
@@ -445,12 +284,6 @@ export function CartDrawer({
     e.preventDefault();
     setErrorMessage(null);
 
-    if (!currentUser) {
-      setErrorMessage('Faça login ou cadastre-se para finalizar sua compra.');
-      onRequireAuth?.();
-      return;
-    }
-
     // Validations
     const cleanNum = cardNumber.replace(/\D/g, '');
     if (cleanNum.length < 13) {
@@ -478,14 +311,6 @@ export function CartDrawer({
     if (!customerEmail.includes('@')) {
       setErrorMessage('Informe um e-mail válido para envio do comprovante.');
       return;
-    }
-
-    const cleanCep = shippingCep.replace(/\D/g, '');
-    if (!isPickup) {
-      if (cleanCep.length !== 8 || !shippingAddress.street.trim() || !shippingAddress.number.trim() || !shippingAddress.city.trim() || !shippingAddress.state.trim()) {
-        setErrorMessage('Preencha o CEP e endereço completo para entrega via Melhor Envio (ou selecione Retirada na Loja).');
-        return;
-      }
     }
 
     setIsProcessing(true);
@@ -517,13 +342,7 @@ export function CartDrawer({
         }
       }
 
-      // 2. Process transparent payment on backend with store sync + Melhor Envio
-      const resolvedCarrier = isPickup
-        ? 'Retirada na Loja Física (Itabira - MG)'
-        : selectedShippingOption
-          ? `${selectedShippingOption.company.name} ${selectedShippingOption.name}`
-          : 'Melhor Envio';
-
+      // 2. Process transparent payment on backend with store sync
       const res = await processTransparentCardPayment({
         token: cardTokenId,
         cardData: !cardTokenId ? {
@@ -551,27 +370,16 @@ export function CartDrawer({
           quantity: it.quantity,
           selectedSize: it.selectedSize,
           variantId: it.product.variantsList?.[0]?.id
-        })),
-        shippingAddress: !isPickup ? {
-          street: shippingAddress.street.trim(),
-          number: shippingAddress.number.trim(),
-          complement: shippingAddress.complement.trim(),
-          neighborhood: shippingAddress.neighborhood.trim(),
-          city: shippingAddress.city.trim(),
-          state: shippingAddress.state.trim().toUpperCase(),
-          zip: cleanCep
-        } : undefined,
-        shippingServiceId: !isPickup ? selectedShippingOption?.id : undefined,
-        shippingCarrier: resolvedCarrier
+        }))
       });
 
       if (res.success && (res.status === 'approved' || res.statusDetail === 'accredited')) {
         setPaymentApproved(true);
         setApprovedPaymentDetails({
-          id: res.orderNumber || res.paymentId,
+          id: res.nuvemOrderNumber || res.paymentId,
           amount: total,
           method: `Cartão de Crédito ${installments}x sem juros`,
-          orderNumber: res.orderNumber,
+          nuvemOrderNumber: res.nuvemOrderNumber,
           customerEmail: customerEmail
         });
         confetti({
@@ -616,36 +424,16 @@ export function CartDrawer({
     setErrorMessage(null);
     setPixPendingNotice(null);
 
-    if (!currentUser) {
-      setErrorMessage('Faça login ou cadastre-se para finalizar sua compra.');
-      onRequireAuth?.();
-      return;
-    }
-
     const cleanCpf = customerCpf.replace(/\D/g, '');
     if (!customerEmail.includes('@')) {
       setErrorMessage('Informe seu e-mail para emissão do Pix e envio do comprovante.');
       return;
     }
 
-    const cleanCep = shippingCep.replace(/\D/g, '');
-    if (!isPickup) {
-      if (cleanCep.length !== 8 || !shippingAddress.street.trim() || !shippingAddress.number.trim() || !shippingAddress.city.trim() || !shippingAddress.state.trim()) {
-        setErrorMessage('Preencha o CEP e endereço completo para entrega via Melhor Envio (ou selecione Retirada na Loja).');
-        return;
-      }
-    }
-
     setIsProcessing(true);
     saveCustomerInfo();
 
     try {
-      const resolvedCarrier = isPickup
-        ? 'Retirada na Loja Física (Itabira - MG)'
-        : selectedShippingOption
-          ? `${selectedShippingOption.company.name} ${selectedShippingOption.name}`
-          : 'Melhor Envio';
-
       const res = await createDirectPix({
         amount: total,
         description: `Street Store (${items.length} itens)`,
@@ -662,18 +450,7 @@ export function CartDrawer({
           quantity: it.quantity,
           selectedSize: it.selectedSize,
           variantId: it.product.variantsList?.[0]?.id
-        })),
-        shippingAddress: !isPickup ? {
-          street: shippingAddress.street.trim(),
-          number: shippingAddress.number.trim(),
-          complement: shippingAddress.complement.trim(),
-          neighborhood: shippingAddress.neighborhood.trim(),
-          city: shippingAddress.city.trim(),
-          state: shippingAddress.state.trim().toUpperCase(),
-          zip: cleanCep
-        } : undefined,
-        shippingServiceId: !isPickup ? selectedShippingOption?.id : undefined,
-        shippingCarrier: resolvedCarrier
+        }))
       });
 
       if (res.success && res.qrCode) {
@@ -699,10 +476,10 @@ export function CartDrawer({
       if (res.approved === true && res.status === 'approved') {
         setPaymentApproved(true);
         setApprovedPaymentDetails({
-          id: res.orderNumber || pixData.paymentId,
+          id: res.nuvemOrderNumber || pixData.paymentId,
           amount: total,
           method: 'Pix Instantâneo (Aprovado)',
-          orderNumber: res.orderNumber,
+          nuvemOrderNumber: res.nuvemOrderNumber,
           customerEmail: customerEmail
         });
         confetti({
@@ -832,7 +609,7 @@ export function CartDrawer({
                     PAGAMENTO CONFIRMADO COM SUCESSO
                   </span>
                   <h3 className="text-xl font-black text-white uppercase font-oswald tracking-wide">
-                    Pedido {approvedPaymentDetails?.orderNumber || `#${approvedPaymentDetails?.id || 'CONFIRMADO'}`} Aprovado!
+                    Pedido {approvedPaymentDetails?.nuvemOrderNumber || `#${approvedPaymentDetails?.id || 'CONFIRMADO'}`} Aprovado!
                   </h3>
                   <p className="text-xs text-zinc-300 mt-1.5 max-w-sm mx-auto leading-relaxed">
                     Agradecemos pela preferência! O comprovante e detalhes da compra foram enviados para o e-mail:{' '}
@@ -872,7 +649,7 @@ export function CartDrawer({
                 <div className="space-y-2 pt-2">
                   <button
                     onClick={() => {
-                      const orderNum = approvedPaymentDetails?.orderNumber || String(approvedPaymentDetails?.id || '');
+                      const orderNum = approvedPaymentDetails?.nuvemOrderNumber || String(approvedPaymentDetails?.id || '');
                       setPaymentApproved(false);
                       setPixData(null);
                       setApprovedPaymentDetails(null);
@@ -1102,145 +879,16 @@ export function CartDrawer({
                     </div>
                   </div>
                 ))}
-
-                {/* Melhor Envio Live Shipping Calculator in Cart */}
-                <div className="p-3.5 bg-zinc-900/70 border border-zinc-800 rounded-xl space-y-2.5 mt-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white font-oswald flex items-center gap-1.5">
-                      <Truck className="w-3.5 h-3.5 text-[#E50914]" />
-                      Calcular Frete · Melhor Envio
-                    </span>
-                    {shippingOptions.length > 0 && (
-                      <span className={`text-[10px] font-bold ${shippingLive ? 'text-emerald-400' : 'text-zinc-400'}`}>
-                        {shippingLive ? '● Cotação ao vivo' : '● Estimativa'}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <div className="relative flex-1">
-                      <MapPin className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="text"
-                        maxLength={9}
-                        value={shippingCep}
-                        onChange={(e) => {
-                          const formatted = formatCep(e.target.value);
-                          setShippingCep(formatted);
-                          if (formatted.replace(/\D/g, '').length === 8) {
-                            handleCalculateShipping(formatted);
-                          }
-                        }}
-                        placeholder="Digite seu CEP (00000-000)"
-                        className="w-full pl-8 pr-2 py-2 text-xs bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 font-mono focus:outline-none focus:border-[#E50914]"
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => handleCalculateShipping()}
-                      disabled={shippingLoading}
-                      className="px-3.5 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 disabled:opacity-60"
-                    >
-                      {shippingLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <span>Calcular</span>}
-                    </button>
-                  </div>
-
-                  {shippingError && (
-                    <p className="text-[11px] text-red-400">{shippingError}</p>
-                  )}
-
-                  {/* Selectable Carrier Options */}
-                  <div className="space-y-1.5">
-                    {shippingOptions.map((opt) => {
-                      const effPrice = getOptionEffectivePrice(opt);
-                      const isSelected = !isPickup && selectedShippingOption?.id === opt.id;
-                      return (
-                        <button
-                          key={opt.id}
-                          type="button"
-                          onClick={() => {
-                            setIsPickup(false);
-                            setSelectedShippingOption(opt);
-                          }}
-                          className={`w-full p-2 rounded-lg border text-left flex items-center justify-between text-xs transition-all cursor-pointer ${
-                            isSelected
-                              ? 'bg-zinc-950 border-[#E50914] text-white'
-                              : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
-                          }`}
-                        >
-                          <div className="min-w-0">
-                            <span className="font-bold block truncate">
-                              {opt.company.name} · {opt.name}
-                            </span>
-                            <span className="text-[10px] text-zinc-400">
-                              Entrega em {opt.deliveryText}
-                            </span>
-                          </div>
-                          <span className={`font-bold shrink-0 ml-2 ${effPrice === 0 ? 'text-emerald-400' : 'text-white'}`}>
-                            {effPrice === 0 ? 'Grátis' : `R$ ${effPrice.toFixed(2).replace('.', ',')}`}
-                          </span>
-                        </button>
-                      );
-                    })}
-
-                    <button
-                      type="button"
-                      onClick={() => setIsPickup(true)}
-                      className={`w-full p-2 rounded-lg border text-left flex items-center justify-between text-xs transition-all cursor-pointer ${
-                        isPickup
-                          ? 'bg-zinc-950 border-emerald-500 text-white'
-                          : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
-                      }`}
-                    >
-                      <div className="min-w-0">
-                        <span className="font-bold block truncate">Retirada na Loja Física · Itabira MG</span>
-                        <span className="text-[10px] text-zinc-400">Av. João Pinheiro, 353 - Centro</span>
-                      </div>
-                      <span className="font-bold text-emerald-400 shrink-0 ml-2">Grátis</span>
-                    </button>
-                  </div>
-                </div>
               </div>
 
-            // 5. STEP 2: CHECKOUT LOGIN GATE OR TRANSPARENTE MERCADO PAGO FORM
-            ) : !currentUser ? (
-              <div className="py-12 px-4 text-center space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#E50914]/15 border border-[#E50914]/40 text-[#E50914] flex items-center justify-center mx-auto">
-                  <Lock className="w-7 h-7" />
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-lg font-black uppercase font-oswald text-white">
-                    Login Obrigatório para Comprar
-                  </h3>
-                  <p className="text-xs text-zinc-400 max-w-xs mx-auto leading-relaxed">
-                    Para proteger seus pedidos e enviar o código de rastreio corretamente, faça login ou crie seu cadastro com nome, e-mail, telefone e senha.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => onRequireAuth?.()}
-                  className="w-full py-3.5 rounded-xl bg-[#E50914] hover:bg-[#c90812] text-white font-black text-xs uppercase tracking-wider transition-all active:scale-95 shadow-lg shadow-red-950/60 flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <Lock className="w-4 h-4" />
-                  <span>FAZER LOGIN OU CADASTRO PARA COMPRAR</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setStep('cart')}
-                  className="text-xs text-zinc-400 hover:text-white underline cursor-pointer"
-                >
-                  Voltar para o carrinho
-                </button>
-              </div>
+            // 5. STEP 2: CHECKOUT TRANSPARENTE MERCADO PAGO FORM
             ) : (
               <div className="space-y-4">
                 
                 {/* Order Summary Strip */}
                 <div className="p-3 bg-zinc-900/90 border border-zinc-800 rounded-xl flex items-center justify-between">
                   <div className="text-xs">
-                    <span className="text-zinc-400 block">
-                      {items.reduce((s, i) => s + i.quantity, 0)} itens · {isPickup ? 'Retirada na Loja' : selectedShippingOption ? `${selectedShippingOption.company.name} ${selectedShippingOption.name}` : 'Frete Padrão'}
-                    </span>
+                    <span className="text-zinc-400 block">{items.reduce((s, i) => s + i.quantity, 0)} itens no carrinho</span>
                     <strong className="text-white font-oswald text-base">Total: R$ {total.toFixed(2).replace('.', ',')}</strong>
                   </div>
                   <button
@@ -1249,132 +897,6 @@ export function CartDrawer({
                   >
                     Ver detalhes
                   </button>
-                </div>
-
-                {/* Delivery Address Section (Melhor Envio) */}
-                <div className="p-3.5 bg-zinc-900/60 border border-zinc-800 rounded-xl space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-white font-oswald flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#E50914]" />
-                      Endereço de Entrega (Melhor Envio)
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setIsPickup(!isPickup)}
-                      className="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 underline cursor-pointer"
-                    >
-                      {isPickup ? 'Receber via Melhor Envio' : 'Retirar na Loja (Grátis)'}
-                    </button>
-                  </div>
-
-                  {isPickup ? (
-                    <div className="p-2.5 bg-zinc-950 border border-emerald-800/50 rounded-lg text-[11px] text-zinc-300">
-                      <strong className="text-emerald-400 block">Retirada na Loja Street Store</strong>
-                      <span>Avenida João Pinheiro, 353 - Centro, Itabira - MG · CEP 35900-539</span>
-                    </div>
-                  ) : (
-                    <div className="space-y-2">
-                      <div className="flex gap-2">
-                        <input
-                          type="text"
-                          maxLength={9}
-                          value={shippingCep}
-                          onChange={(e) => {
-                            const formatted = formatCep(e.target.value);
-                            setShippingCep(formatted);
-                            if (formatted.replace(/\D/g, '').length === 8) {
-                              handleCalculateShipping(formatted);
-                            }
-                          }}
-                          placeholder="CEP: 00000-000"
-                          className="w-36 px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 font-mono focus:outline-none focus:border-[#009EE3]"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => handleCalculateShipping()}
-                          disabled={shippingLoading}
-                          className="px-3 py-2 bg-zinc-800 hover:bg-zinc-700 text-white text-[11px] font-bold rounded-lg cursor-pointer"
-                        >
-                          {shippingLoading ? 'Buscando...' : 'Buscar CEP'}
-                        </button>
-                      </div>
-
-                      {shippingOptions.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5">
-                          {shippingOptions.map((opt) => {
-                            const effPrice = getOptionEffectivePrice(opt);
-                            const active = selectedShippingOption?.id === opt.id;
-                            return (
-                              <button
-                                key={opt.id}
-                                type="button"
-                                onClick={() => setSelectedShippingOption(opt)}
-                                className={`px-2 py-1 rounded text-[10px] font-bold border cursor-pointer transition-colors ${
-                                  active
-                                    ? 'bg-[#E50914]/20 border-[#E50914] text-white'
-                                    : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white'
-                                }`}
-                              >
-                                {opt.company.name} {opt.name} · {effPrice === 0 ? 'Grátis' : `R$ ${effPrice.toFixed(2).replace('.', ',')}`}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
-
-                      <div className="grid grid-cols-3 gap-2">
-                        <input
-                          type="text"
-                          value={shippingAddress.street}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, street: e.target.value }))}
-                          placeholder="Rua / Avenida"
-                          className="col-span-2 px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-[#009EE3]"
-                        />
-                        <input
-                          type="text"
-                          value={shippingAddress.number}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, number: e.target.value }))}
-                          placeholder="Número"
-                          className="px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-[#009EE3]"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2">
-                        <input
-                          type="text"
-                          value={shippingAddress.complement}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, complement: e.target.value }))}
-                          placeholder="Complemento (opcional)"
-                          className="px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-[#009EE3]"
-                        />
-                        <input
-                          type="text"
-                          value={shippingAddress.neighborhood}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, neighborhood: e.target.value }))}
-                          placeholder="Bairro"
-                          className="px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-[#009EE3]"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-4 gap-2">
-                        <input
-                          type="text"
-                          value={shippingAddress.city}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, city: e.target.value }))}
-                          placeholder="Cidade"
-                          className="col-span-3 px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-[#009EE3]"
-                        />
-                        <input
-                          type="text"
-                          maxLength={2}
-                          value={shippingAddress.state}
-                          onChange={(e) => setShippingAddress((p) => ({ ...p, state: e.target.value.toUpperCase() }))}
-                          placeholder="UF"
-                          className="px-3 py-2 text-xs bg-zinc-950 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 uppercase text-center focus:outline-none focus:border-[#009EE3]"
-                        />
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Payment Method Selector Tabs */}
@@ -1746,9 +1268,7 @@ export function CartDrawer({
                 )}
 
                 <div className="flex justify-between">
-                  <span>
-                    Frete {isPickup ? '(Retirada)' : selectedShippingOption ? `(${selectedShippingOption.company.name} ${selectedShippingOption.name})` : ''}:
-                  </span>
+                  <span>Frete:</span>
                   <span className="tabular-nums">
                     {shippingFee === 0 ? (
                       <strong className="text-emerald-400 font-bold">Grátis</strong>
@@ -1787,16 +1307,10 @@ export function CartDrawer({
                   </div>
                 ) : (
                   <button
-                    onClick={() => {
-                      if (!currentUser) {
-                        onRequireAuth?.();
-                        return;
-                      }
-                      setStep('checkout');
-                    }}
+                    onClick={() => setStep('checkout')}
                     className="w-full py-3.5 rounded-xl bg-[#E50914] hover:bg-[#c90812] text-white font-black text-xs uppercase tracking-wider transition-all duration-150 active:scale-95 shadow-lg shadow-red-950/60 flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>{currentUser ? 'IR PARA O PAGAMENTO DIRETO' : 'FAZER LOGIN PARA COMPRAR'}</span>
+                    <span>IR PARA O PAGAMENTO DIRETO</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 )}

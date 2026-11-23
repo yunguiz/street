@@ -44,14 +44,14 @@ export function VipBanner() {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-zinc-300 font-semibold">
                   <Zap className="w-4 h-4 text-green-400 shrink-0" />
-                  <span>Sorteios exclusivos</span>
+                  <span>Sorteios exclusivos de Sneakers</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
               <a
-                href="https://chat.whatsapp.com/Ko13sIOfJ0vGSEkteDFJI8?s=cl&p=i&iam=2"
+                href="https://wa.me/5531984806556?text=Ol%C3%A1%20Street%20Store%2C%20gostaria%20de%20entrar%20no%20Grupo%20VIP%20do%20WhatsApp!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 rounded-xl bg-green-600 hover:bg-green-500 text-white font-black text-sm uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-xl shadow-green-950/80 flex items-center justify-center gap-3 whitespace-nowrap cursor-pointer"
@@ -60,7 +60,7 @@ export function VipBanner() {
                 <span>Entrar no Grupo VIP Agora</span>
               </a>
               <span className="text-[11px] text-zinc-400 mt-2">
-                Gratuito
+                Gratuito · Mais de 1.800 membros ativos
               </span>
             </div>
 

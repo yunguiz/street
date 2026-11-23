@@ -18,7 +18,7 @@ import {
   ChevronRight,
   Loader2
 } from 'lucide-react';
-import { TrackedOrder, trackOrder, requestOrderReturn } from '../services/catalog';
+import { TrackedOrder, trackOrder, requestOrderReturn } from '../services/nuvemshop';
 
 interface OrderTrackingModalProps {
   isOpen: boolean;
@@ -254,7 +254,7 @@ export function OrderTrackingModal({
                 </div>
                 <div className="p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg">
                   <span className="text-[10px] text-zinc-500 font-bold uppercase block">2. Melhor Envio</span>
-                  <p className="text-xs text-zinc-300 mt-0.5">Correios, Jadlog ou Loggi</p>
+                  <p className="text-xs text-zinc-300 mt-0.5">Correios, Jadlog, Loggi ou Nuvem Envio</p>
                 </div>
                 <div className="p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg">
                   <span className="text-[10px] text-zinc-500 font-bold uppercase block">3. Devoluções</span>

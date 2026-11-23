@@ -2,15 +2,16 @@ import { Product } from '../types';
 
 /**
  * BLING ERP OFFICIAL CATALOG (MEU NEGÓCIO - ESTOQUE DE PRODUTOS)
- * Extracted from official Bling ERP export & synchronized with real photographic assets.
- * All items mapped to real store product photography.
+ * Extracted from official Bling ERP export (1003 registered raw SKUs consolidated into 292 canonical models).
+ * Consolidated with stock aggregation per user directive:
+ * "verifique se tem algum item repetido caso tiver um repetido torne ele uma quantia no estoque do produto real dele sem que fique duplicado"
  */
 export const BLING_CATALOG_META = {
   totalRegisteredRawSKUs: 1003,
   uniqueCanonicalModels: 292,
   totalUnitsInStock: 1068,
   modelsWithStock: 162,
-  extractedAt: "2026-11-10T16:18:46.866Z",
+  extractedAt: "2026-11-04T12:01:09.253Z",
   sourceFile: "Meu Negócio - Estoque de Produtos.pdf"
 };
 
@@ -26,8 +27,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 55,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -49,6 +50,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CH100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CH100",
       "blingId": "CH100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -79,7 +81,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 12,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/0ff7cc8653aa4c8c29c4ddebcff7435a-6c5c22de2eea991fd317901910253645-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -111,6 +115,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHCB10140",
       "barcode": "789101400000",
+      "nuvemshopId": "BLING-CHCB10140",
       "blingId": "CHCB10140",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -189,7 +194,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 17,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a9cf932b7ab0e631086a057e15edf134-65f8fa94fbe7d3646d17901910444979-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -217,6 +224,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHCB10044",
       "barcode": "789100440000",
+      "nuvemshopId": "BLING-CHCB10044",
       "blingId": "CHCB10044",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -295,7 +303,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 44,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95bc9c16ed733ece7f336afa28d15732-98f70d425d7cd0e4ce17901910382798-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34"
@@ -317,6 +327,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHWB10034",
       "barcode": "789100340000",
+      "nuvemshopId": "BLING-CHWB10034",
       "blingId": "CHWB10034",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -347,7 +358,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 29,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95bc9c16ed733ece7f336afa28d15732-98f70d425d7cd0e4ce17901910382798-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -374,6 +387,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHWB10036",
       "barcode": "789100360000",
+      "nuvemshopId": "BLING-CHWB10036",
       "blingId": "CHWB10036",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -444,7 +458,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 18,
     "images": [
-      "/assets/aistudio/Design_sem_nome__2__fc3a5ea9.png"
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -474,6 +491,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTHA10438",
       "barcode": "789104380000",
+      "nuvemshopId": "BLING-TTHA10438",
       "blingId": "TTHA10438",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -569,7 +587,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 31,
     "images": [
       "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -599,6 +619,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTHA10342",
       "barcode": "789103420000",
+      "nuvemshopId": "BLING-TTHA10342",
       "blingId": "TTHA10342",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -694,7 +715,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 17,
     "images": [
       "/assets/aistudio/SaveClip.App_822666289_18102126563150263_6322204292468705105_n_c25556bb.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -724,6 +747,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTHA10243",
       "barcode": "789102430000",
+      "nuvemshopId": "BLING-TTHA10243",
       "blingId": "TTHA10243",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -818,7 +842,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 54,
     "images": [
-      "/assets/aistudio/Design_sem_nome_61f6733b.png"
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -848,6 +875,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTHA10139",
       "barcode": "789101390000",
+      "nuvemshopId": "BLING-TTHA10139",
       "blingId": "TTHA10139",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -942,8 +970,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 47,
     "images": [
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/assets/aistudio/SaveClip.App_822666289_18102126563150263_6322204292468705105_n_c25556bb.jpg",
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -977,6 +1007,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTFX10141",
       "barcode": "789101410000",
+      "nuvemshopId": "BLING-TTFX10141",
       "blingId": "TTFX10141",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -1072,7 +1103,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 41,
     "images": [
       "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "35",
@@ -1107,6 +1140,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTFX10044",
       "barcode": "789100440000",
+      "nuvemshopId": "BLING-TTFX10044",
       "blingId": "TTFX10044",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -1210,7 +1244,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 58,
     "images": [
       "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "35",
@@ -1245,6 +1281,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTC10141",
       "barcode": "789101410000",
+      "nuvemshopId": "BLING-TTC10141",
       "blingId": "TTC10141",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -1348,7 +1385,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 60,
     "images": [
       "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "35",
@@ -1379,6 +1418,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTC10036",
       "barcode": "789100360000",
+      "nuvemshopId": "BLING-TTC10036",
       "blingId": "TTC10036",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -1482,7 +1522,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "reviewsCount": 39,
     "images": [
       "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
-      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34"
@@ -1508,6 +1550,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TTC10034",
       "barcode": "789100340000",
+      "nuvemshopId": "BLING-TTC10034",
       "blingId": "TTC10034",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -1538,16 +1581,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 16,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -1577,6 +1614,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSR506XG",
       "barcode": "789506000000",
+      "nuvemshopId": "BLING-OTSR506XG",
       "blingId": "OTSR506XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -1639,16 +1677,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -1678,6 +1710,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSR505P",
       "barcode": "789505000000",
+      "nuvemshopId": "BLING-OTSR505P",
       "blingId": "OTSR505P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -1740,16 +1773,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -1779,6 +1806,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSPN500XG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OTSPN500XG",
       "blingId": "OTSPN500XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -1841,16 +1869,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -1876,6 +1898,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVTP502XG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OVTP502XG",
       "blingId": "OVTP502XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -1938,16 +1961,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -1973,6 +1990,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVTP501XG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OVTP501XG",
       "blingId": "OVTP501XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2035,16 +2053,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 37,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -2074,6 +2086,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSP500XG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OTSP500XG",
       "blingId": "OTSP500XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2136,16 +2149,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "77 PRETO/ VERMELHO"
@@ -2167,6 +2174,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSR1977P",
       "barcode": "789197700000",
+      "nuvemshopId": "BLING-OTSR1977P",
       "blingId": "OTSR1977P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2229,16 +2237,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -2263,6 +2265,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSBP502M",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OTSBP502M",
       "blingId": "OTSBP502M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2317,16 +2320,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P"
@@ -2348,6 +2345,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSBP502P",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OTSBP502P",
       "blingId": "OTSBP502P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2378,16 +2376,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 19,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -2413,6 +2405,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSBP501P",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OTSBP501P",
       "blingId": "OTSBP501P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2475,16 +2468,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -2511,6 +2496,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BJTSR40038",
       "barcode": "789400380000",
+      "nuvemshopId": "BLING-BJTSR40038",
       "blingId": "BJTSR40038",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2581,16 +2567,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -2619,6 +2597,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BJTS40052",
       "barcode": "789400520000",
+      "nuvemshopId": "BLING-BJTS40052",
       "blingId": "BJTS40052",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -2705,7 +2684,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 57,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebefb9ab90d6e38e77580204df736087-3c273211077af5d7d317901908374319-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -2732,6 +2713,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CSA10044",
       "barcode": "789100440000",
+      "nuvemshopId": "BLING-CSA10044",
       "blingId": "CSA10044",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -2802,7 +2784,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 50,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -2824,6 +2807,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNR100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNR100",
       "blingId": "MNR100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -2854,7 +2838,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 36,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -2876,6 +2861,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MJP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MJP100",
       "blingId": "MJP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -2906,28 +2892,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 17,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-c857fcdabde63bd0b317635642616457-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-44e0a293b46214c96e17635642631740-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce216560bf8ff8145617635642648402-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-7f78596a54850d41c817635642662807-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-16df6aa88858f6bbb317635642681983-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-79e2b0cee941cf374e17635642697445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce18a18dae1552791b17635642716481-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-04903e8b4cd3ac57cd17635642730931-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-9fc5e0bcbb95aabb3217635642750263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c71c4a05323552aa8a17635642766474-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-5396533958b997527c17635642785019-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c0694150c855dd5ef817635642800407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-fac3eee35ef25b47ab17635642820347-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-2f256415ca788bfe1c17635642836901-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-78c4b8de337e3b419c17635642855382-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-18c537d109f53139b317635642872276-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-982789d6486d3b390117635642891236-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-882f14d13dcabeea8917635642905907-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-7b28eb66e5b3b7f7ce17635642922932-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-9870edaa968a8adaa717635642936265-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-1a6ab7a1635af09f8a17635642955968-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-54d9602cf39b7fd77417635642970695-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -2949,6 +2915,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNTN100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNTN100",
       "blingId": "MNTN100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -2979,7 +2946,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -3001,6 +2969,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNEP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNEP100",
       "blingId": "MNEP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -3031,8 +3000,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a2cead61a993e72ef0f4412dd5af20b3-4e65b87f8fb841185417902796095757-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/976efb54330c240b2ae080d4e598ac56-1e85aac1ee8e1245fe17902796107583-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -3054,6 +3023,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNEB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNEB100",
       "blingId": "MNEB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -3084,9 +3054,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50530d8793a8f68809e51325afce5394-05010f15b8a676df1c17902797908842-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c9d8fa61e924dd47a01bb2420583ebc3-dc6f2ff037df86d28b17902797895980-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/20c854fd1112cddc5f093d219295cf3f-daca320347ad95681717902797924020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -3108,6 +3077,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNBP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNBP100",
       "blingId": "MNBP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -3138,9 +3108,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 33,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3165,6 +3136,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPZ502M",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CPZ502M",
       "blingId": "CPZ502M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3219,9 +3191,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 40,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3250,6 +3223,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPZ501M",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CPZ501M",
       "blingId": "CPZ501M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3304,9 +3278,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 27,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3331,6 +3306,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPZ500M",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CPZ500M",
       "blingId": "CPZ500M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3385,9 +3361,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P"
@@ -3413,6 +3390,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVZOFT100P",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OVZOFT100P",
       "blingId": "OVZOFT100P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3443,9 +3421,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -3469,6 +3448,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVZOFT100M",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OVZOFT100M",
       "blingId": "OVZOFT100M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3515,9 +3495,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 24,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8a95268537c5cdd2e17ab369c0748390-09fcb8b9f1070e5f1f17902738921756-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fcd5a91ceed5d66b26b55cc71c9b4c86-1a78fb7784fad96d8117902738935835-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c1855f211c98ff622facade9515eb8ad-e4909fca83f0731bc717902738949842-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3542,6 +3523,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVZMT100G",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OVZMT100G",
       "blingId": "OVZMT100G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3596,10 +3578,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/defd47d040db758c296f25d4b8914ca1-058e5d562702eca74617902738841352-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/55fbe876dc614fd6eb6970d2e915ccf3-6a164145610fc82c1517902738887445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/e6908479ac2edb9b3c3a4613dfc93665-6bf3ec174b794434db17902738856411-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ab429867850bbac0ed18582d6f013856-85fa07bdea8de34d9417902738871212-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3624,6 +3606,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OVZPT100P",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OVZPT100P",
       "blingId": "OVZPT100P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3678,10 +3661,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/defd47d040db758c296f25d4b8914ca1-058e5d562702eca74617902738841352-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/55fbe876dc614fd6eb6970d2e915ccf3-6a164145610fc82c1517902738887445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/e6908479ac2edb9b3c3a4613dfc93665-6bf3ec174b794434db17902738856411-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ab429867850bbac0ed18582d6f013856-85fa07bdea8de34d9417902738871212-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -3706,6 +3689,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CZP500G",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CZP500G",
       "blingId": "CZP500G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3760,8 +3744,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 31,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -3793,6 +3777,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BB40036",
       "barcode": "789400360000",
+      "nuvemshopId": "BLING-BB40036",
       "blingId": "BB40036",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -3871,7 +3856,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "35-46"
@@ -3893,6 +3879,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "KMCC1003646",
       "barcode": "789100364600",
+      "nuvemshopId": "BLING-KMCC1003646",
       "blingId": "KMCC1003646",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -3923,10 +3910,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/defd47d040db758c296f25d4b8914ca1-058e5d562702eca74617902738841352-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/55fbe876dc614fd6eb6970d2e915ccf3-6a164145610fc82c1517902738887445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/e6908479ac2edb9b3c3a4613dfc93665-6bf3ec174b794434db17902738856411-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ab429867850bbac0ed18582d6f013856-85fa07bdea8de34d9417902738871212-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -3950,6 +3935,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BZ400M",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BZ400M",
       "blingId": "BZ400M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -3996,12 +3982,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -4027,6 +4009,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BDFN400XG",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BDFN400XG",
       "blingId": "BDFN400XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4089,12 +4072,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-8596e41e8d08193a8417635641898587-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-c3d1f200261d68b15c17635641912892-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-0755cccfc882f4697817635641935033-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-8311beb27f6e3e24c917635641953292-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-b4aa82ed61f26f9dfb17635641971358-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7341f7d809db1662e34ccd4b6999868b-d38e677925609fe40d17635641988057-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -4120,6 +4099,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BDFNF400XG",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BDFNF400XG",
       "blingId": "BDFNF400XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4182,12 +4162,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 54,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-1e9eab131cf9f00bd317635642057342-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-71ee5e39844416d56c17635642073846-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-667dad9d0834cb812b17635642094231-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-e8776477bf5c13b1ff17635642115164-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-893a7ec624d88ff39117635642135352-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/99536f0a2e46d4850018ca597019ae16-6b4b3496ec0497925d17635642155689-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -4213,6 +4189,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BDFA400XG",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BDFA400XG",
       "blingId": "BDFA400XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4275,9 +4252,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2c18102d334325be19d4b1da23ca8769-22d2fbe960e5ba87de17901894004535-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d4e85e4869cbe00ec529f825af64bfbb-0b7b2ba3d265113c2f17901894035580-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2c18102d334325be19d4b1da23ca8769-b4b65b75ee3470829617901894061132-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -4307,6 +4285,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OLS500XG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OLS500XG",
       "blingId": "OLS500XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4369,9 +4348,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -4397,6 +4377,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OLS501XG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OLS501XG",
       "blingId": "OLS501XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4459,16 +4440,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 24,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -4492,6 +4467,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA505GG",
       "barcode": "789505000000",
+      "nuvemshopId": "BLING-CFA505GG",
       "blingId": "CFA505GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -4538,7 +4514,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebefb9ab90d6e38e77580204df736087-3c273211077af5d7d317901908374319-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -4570,6 +4549,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ACP10043",
       "barcode": "789100430000",
+      "nuvemshopId": "BLING-ACP10043",
       "blingId": "ACP10043",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -4680,10 +4660,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 39,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8d827dcf2c58c8ae7026203582181995-63469a180aae390e4b17901908234689-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfb2199536713c773f1f4c4db05a30b8-a20f1fdeded8c96eb417901908251661-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d0cf37f93b197eedb67b48bd00e47144-faf2e34d0884f2499e17901908266953-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/867b81c921c4e13a595401e081eba763-74c6fe73c70d121d9c17901908283975-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -4719,6 +4699,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "NB9060OW39",
       "barcode": "789906039000",
+      "nuvemshopId": "BLING-NB9060OW39",
       "blingId": "NB9060OW39",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -4829,10 +4810,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 37,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8d827dcf2c58c8ae7026203582181995-63469a180aae390e4b17901908234689-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfb2199536713c773f1f4c4db05a30b8-a20f1fdeded8c96eb417901908251661-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d0cf37f93b197eedb67b48bd00e47144-faf2e34d0884f2499e17901908266953-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/867b81c921c4e13a595401e081eba763-74c6fe73c70d121d9c17901908283975-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -4868,6 +4849,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "NB9060BW42",
       "barcode": "789906042000",
+      "nuvemshopId": "BLING-NB9060BW42",
       "blingId": "NB9060BW42",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -4978,9 +4960,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/343edefbc2b3208f8f3726af6e795ba7-58748c4761eb574c8b17901907956124-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f5ca3fa06d5a0d2ec27d6d892b9116ac-cd34eae322658d28d317901907970573-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/107caa26168ce563150231ab5a4cbddc-f15e6b84782b09cc3717901907985050-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5012,6 +4995,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "NBB10041",
       "barcode": "789100410000",
+      "nuvemshopId": "BLING-NBB10041",
       "blingId": "NBB10041",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5122,16 +5106,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-76bfc2f6f270cdf3de17635642193977-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-dc3fa38905ae6b251517635642212172-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-716e711596df3dfd1817635642227102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-293eb6ca52a0208f9917635642242568-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-492b18094c470ef48817635642262396-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-886f2778ac72ece18b17635642278945-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-d9bcef781d633df4a817635642298985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-a190cb34fddda7604a17635642314996-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-072590ecf8401cb88517635642332733-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-c5c21898a4aa0ca29317635642347901-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5167,6 +5145,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THBE10038",
       "barcode": "789100380000",
+      "nuvemshopId": "BLING-THBE10038",
       "blingId": "THBE10038",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5277,16 +5256,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 60,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-76bfc2f6f270cdf3de17635642193977-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-dc3fa38905ae6b251517635642212172-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-716e711596df3dfd1817635642227102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-293eb6ca52a0208f9917635642242568-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-492b18094c470ef48817635642262396-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-886f2778ac72ece18b17635642278945-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-d9bcef781d633df4a817635642298985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-a190cb34fddda7604a17635642314996-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-072590ecf8401cb88517635642332733-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-c5c21898a4aa0ca29317635642347901-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5318,6 +5291,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THPB10034",
       "barcode": "789100340000",
+      "nuvemshopId": "BLING-THPB10034",
       "blingId": "THPB10034",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5428,16 +5402,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 19,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-76bfc2f6f270cdf3de17635642193977-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-dc3fa38905ae6b251517635642212172-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-716e711596df3dfd1817635642227102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-293eb6ca52a0208f9917635642242568-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-492b18094c470ef48817635642262396-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-886f2778ac72ece18b17635642278945-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-d9bcef781d633df4a817635642298985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-a190cb34fddda7604a17635642314996-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-072590ecf8401cb88517635642332733-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-c5c21898a4aa0ca29317635642347901-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5469,6 +5437,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THC44",
       "barcode": "789440000000",
+      "nuvemshopId": "BLING-THC44",
       "blingId": "THC44",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5579,16 +5548,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-76bfc2f6f270cdf3de17635642193977-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-dc3fa38905ae6b251517635642212172-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-716e711596df3dfd1817635642227102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-293eb6ca52a0208f9917635642242568-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-492b18094c470ef48817635642262396-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-886f2778ac72ece18b17635642278945-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-d9bcef781d633df4a817635642298985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-a190cb34fddda7604a17635642314996-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-072590ecf8401cb88517635642332733-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-c5c21898a4aa0ca29317635642347901-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5620,6 +5583,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THS44",
       "barcode": "789440000000",
+      "nuvemshopId": "BLING-THS44",
       "blingId": "THS44",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5730,16 +5694,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-cc15bdf90b73e4ef1d17635642469102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-0ae1877f55641c534e17635642485665-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-8e0f1e928acf8b9faa17635642503752-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-ff285937660031792e17635642521527-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-e018435cdafbfb546217635642539492-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-bf7bd36c6aa43db35e17635642558488-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-78a4f6dd773be5289017635642577211-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-66bcbc12bfc3ba164117635642596055-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-3587a9462138990d9517635642614572-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5ebe1c224698c9d7bb28d5b05a5ddc0e-6045b62f4bba1d9d9617635642633199-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5771,6 +5729,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THP10044",
       "barcode": "789100440000",
+      "nuvemshopId": "BLING-THP10044",
       "blingId": "THP10044",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -5881,28 +5840,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 29,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-c857fcdabde63bd0b317635642616457-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-44e0a293b46214c96e17635642631740-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce216560bf8ff8145617635642648402-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-7f78596a54850d41c817635642662807-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-16df6aa88858f6bbb317635642681983-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-79e2b0cee941cf374e17635642697445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce18a18dae1552791b17635642716481-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-04903e8b4cd3ac57cd17635642730931-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-9fc5e0bcbb95aabb3217635642750263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c71c4a05323552aa8a17635642766474-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-5396533958b997527c17635642785019-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c0694150c855dd5ef817635642800407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-fac3eee35ef25b47ab17635642820347-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-2f256415ca788bfe1c17635642836901-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-78c4b8de337e3b419c17635642855382-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-18c537d109f53139b317635642872276-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-982789d6486d3b390117635642891236-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-882f14d13dcabeea8917635642905907-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-7b28eb66e5b3b7f7ce17635642922932-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-9870edaa968a8adaa717635642936265-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-1a6ab7a1635af09f8a17635642955968-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-54d9602cf39b7fd77417635642970695-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -5934,6 +5875,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THPR10044",
       "barcode": "789100440000",
+      "nuvemshopId": "BLING-THPR10044",
       "blingId": "THPR10044",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -6044,7 +5986,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 26,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a9cf932b7ab0e631086a057e15edf134-65f8fa94fbe7d3646d17901910444979-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -6072,6 +6016,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHBP10034",
       "barcode": "789100340000",
+      "nuvemshopId": "BLING-CHBP10034",
       "blingId": "CHBP10034",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -6150,16 +6095,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/product_hoodie_oversized_1793275501387.jpg",
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -6184,6 +6122,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "JDC501",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-JDC501",
       "blingId": "JDC501",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -6214,16 +6153,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 40,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/product_hoodie_oversized_1793275501387.jpg",
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -6248,6 +6180,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "JDC500",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-JDC500",
       "blingId": "JDC500",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -6278,8 +6211,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 28,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6301,6 +6234,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBNJP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBNJP100",
       "blingId": "SBNJP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6331,8 +6265,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 45,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6354,6 +6288,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBAT100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBAT100",
       "blingId": "SBAT100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6392,8 +6327,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 50,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6415,6 +6350,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBNP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBNP100",
       "blingId": "SBNP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6445,8 +6381,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 42,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6468,6 +6404,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBN100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBN100",
       "blingId": "SBN100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6498,8 +6435,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 29,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6525,6 +6462,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCFV100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCVPCFV100",
       "blingId": "RCVPCFV100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6555,8 +6493,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 42,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6582,6 +6520,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCFB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCVPCFB100",
       "blingId": "RCVPCFB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6612,8 +6551,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 23,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6639,6 +6578,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCFAB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCVPCFAB100",
       "blingId": "RCVPCFAB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6669,8 +6609,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 13,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6696,6 +6636,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RRPFP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RRPFP100",
       "blingId": "RRPFP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6726,8 +6667,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 52,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6753,6 +6694,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RPPPCD100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RPPPCD100",
       "blingId": "RPPPCD100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6783,8 +6725,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 20,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -6810,6 +6752,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RPPPFB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RPPPFB100",
       "blingId": "RPPPFB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6840,9 +6783,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -6870,6 +6813,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNENY10058.7",
       "barcode": "789100587000",
+      "nuvemshopId": "BLING-BNENY10058.7",
       "blingId": "BNENY10058.7",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6916,8 +6860,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b64ea7f9d06b7bc545f0b40e53da38f3-5bbf85150fcdbffae617859526326614-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8a422bffcaf1e75fbc6e1697e89029ca-bd27ba8fa9e33e061917859526358120-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -6945,6 +6890,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNENY10255.8",
       "barcode": "789102558000",
+      "nuvemshopId": "BLING-BNENY10255.8",
       "blingId": "BNENY10255.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -6991,9 +6937,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 51,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6bda23ec1b1dba2b24323fa313b654df-44b5ce9e410f4eebdb17859526247647-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/eb542b97344fefb4c423641641717e09-ee133cfd8ec8174f7d17859526279777-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/39e641f578071ed0f5e9206fb7072644-8274bfeb1d102628df17859526307900-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7017,6 +6963,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNELA10255.8",
       "barcode": "789102558000",
+      "nuvemshopId": "BLING-BNELA10255.8",
       "blingId": "BNELA10255.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7063,10 +7010,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d9ca1f695debab6618b7655485239f27-4e4f9548bc1221f8aa17859526136168-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1ce56f82669a71433b68655b93a32815-4d8a6690c397ceba7717859526158998-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8436c22390fab733c2b8f3edf85a60f2-dfa8358ddf2673ae4417859526183085-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fac7c11fe9e87b717643058f90805028-adec5b1791be5ff7b917859526206395-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7090,6 +7036,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNEC10155.8",
       "barcode": "789101558000",
+      "nuvemshopId": "BLING-BNEC10155.8",
       "blingId": "BNEC10155.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7136,10 +7083,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 21,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97951e62c89a85b14e3ad88616246391-d1af96dc25f64e10b617859525997293-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/bcf04df8af8838c78df93b607811a919-2230dab070d936d4cb17859526053936-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fb7e57450f2ce3dc90a7489ed3cf6b26-d7b0f8e5e015acc39317859526024705-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/02e771d6230d798181704ee18f9bca6c-7faa20ad3d317f424c17859526081597-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7167,6 +7113,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNAS10055.8",
       "barcode": "789100558000",
+      "nuvemshopId": "BLING-BNAS10055.8",
       "blingId": "BNAS10055.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7213,9 +7160,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 36,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f0e717d10669c7ed6ff09011b368c07-520b7c8191c08a878717859525849342-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4779531033cd6e7264a90b67cb54b43f-0a21f3d0d5ffb9635e17859525877462-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/bead6e4700fb78cd1c5b490c4b23cc61-f8bdab3e0ccc8e4d3217859525904548-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7239,6 +7186,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNEC10058.7",
       "barcode": "789100587000",
+      "nuvemshopId": "BLING-BNEC10058.7",
       "blingId": "BNEC10058.7",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7285,9 +7233,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 39,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff15c2fd001dd2988bc1e5c9311d0113-66c9b069bb2072185417859525732068-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d138888e4d010ca98b4576d0ad696f5b-f764fa7a07adff428117859525759686-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d0561323de4f88ee6ad42ca9f14d70fb-f47b48d2b6ffa3fc9817859525788995-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7311,6 +7259,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNENY10356.8",
       "barcode": "789103568000",
+      "nuvemshopId": "BLING-BNENY10356.8",
       "blingId": "BNENY10356.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7357,10 +7306,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/926ed6dc15c9ecaacaefbd7fafe8f983-11d2ad375dfa46fc3117859525619714-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1bc646dac8b29fbe571a4b5cf3e8566f-9672942985ebffc79117859525649654-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/53670752e22f1170f6489d016e8d737b-6b08ab7a367ba84ff717859525679419-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/48cbd5a59cc7dd8ee2724d8626d6514a-0dee45ee19df0a6c0617859525909805-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7384,6 +7332,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNELA10155.8",
       "barcode": "789101558000",
+      "nuvemshopId": "BLING-BNELA10155.8",
       "blingId": "BNELA10155.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7430,9 +7379,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/db76fdfd201d6ec4ddb3daa83d55c8f4-76e4c071508375142b17859540315001-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/545e8bd226a6f7df2883ef6f1e41dbed-c03391c939ddcf9b8617859540342778-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c1957d3aa13acef92fb1a0803ab18077-bb26478c8881887e2017859540373069-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "55.8 CM",
@@ -7456,6 +7405,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNELA10055.8",
       "barcode": "789100558000",
+      "nuvemshopId": "BLING-BNELA10055.8",
       "blingId": "BNELA10055.8",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -7502,16 +7452,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/product_hoodie_oversized_1793275501387.jpg",
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7537,6 +7480,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MC3C700P",
       "barcode": "789370000000",
+      "nuvemshopId": "BLING-MC3C700P",
       "blingId": "MC3C700P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -7599,16 +7543,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/product_hoodie_oversized_1793275501387.jpg",
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7634,6 +7571,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MC27C700M",
       "barcode": "789277000000",
+      "nuvemshopId": "BLING-MC27C700M",
       "blingId": "MC27C700M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -7696,16 +7634,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7735,6 +7667,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSBR500XG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OTSBR500XG",
       "blingId": "OTSBR500XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -7797,16 +7730,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7830,6 +7757,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSM500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OTSM500P",
       "blingId": "OTSM500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -7876,16 +7804,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7910,6 +7832,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TITSR100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-TITSR100",
       "blingId": "TITSR100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -7940,16 +7863,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 19,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/product_hoodie_oversized_1793275501387.jpg",
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -7974,6 +7890,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MSW500M",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-MSW500M",
       "blingId": "MSW500M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -8028,16 +7945,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 27,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -8062,6 +7973,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SI500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-SI500GG",
       "blingId": "SI500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -8092,16 +8004,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -8126,6 +8032,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SI500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-SI500P",
       "blingId": "SI500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -8156,16 +8063,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 12,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -8190,6 +8091,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SI500M",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-SI500M",
       "blingId": "SI500M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -8220,16 +8122,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -8254,6 +8150,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SI500G",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-SI500G",
       "blingId": "SI500G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -8284,11 +8181,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 33,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-df83683e211a8179a217642587435395-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-f2a70520782e80ea7817642587451266-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-ca7c7856949ad3137e17642587472124-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-34395167e182d44daf17642587490609-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-6b088fac3ef027625817642587508971-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8310,6 +8204,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CLVB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CLVB100",
       "blingId": "CLVB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8340,7 +8235,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8b01ec0acbbab5b3daf23f4688fdbaac-67055ed3b27300585317642556892036-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8362,6 +8258,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OPA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OPA100",
       "blingId": "OPA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8392,8 +8289,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 53,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8415,6 +8312,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ODCD100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ODCD100",
       "blingId": "ODCD100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8445,8 +8343,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8468,6 +8366,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OPB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OPB100",
       "blingId": "OPB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8498,8 +8397,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8525,6 +8424,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OJAPLRO100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OJAPLRO100",
       "blingId": "OJAPLRO100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8555,8 +8455,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 44,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -8582,6 +8482,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OJAPLA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OJAPLA100",
       "blingId": "OJAPLA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -8612,50 +8513,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-2e71d335f49b79264317810275265923-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-d3f98de9a19609aab717810275294088-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-41f35e0564589a14ce17810275320328-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-7cfe9360c2e3c0bc1a17810275348476-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-8a2c1e59d088fd144817810275373931-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-d16a0e361a58b89cbd17810275401657-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-e406254e19f1ba25bc17810275431369-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-fd8c2ce59760babb2e17810276349111-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-566e2677e312532ee417810276372672-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-145f45cd3bdff380d317810276404311-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-b27303caec1f553be917810276435462-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-f807fa7b40eccf1dea17810276460292-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-ba77b4e734be44024117810276487917-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-af5001dbfca24124c717810276513246-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-63f69a49448124737017810276540287-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-9a8e030621acbbd9ea17810276566183-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-01c25234dd8e8d2d6517810276593643-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-e35fe9908cb30bde6117810276620687-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-42425bdff04a49de8d17810276645203-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-3fa2d5cc701b3d1d9417810276671816-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-9d10a4a01e8dbc99c517810276699300-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-5ff9dcd9adb71e774d17810276724318-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-ac025b36b46eea1fa417810276753047-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-7deff10299f6a7e8f117810276779633-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-a3bba36158c723322a17810276810228-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-09766adffd000dff4117810276833901-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-b456e2a3836e38af7217810276860246-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-7663a007ffe9a7191417810276885644-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-138ee8e237ce87a70317810276912821-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-78dc4523d64b0ebda517810276937157-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-11d00d50845693a33f17810276969204-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-8349120d8a2b04741d17810276996223-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-429a7777a248d2a10717810277023329-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-4e53833b2a49a9743f17810277052313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-99323bf8112cfbfee717810277079634-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-852e4aca1e3885fdcb17810277107113-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-8a09174b5086eda41217810277131761-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d5d8bcd3ebbe715efa19e282043e720c-aa7c912eedbcd6bc6117810277157410-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/77fa6ebbe1b8f42e607132ab1da8a4ce-1db943ae658734cbe917810277183576-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/dfe71a129175b10cd8369a4817b95b3e-c12f0ea2ba6d5c12cc17810277209960-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e6c29582e151d8df9b2372d37b291b3-c11ecbaa1bbcad584917810277238091-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9a3e169084802c5a26c971d18a55bcd7-bddbced185363b8b2917810277266689-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/05afab9411cce0ff587a8bd903146e89-9129ac46b6742c013217810277303321-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4e1f079c0c98450b3050c46504b51afe-4765cb70d158b6b7ae17810277328328-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -8694,6 +8555,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TQXCB45",
       "barcode": "789450000000",
+      "nuvemshopId": "BLING-TQXCB45",
       "blingId": "TQXCB45",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -8796,9 +8658,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/bdb5e2e5d737a8a948484f7d47724ac3-72a83ca1e26bc37b2d17767187133691-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/0b0dbd3ec65bb11050e609347d585598-e9faf1e143ffdabd5617767187164759-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7b1e6bae7a271cbe617a509aa338d1e8-f9db228ef8ffc6f40417767187196414-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -8833,6 +8696,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TQCSPV45",
       "barcode": "789450000000",
+      "nuvemshopId": "BLING-TQCSPV45",
       "blingId": "TQCSPV45",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -8935,16 +8799,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 21,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -8969,6 +8827,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OCBC504P",
       "barcode": "789504000000",
+      "nuvemshopId": "BLING-OCBC504P",
       "blingId": "OCBC504P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9023,16 +8882,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9062,6 +8915,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSBP500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OTSBP500P",
       "blingId": "OTSBP500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9124,16 +8978,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9163,6 +9011,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTSR504XG",
       "barcode": "789504000000",
+      "nuvemshopId": "BLING-OTSR504XG",
       "blingId": "OTSR504XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9225,16 +9074,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -9261,6 +9102,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTSBC40038",
       "barcode": "789400380000",
+      "nuvemshopId": "BLING-CTSBC40038",
       "blingId": "CTSBC40038",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -9331,16 +9173,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9366,6 +9200,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTBE400G",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-CTBE400G",
       "blingId": "CTBE400G",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -9428,16 +9263,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -9465,6 +9293,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPI40136",
       "barcode": "789401360000",
+      "nuvemshopId": "BLING-CPI40136",
       "blingId": "CPI40136",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9543,9 +9372,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 38,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9570,6 +9400,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL505P",
       "barcode": "789505000000",
+      "nuvemshopId": "BLING-OL505P",
       "blingId": "OL505P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9624,9 +9455,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9651,6 +9483,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL504P",
       "barcode": "789504000000",
+      "nuvemshopId": "BLING-OL504P",
       "blingId": "OL504P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9705,9 +9538,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9732,6 +9566,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL503G",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-OL503G",
       "blingId": "OL503G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9786,9 +9621,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -9813,6 +9649,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OL500P",
       "blingId": "OL500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9867,14 +9704,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-20b537c323f2dfb46917811879064407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-500a03383e09b801ff17811879080066-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-f286ce2cc3f18faee817811879095871-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-c2c58c1562cf3cfb8817811879112026-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-1ac3e31bf4b5d9985b17811879130675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-eccfc72133df6b589617811879145652-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-433f65c6380ccc4a9317811879162278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-2e08bf49c0d97be7a117811879181760-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "14",
@@ -9897,6 +9729,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOI401G",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-CCOI401G",
       "blingId": "CCOI401G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -9935,14 +9768,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 45,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-20b537c323f2dfb46917811879064407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-500a03383e09b801ff17811879080066-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-f286ce2cc3f18faee817811879095871-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-c2c58c1562cf3cfb8817811879112026-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-1ac3e31bf4b5d9985b17811879130675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-eccfc72133df6b589617811879145652-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-433f65c6380ccc4a9317811879162278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-2e08bf49c0d97be7a117811879181760-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "12",
@@ -9970,6 +9798,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOI401P",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-CCOI401P",
       "blingId": "CCOI401P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -10024,9 +9853,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/19c805a93d360d8bb410a1bfb6b48628-c259b927fcd667e04c17811869962245-1024-1024.png",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f9610b933103416a13605485b1438d5f-547af101ab91b0830c17811870000414-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/374dbf1d60b34264e9231e4b6c374ed1-252f55c51d7fc42cfa17811870017260-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -10053,6 +9881,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "COBAC40042",
       "barcode": "789400420000",
+      "nuvemshopId": "BLING-COBAC40042",
       "blingId": "COBAC40042",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -10123,7 +9952,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9e31c94e58d4ce563a157c1bf95ed4b3-ac0563fe48925736cd17901910329826-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -10150,6 +9981,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHSI10046",
       "barcode": "789100460000",
+      "nuvemshopId": "BLING-CHSI10046",
       "blingId": "CHSI10046",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10220,7 +10052,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 14,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/0ff7cc8653aa4c8c29c4ddebcff7435a-6c5c22de2eea991fd317901910253645-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "34",
@@ -10248,6 +10082,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHB10046",
       "barcode": "789100460000",
+      "nuvemshopId": "BLING-CHB10046",
       "blingId": "CHB10046",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10326,9 +10161,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9dc3f6af162b95223e67b78b1c91ebeb-8345ca74e44dc2d14417901907904804-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6e0b4edf1516c577497f3dda86b0efe5-1942c0900d52a5dd6317901907925647-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/4f65dd5a61fe38389a7d7171d7b343d0-35102c522916696aec17901907880721-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -10355,6 +10190,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHCB60036",
       "barcode": "789600360000",
+      "nuvemshopId": "BLING-CHCB60036",
       "blingId": "CHCB60036",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10425,9 +10261,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/343584bb9daa7c3309d1a0511119e657-4e1ee3516e66adfe3817901910030026-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3e40b213557b477718a8c774b49b907a-cb7d1a5693075149a317901910051376-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc28fa20a1e7854a8e83e951b3a9ea1-64a4034b6a1034197c17901910071141-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -10454,6 +10290,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHSW60042",
       "barcode": "789600420000",
+      "nuvemshopId": "BLING-CHSW60042",
       "blingId": "CHSW60042",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10524,9 +10361,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 17,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/464d86a8e05236b971d443eee9329861-ac32a7f7aef887bdc017901909890112-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d1a51361b54fbe8b368a40c55b3bf1ef-7cb18079a59f651adf17901909912224-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ae5978912698b2a0542109ff2b25435d-4953ee4f93743d7da317901909935894-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -10553,6 +10390,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHC60036",
       "barcode": "789600360000",
+      "nuvemshopId": "BLING-CHC60036",
       "blingId": "CHC60036",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10623,9 +10461,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2a4feb138a7bfde40e81863a4e104c9a-6320fe487d67ecdb8417901909733725-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1cbf0761380f879255bc1518be35abc5-c316bfa01e73027e9c17901909754770-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c2cd0b792da893759e8d25a8bd5b1d1e-4b7a86fbeab383d0e517901909777572-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -10652,6 +10490,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHAM60046",
       "barcode": "789600460000",
+      "nuvemshopId": "BLING-CHAM60046",
       "blingId": "CHAM60046",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -10722,16 +10561,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 57,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -10756,6 +10589,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TITS300",
       "barcode": "789300000000",
+      "nuvemshopId": "BLING-TITS300",
       "blingId": "TITS300",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -10786,9 +10620,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -10810,6 +10644,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTSR500",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-BTSR500",
       "blingId": "BTSR500",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -10840,9 +10675,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 36,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -10864,6 +10699,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTSC500",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-BTSC500",
       "blingId": "BTSC500",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -10894,9 +10730,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 60,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -10918,6 +10754,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTSFL500",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-BTSFL500",
       "blingId": "BTSFL500",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -10948,9 +10785,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 58,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -10972,6 +10809,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTSA500",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-BTSA500",
       "blingId": "BTSA500",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -11002,16 +10840,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -11038,6 +10868,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTPB10138",
       "barcode": "789101380000",
+      "nuvemshopId": "BLING-CTPB10138",
       "blingId": "CTPB10138",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -11108,16 +10939,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -11152,6 +10975,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTPB10038",
       "barcode": "789100380000",
+      "nuvemshopId": "BLING-CTPB10038",
       "blingId": "CTPB10038",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -11222,16 +11046,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 39,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -11256,6 +11074,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OBTSB500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OBTSB500P",
       "blingId": "OBTSB500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -11310,16 +11129,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -11349,6 +11162,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OBTS502XG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OBTS502XG",
       "blingId": "OBTS502XG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -11411,16 +11225,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 50,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -11445,6 +11253,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OBTS501P",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OBTS501P",
       "blingId": "OBTS501P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -11499,16 +11308,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 14,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -11533,6 +11336,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OBTS500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OBTS500P",
       "blingId": "OBTS500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -11587,7 +11391,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8b01ec0acbbab5b3daf23f4688fdbaac-67055ed3b27300585317642556892036-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -11609,6 +11414,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ODC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ODC100",
       "blingId": "ODC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -11639,9 +11445,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 57,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/68b7d5ee6b1ccef5360fbf611c277e17-cb981a744739869efb17810164267768-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ad4b03cbedd8398f362f017634910c6a-c2462a92df3b6df02217810164301126-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/aec93d1722c365997a89f81f8db8077f-c32627274ddc4b1a5217810164333240-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -11673,6 +11480,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TQCBA36",
       "barcode": "789360000000",
+      "nuvemshopId": "BLING-TQCBA36",
       "blingId": "TQCBA36",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -11751,9 +11559,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d070f36313ebc4d50245e91b8bd68eba-0a0a7549aee7e526e617810164093886-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c6b8d35619d82ce7145ec38a4b31edd8-5307b41fe6b1db2d6e17810164124257-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d4981e7ed79ad1b42bea9e1723d69d23-836077003185fb821f17810164157509-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -11785,6 +11594,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TQCBP42",
       "barcode": "789420000000",
+      "nuvemshopId": "BLING-TQCBP42",
       "blingId": "TQCBP42",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -11863,30 +11673,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 14,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-37194e315ef435eb6b17810274799206-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-ec398dfd4402988c1b17810274830222-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-94406f1a00f966bff217810274863151-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-8e4a2431ce2465453917810274893068-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-193cb09bc4dfece48217810274925158-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-110955e668aa65f63817810274956131-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-a1819c24713b37856017810274988570-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-18ce26dc572fe13a9917810275020215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-1464d8fcc1a4f2344b17810275048985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-eba9d85992556e3e7b17810275087168-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-48a18caf9f4ee4e11c17810275119909-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-6d4b3e1c83874ce4e617810275151125-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-c8f82da9e4c3eb68a017810275185102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-607d7295378b8e146e17810275217087-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-66e77585f2ee78d4d517810275249465-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-e9017117679b65aee517810275281389-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-5548413a95d497949c17810275310468-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-a9b950e0670a8e83ad17810275343944-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-652cf62fe65571df7817810275373843-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-04c8060b4ccff944b417810275404435-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-a76a5d0f78fe7f252d17810275435421-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f183d7b473e0712930cd4dbb5cde5870-87ce8482f659ac6d0117810275471023-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f81c2caab15f0e6c1cc3e3623ad00d95-b0377cd97b4fb8035317810275504314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1392afac05bc6bbb29c823552fa8d090-6719de46133729743a17810275535676-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -11918,6 +11708,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TQCBC38",
       "barcode": "789380000000",
+      "nuvemshopId": "BLING-TQCBC38",
       "blingId": "TQCBC38",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -11996,8 +11787,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -12019,6 +11810,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OPP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OPP100",
       "blingId": "OPP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -12049,16 +11841,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12083,6 +11869,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BNBAM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-BNBAM100",
       "blingId": "BNBAM100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12113,9 +11900,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 13,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -12137,6 +11924,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BAC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-BAC100",
       "blingId": "BAC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -12167,16 +11955,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12201,6 +11983,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CDF502G",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CDF502G",
       "blingId": "CDF502G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12255,16 +12038,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 13,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12289,6 +12066,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CDF501P",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CDF501P",
       "blingId": "CDF501P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12343,16 +12121,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12377,6 +12149,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CDF500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CDF500P",
       "blingId": "CDF500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12431,12 +12204,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12461,6 +12230,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BDTC401P",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-BDTC401P",
       "blingId": "BDTC401P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12515,7 +12285,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 17,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fd6a4414ac1ae8a3e976ebc637cc961e-2873502d46fd0d099817637413920516-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12540,6 +12311,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCAL401P",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-BCAL401P",
       "blingId": "BCAL401P",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -12594,9 +12366,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12621,6 +12394,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC507P",
       "barcode": "789507000000",
+      "nuvemshopId": "BLING-GPMC507P",
       "blingId": "GPMC507P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12675,9 +12449,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12702,6 +12477,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC506P",
       "barcode": "789506000000",
+      "nuvemshopId": "BLING-GPMC506P",
       "blingId": "GPMC506P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12756,9 +12532,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12783,6 +12560,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OZL505M",
       "barcode": "789505000000",
+      "nuvemshopId": "BLING-OZL505M",
       "blingId": "OZL505M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12837,9 +12615,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12868,6 +12647,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OZL500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-OZL500P",
       "blingId": "OZL500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -12922,7 +12702,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 25,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fd6a4414ac1ae8a3e976ebc637cc961e-2873502d46fd0d099817637413920516-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -12947,6 +12728,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCK600P",
       "barcode": "789600000000",
+      "nuvemshopId": "BLING-RCK600P",
       "blingId": "RCK600P",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13001,8 +12783,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/621f500a1780d1c17b01b5580099ebee-70993f821293115cb317642578047881-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8e9c41b0572bece27f71eb37780ecb5b-9c6fe2f0e995c67f0717642578063364-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -13027,6 +12811,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "O502P",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-O502P",
       "blingId": "O502P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -13081,16 +12866,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -13115,6 +12894,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCGA500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-BCGA500P",
       "blingId": "BCGA500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -13169,16 +12949,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-5972b7df6a6f45a52d17642587512967-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-598267697feadadf8817642587528583-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-10e18b39652482e4a317642587547868-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-402244abc4eee0774317642587563854-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-f8bc84296eff9a4bd017642587583989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-de939b51bf8d6e633d17642587599200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-16c73b597edc19524317642587617278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-a0b3a193c011a5e98217642587632353-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-63fc2fa66cc98953e017642587650200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-0867bd85b2cad155ef17642587666083-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13200,6 +12972,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTLVM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CTLVM100",
       "blingId": "CTLVM100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13230,16 +13003,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 40,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-5972b7df6a6f45a52d17642587512967-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-598267697feadadf8817642587528583-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-10e18b39652482e4a317642587547868-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-402244abc4eee0774317642587563854-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-f8bc84296eff9a4bd017642587583989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-de939b51bf8d6e633d17642587599200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-16c73b597edc19524317642587617278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-a0b3a193c011a5e98217642587632353-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-63fc2fa66cc98953e017642587650200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-0867bd85b2cad155ef17642587666083-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13261,6 +13026,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTLVP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CTLVP100",
       "blingId": "CTLVP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13291,8 +13057,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a3be6f02ec6880c0eef79291ef18dec5-a5cf0c07d7f65f99fc17642578122222-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a98435496d90c21753506043cbd1b9aa-5834bcf16db81e074a17642578136795-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -13317,6 +13085,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RMK500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-RMK500P",
       "blingId": "RMK500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -13371,9 +13140,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13395,6 +13164,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCFFAC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-BCFFAC100",
       "blingId": "BCFFAC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13425,9 +13195,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 30,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13449,6 +13219,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCFPP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-BCFPP100",
       "blingId": "BCFPP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13479,9 +13250,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 45,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13503,6 +13274,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCFPS100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-BCFPS100",
       "blingId": "BCFPS100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13533,10 +13305,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7e5044b0aec461a603648299236eb3a1-ba06199ebef845297c17810385977984-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/40da32f77c9e613bc288dd7d1e13c8cf-c8c0ba5cd63047d51c17810385992788-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f8db8c137aa1c587c83d7c325b5a85b8-da613e7c527ef3f37e17810386004563-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9b8ec4beac9a91cf1024d344266b7650-6f86c16e06f9427f4017810386018309-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -13563,6 +13333,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "COAE40038",
       "barcode": "789400380000",
+      "nuvemshopId": "BLING-COAE40038",
       "blingId": "COAE40038",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13633,16 +13404,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 20,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -13668,6 +13433,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTSBS500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CTSBS500P",
       "blingId": "CTSBS500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -13730,16 +13496,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -13766,6 +13524,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCTS40038",
       "barcode": "789400380000",
+      "nuvemshopId": "BLING-BCTS40038",
       "blingId": "BCTS40038",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -13836,9 +13595,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/343edefbc2b3208f8f3726af6e795ba7-58748c4761eb574c8b17901907956124-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f5ca3fa06d5a0d2ec27d6d892b9116ac-cd34eae322658d28d317901907970573-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/107caa26168ce563150231ab5a4cbddc-f15e6b84782b09cc3717901907985050-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13860,6 +13618,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNBB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNBB100",
       "blingId": "MNBB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13890,7 +13649,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 52,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13912,6 +13672,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MVP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MVP100",
       "blingId": "MVP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13942,7 +13703,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 12,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebefb9ab90d6e38e77580204df736087-3c273211077af5d7d317901908374319-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -13964,6 +13726,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MAP101",
       "barcode": "789101000000",
+      "nuvemshopId": "BLING-MAP101",
       "blingId": "MAP101",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -13994,7 +13757,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebefb9ab90d6e38e77580204df736087-3c273211077af5d7d317901908374319-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14016,6 +13780,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MAB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MAB100",
       "blingId": "MAB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14046,8 +13811,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 56,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a2cead61a993e72ef0f4412dd5af20b3-4e65b87f8fb841185417902796095757-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/976efb54330c240b2ae080d4e598ac56-1e85aac1ee8e1245fe17902796107583-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14069,6 +13834,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNFB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNFB100",
       "blingId": "MNFB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14099,7 +13865,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 13,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14121,6 +13888,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MNFP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MNFP100",
       "blingId": "MNFP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14151,16 +13919,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -14185,6 +13947,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TN100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-TN100",
       "blingId": "TN100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -14215,8 +13978,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14242,6 +14005,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ODPCBB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ODPCBB100",
       "blingId": "ODPCBB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14272,8 +14036,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 28,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14295,6 +14059,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ODVP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ODVP100",
       "blingId": "ODVP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14325,8 +14090,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 54,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14348,6 +14113,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ODCP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ODCP100",
       "blingId": "ODCP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14378,8 +14144,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 43,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14401,6 +14167,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CAP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CAP100",
       "blingId": "CAP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14431,8 +14198,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 56,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14454,6 +14221,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CGP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CGP100",
       "blingId": "CGP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14484,8 +14252,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14511,6 +14279,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CGACO100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CGACO100",
       "blingId": "CGACO100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14541,8 +14310,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 45,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14568,6 +14337,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CGMCO100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CGMCO100",
       "blingId": "CGMCO100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14598,8 +14368,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 45,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14621,6 +14391,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RPPPFC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RPPPFC100",
       "blingId": "RPPPFC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14651,8 +14422,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 27,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14678,6 +14449,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RPPPFP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RPPPFP100",
       "blingId": "RPPPFP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14708,8 +14480,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 43,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14735,6 +14507,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RRPFV100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RRPFV100",
       "blingId": "RRPFV100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14773,8 +14546,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 35,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14800,6 +14573,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RRPFA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RRPFA100",
       "blingId": "RRPFA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14830,8 +14604,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 29,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14861,6 +14635,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RRPGFB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RRPGFB100",
       "blingId": "RRPGFB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14891,8 +14666,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 56,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14918,6 +14693,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RRGFG100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RRGFG100",
       "blingId": "RRGFG100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -14948,8 +14724,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 49,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -14975,6 +14751,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCFP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCVPCFP100",
       "blingId": "RCVPCFP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15005,8 +14782,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 39,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15032,6 +14809,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCA101",
       "barcode": "789101000000",
+      "nuvemshopId": "BLING-RCVPCA101",
       "blingId": "RCVPCA101",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15062,8 +14840,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 21,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15089,6 +14867,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCVPCA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCVPCA100",
       "blingId": "RCVPCA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15119,8 +14898,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 55,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15142,6 +14921,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCDPDB101",
       "barcode": "789101000000",
+      "nuvemshopId": "BLING-RCDPDB101",
       "blingId": "RCDPDB101",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15172,8 +14952,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 23,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15199,6 +14979,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCDPDW100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCDPDW100",
       "blingId": "RCDPDW100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15229,8 +15010,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 37,
     "images": [
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
-      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg"
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15256,6 +15037,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RCDPDB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-RCDPDB100",
       "blingId": "RCDPDB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15286,8 +15068,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 54,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15313,6 +15095,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OJAPLR100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OJAPLR100",
       "blingId": "OJAPLR100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15343,8 +15126,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15370,6 +15153,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORAPLA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ORAPLA100",
       "blingId": "ORAPLA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15400,8 +15184,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15423,6 +15207,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORAPLV100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ORAPLV100",
       "blingId": "ORAPLV100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15453,8 +15238,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15476,6 +15261,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORAPLR100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ORAPLR100",
       "blingId": "ORAPLR100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15506,8 +15292,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15529,6 +15315,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORAPLP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-ORAPLP100",
       "blingId": "ORAPLP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15559,16 +15346,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 16,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "XG"
@@ -15594,6 +15375,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTS510X2",
       "barcode": "789510200000",
+      "nuvemshopId": "BLING-OTS510X2",
       "blingId": "OTS510X2",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -15624,8 +15406,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 43,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15647,6 +15429,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CC100",
       "blingId": "CC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15677,8 +15460,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 41,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -15700,6 +15483,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBM100",
       "blingId": "SBM100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -15730,9 +15514,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 40,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -15757,6 +15542,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTGPTS502P",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CTGPTS502P",
       "blingId": "CTGPTS502P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -15811,9 +15597,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 53,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -15837,6 +15624,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTGPTS501M",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CTGPTS501M",
       "blingId": "CTGPTS501M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -15883,16 +15671,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -15917,6 +15699,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORTSUB501P",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-ORTSUB501P",
       "blingId": "ORTSUB501P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -15971,16 +15754,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 28,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16005,6 +15782,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "ORTSUB500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-ORTSUB500P",
       "blingId": "ORTSUB500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16059,12 +15837,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -16088,6 +15862,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BDFM400M",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BDFM400M",
       "blingId": "BDFM400M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16134,9 +15909,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 57,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -16159,6 +15935,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OZL504M",
       "barcode": "789504000000",
+      "nuvemshopId": "BLING-OZL504M",
       "blingId": "OZL504M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16197,9 +15974,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16224,6 +16002,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OZL503GG",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-OZL503GG",
       "blingId": "OZL503GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16278,9 +16057,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7f8f1a6a159beed53f27b2d756b2eeb7-218e6b7674510cc5b117902739010639-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/98b3bcbfb8c4f064ab350e4c5ea18902-ec1f120331bc12177417902738979499-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9fd35724ad6ed7cf794b7b1518096d17-10b0514d5e171f622717902738993449-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16305,6 +16085,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OZL502G",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OZL502G",
       "blingId": "OZL502G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16359,8 +16140,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 21,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -16382,6 +16163,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MC100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MC100",
       "blingId": "MC100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -16412,16 +16194,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16446,6 +16222,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OM501P",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OM501P",
       "blingId": "OM501P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16500,16 +16277,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16534,6 +16305,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA504P",
       "barcode": "789504000000",
+      "nuvemshopId": "BLING-CFA504P",
       "blingId": "CFA504P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16588,16 +16360,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16622,6 +16388,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA503P",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-CFA503P",
       "blingId": "CFA503P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16676,16 +16443,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 35,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16710,6 +16471,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA502GG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CFA502GG",
       "blingId": "CFA502GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16764,16 +16526,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 32,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16798,6 +16554,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA500M",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CFA500M",
       "blingId": "CFA500M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16852,16 +16609,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16886,6 +16637,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CFA501G",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CFA501G",
       "blingId": "CFA501G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -16940,9 +16692,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 16,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2697453be57b2e803a59bc122c72f2ba-9a30a6ce67c499e20317901894092675-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-30db20764ba8dc33cc17901894117375-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2f612fb840ce1d1dd697721aa9382e74-b75d0181f836edda7117901894142445-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -16967,6 +16720,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL502GG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-OL502GG",
       "blingId": "OL502GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17021,9 +16775,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 58,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2c18102d334325be19d4b1da23ca8769-22d2fbe960e5ba87de17901894004535-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d4e85e4869cbe00ec529f825af64bfbb-0b7b2ba3d265113c2f17901894035580-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2c18102d334325be19d4b1da23ca8769-b4b65b75ee3470829617901894061132-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17052,6 +16807,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OL501M",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-OL501M",
       "blingId": "OL501M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17106,7 +16862,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 39,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8b01ec0acbbab5b3daf23f4688fdbaac-67055ed3b27300585317642556892036-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -17128,6 +16885,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OSM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OSM100",
       "blingId": "OSM100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -17158,16 +16916,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 13,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17196,6 +16947,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "C4B0400GG",
       "barcode": "789404000000",
+      "nuvemshopId": "BLING-C4B0400GG",
       "blingId": "C4B0400GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17250,16 +17002,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 40,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17288,6 +17033,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOOW400P",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-CCOOW400P",
       "blingId": "CCOOW400P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17342,9 +17088,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 24,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17373,6 +17120,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTGPC501GG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CTGPC501GG",
       "blingId": "CTGPC501GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17427,16 +17175,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17461,6 +17203,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CF500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CF500GG",
       "blingId": "CF500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17515,8 +17258,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 24,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -17542,6 +17285,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OKJ100CP",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OKJ100CP",
       "blingId": "OKJ100CP",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -17572,7 +17316,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 45,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -17594,6 +17339,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MMM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MMM100",
       "blingId": "MMM100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -17624,12 +17370,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 38,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -17653,6 +17397,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "RDF500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-RDF500GG",
       "blingId": "RDF500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17699,9 +17444,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 12,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17730,6 +17476,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CTGPC502P",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CTGPC502P",
       "blingId": "CTGPC502P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17784,9 +17531,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 43,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17811,6 +17559,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC505P",
       "barcode": "789505000000",
+      "nuvemshopId": "BLING-GPMC505P",
       "blingId": "GPMC505P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17865,9 +17614,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17892,6 +17642,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC503G",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-GPMC503G",
       "blingId": "GPMC503G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -17946,9 +17697,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 51,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/whatsapp-image-2026-09-23-at-16-14-47-1-163eb73a20b551fa5417902800353340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/129e1b1426449b7de0fdf110e87231d1-31613bc68fd6effd7717902799110655-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebc8f8a870ca5bc18d360c00321e26db-067a6d8dd2c8c3701917902799124840-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -17973,6 +17725,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC502P",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-GPMC502P",
       "blingId": "GPMC502P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18027,9 +17780,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 43,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a6f0ed27e0878c6287de4e69d1467362-eb1655bd964fc51f7317902799185262-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/6f3429c7c366c490efb91a4e78c60791-ef29d47c510e3bdba917902799160235-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c89c6ded7d7aa83f909c362ad4c9476d-3195129a98b3351f1817902799172511-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18058,6 +17812,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "GPMC500P",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-GPMC500P",
       "blingId": "GPMC500P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18112,16 +17867,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18146,6 +17895,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTS506M",
       "barcode": "789506000000",
+      "nuvemshopId": "BLING-OTS506M",
       "blingId": "OTS506M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18200,16 +17950,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 13,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18234,6 +17977,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOC410P",
       "barcode": "789410000000",
+      "nuvemshopId": "BLING-CCOC410P",
       "blingId": "CCOC410P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18288,16 +18032,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 44,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P"
@@ -18323,6 +18060,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOV409P",
       "barcode": "789409000000",
+      "nuvemshopId": "BLING-CCOV409P",
       "blingId": "CCOV409P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18353,16 +18091,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 43,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -18386,6 +18117,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOV409M",
       "barcode": "789409000000",
+      "nuvemshopId": "BLING-CCOV409M",
       "blingId": "CCOV409M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18432,16 +18164,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 30,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18470,6 +18195,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCO403G",
       "barcode": "789403000000",
+      "nuvemshopId": "BLING-CCO403G",
       "blingId": "CCO403G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18524,16 +18250,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-0ab40a91947f1f066c17635642375091-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-95edd30e509a950bb517635642389965-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-582b8a71a86af5c05917635642404141-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-887186450a871f937517635642418077-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-a23023ef7d2aa7e17117635642436120-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-b82867189ed8828f1017635642451273-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-7fd352b9ddbab12a7a17635642469905-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-36b72b03d764637e8517635642484231-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-5d6612e749cd42aff617635642502624-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-4090ab7f68dc21a21d17635642517043-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18557,6 +18276,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCOM404GG",
       "barcode": "789404000000",
+      "nuvemshopId": "BLING-BCOM404GG",
       "blingId": "BCOM404GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18603,16 +18323,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-0ab40a91947f1f066c17635642375091-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-95edd30e509a950bb517635642389965-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-582b8a71a86af5c05917635642404141-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-887186450a871f937517635642418077-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-a23023ef7d2aa7e17117635642436120-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-b82867189ed8828f1017635642451273-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-7fd352b9ddbab12a7a17635642469905-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-36b72b03d764637e8517635642484231-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-5d6612e749cd42aff617635642502624-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-4090ab7f68dc21a21d17635642517043-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M"
@@ -18634,6 +18347,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCOM404M",
       "barcode": "789404000000",
+      "nuvemshopId": "BLING-BCOM404M",
       "blingId": "BCOM404M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18664,14 +18378,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 29,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-292c6234045e0310e317635641575585-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-957e10d9cf01eb549917635641590087-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-3f97baf7ef0ac24d3f17635641605989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-c47b46ed4aba00f0b517635641621424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-d902285d5382a071ac17635641641578-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-9a814d83caf4ca146d17635641655824-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-6d359cd5d603023c1317635641675340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-dcb789f1b2877c6d1a17635641690255-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -18700,6 +18409,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCGO400P",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BCGO400P",
       "blingId": "BCGO400P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -18754,8 +18464,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 24,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/850ccd27079de50fe1aa4a9e1ad08934-f7af9ef086bd460e2517642556985890-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/e48ff2b32b03519190b4aac08f8fb974-fc4677d2e30f12c2d417642557008069-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -18777,6 +18487,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO100TT",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO100TT",
       "blingId": "REVO100TT",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -18807,8 +18518,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3d690cdde87e8fc4318c91fe017e376d-bba935420ab4b6fd2117642556955342-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3a9ac46bd3897e6fe386de488148320e-89d7099fb90d83878617642556971770-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -18830,6 +18541,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO100BD",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO100BD",
       "blingId": "REVO100BD",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -18860,8 +18572,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/bd191960a4b6e6f5386f461bd8802069-69daa56cd693cd223a17642556925885-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c8e95c3a09ee58a10cba90087c495cda-55b37d972097aa84c117642556947617-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -18883,6 +18595,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO100PR",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO100PR",
       "blingId": "REVO100PR",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -18913,7 +18626,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 39,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/8b01ec0acbbab5b3daf23f4688fdbaac-67055ed3b27300585317642556892036-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -18939,6 +18653,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO100PC",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO100PC",
       "blingId": "REVO100PC",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -18969,8 +18684,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 52,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a890ff46f9aad2d001e911f9d5eb4299-acc0e5ce3c0b83058a17642556866503-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/14e53e0db191daada8e1d093418f0f67-6c1f7528743f5b4a9917642556883494-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -18992,6 +18707,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO100BC",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO100BC",
       "blingId": "REVO100BC",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19022,16 +18738,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19056,6 +18766,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SKLC1OO",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SKLC1OO",
       "blingId": "SKLC1OO",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -19086,8 +18797,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 46,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19116,6 +18827,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CULP100G",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CULP100G",
       "blingId": "CULP100G",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19170,7 +18882,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5f47991b498063cb3a205db2ad4ae112-723b845c674ad3af2b17815338008474-1024-1024.webp"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19195,6 +18910,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CBLP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CBLP100",
       "blingId": "CBLP100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -19225,7 +18941,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a23b53034a9af80f972dba73e5eca535-65cd28d42a6b99742417902796074020-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "33 A 36",
@@ -19249,6 +18966,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MLP10O36",
       "barcode": "789103600000",
+      "nuvemshopId": "BLING-MLP10O36",
       "blingId": "MLP10O36",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19295,11 +19013,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-df83683e211a8179a217642587435395-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-f2a70520782e80ea7817642587451266-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-ca7c7856949ad3137e17642587472124-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-34395167e182d44daf17642587490609-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-6b088fac3ef027625817642587508971-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19321,6 +19036,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CNLB100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CNLB100",
       "blingId": "CNLB100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19351,16 +19067,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-5972b7df6a6f45a52d17642587512967-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-598267697feadadf8817642587528583-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-10e18b39652482e4a317642587547868-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-402244abc4eee0774317642587563854-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-f8bc84296eff9a4bd017642587583989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-de939b51bf8d6e633d17642587599200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-16c73b597edc19524317642587617278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-a0b3a193c011a5e98217642587632353-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-63fc2fa66cc98953e017642587650200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-0867bd85b2cad155ef17642587666083-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19382,6 +19090,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CNLP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CNLP100",
       "blingId": "CNLP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19412,7 +19121,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 54,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/354899563fb13bbf5007b59cfcaa463b-863456b423529c3f3f17815337986794-1024-1024.webp"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19437,6 +19149,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CBL100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CBL100",
       "blingId": "CBL100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -19467,8 +19180,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19490,6 +19203,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OR2100",
       "barcode": "789210000000",
+      "nuvemshopId": "BLING-OR2100",
       "blingId": "OR2100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19520,8 +19234,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 21,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a1bfddd2370867c49131e21568d5aa8a-40fb7fa6c57b539aea17642556837763-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3006e7d68472b2b7489f11b6969151e1-7c193332ef2cd1669917642556859907-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19543,6 +19257,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "REVO10OTA",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-REVO10OTA",
       "blingId": "REVO10OTA",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19573,16 +19288,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 17,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-5972b7df6a6f45a52d17642587512967-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-598267697feadadf8817642587528583-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-10e18b39652482e4a317642587547868-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-402244abc4eee0774317642587563854-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-f8bc84296eff9a4bd017642587583989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-de939b51bf8d6e633d17642587599200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-16c73b597edc19524317642587617278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-a0b3a193c011a5e98217642587632353-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-63fc2fa66cc98953e017642587650200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-0867bd85b2cad155ef17642587666083-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19604,6 +19311,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CNLVM100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CNLVM100",
       "blingId": "CNLVM100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19634,16 +19342,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19668,6 +19370,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "LPI100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-LPI100",
       "blingId": "LPI100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -19698,8 +19401,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 38,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -19724,6 +19429,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "P100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-P100",
       "blingId": "P100",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -19754,8 +19460,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 58,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c0b1ff9795e5f4f171eeef6b3fd0b878-2bf8977a90fb007c7517642561615987-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f29395f9cf5e7624c8a52f396eeacdc0-fc6a78b0b4967e338a17642561638816-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -19777,6 +19483,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OKJ100PP",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-OKJ100PP",
       "blingId": "OKJ100PP",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -19807,7 +19514,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 50,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95bc9c16ed733ece7f336afa28d15732-98f70d425d7cd0e4ce17901910382798-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "36",
@@ -19833,6 +19542,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHW10036",
       "barcode": "789100360000",
+      "nuvemshopId": "BLING-CHW10036",
       "blingId": "CHW10036",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -19895,7 +19605,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/1ccd8b1b3bd0959cb49b979a8913c66f-d91a221d7e729f68ab17901910266808-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -19920,6 +19632,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CHS10038",
       "barcode": "789100380000",
+      "nuvemshopId": "BLING-CHS10038",
       "blingId": "CHS10038",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -19974,16 +19687,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 47,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20005,6 +19710,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MTS100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MTS100",
       "blingId": "MTS100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20035,7 +19741,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 37,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ebefb9ab90d6e38e77580204df736087-3c273211077af5d7d317901908374319-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20057,6 +19764,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MA100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MA100",
       "blingId": "MA100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20087,8 +19795,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 48,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20110,6 +19818,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MN100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MN100",
       "blingId": "MN100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20140,8 +19849,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 33,
     "images": [
-      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20163,6 +19872,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CLO100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-CLO100",
       "blingId": "CLO100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20193,16 +19903,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20224,6 +19926,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "MTSR100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-MTSR100",
       "blingId": "MTSR100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20254,8 +19957,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 27,
     "images": [
-      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
-      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg"
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -20277,6 +19980,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "SBCP100",
       "barcode": "789100000000",
+      "nuvemshopId": "BLING-SBCP100",
       "blingId": "SBCP100",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -20307,12 +20011,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20337,6 +20038,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CDFCP",
       "barcode": "789000000000",
+      "nuvemshopId": "BLING-CDFCP",
       "blingId": "CDFCP",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20391,12 +20093,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 19,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-409357bfb5bf959f4017635641828060-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-c0e0bdd396c4d2597517635641843630-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-d3003290b5c7a0ac3817635641863424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-991a60516bbf22609417635641884150-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-7bd6ab35442a386fc317635641903913-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f2781a1ebee399d8f69722131d4d3161-3fb2ab712bfeac61cc17635641924407-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20421,6 +20120,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CDFNM",
       "barcode": "789000000000",
+      "nuvemshopId": "BLING-CDFNM",
       "blingId": "CDFNM",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20475,9 +20175,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 43,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/19c805a93d360d8bb410a1bfb6b48628-c259b927fcd667e04c17811869962245-1024-1024.png",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/f9610b933103416a13605485b1438d5f-547af101ab91b0830c17811870000414-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/374dbf1d60b34264e9231e4b6c374ed1-252f55c51d7fc42cfa17811870017260-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "46"
@@ -20499,6 +20199,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CBTSPE46",
       "barcode": "789460000000",
+      "nuvemshopId": "BLING-CBTSPE46",
       "blingId": "CBTSPE46",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20529,28 +20230,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 58,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-c857fcdabde63bd0b317635642616457-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-44e0a293b46214c96e17635642631740-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce216560bf8ff8145617635642648402-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-7f78596a54850d41c817635642662807-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-16df6aa88858f6bbb317635642681983-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-79e2b0cee941cf374e17635642697445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce18a18dae1552791b17635642716481-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-04903e8b4cd3ac57cd17635642730931-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-9fc5e0bcbb95aabb3217635642750263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c71c4a05323552aa8a17635642766474-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-5396533958b997527c17635642785019-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c0694150c855dd5ef817635642800407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-fac3eee35ef25b47ab17635642820347-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-2f256415ca788bfe1c17635642836901-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-78c4b8de337e3b419c17635642855382-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-18c537d109f53139b317635642872276-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-982789d6486d3b390117635642891236-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-882f14d13dcabeea8917635642905907-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-7b28eb66e5b3b7f7ce17635642922932-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-9870edaa968a8adaa717635642936265-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-1a6ab7a1635af09f8a17635642955968-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-54d9602cf39b7fd77417635642970695-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -20574,6 +20257,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TNTNB42",
       "barcode": "789420000000",
+      "nuvemshopId": "BLING-TNTNB42",
       "blingId": "TNTNB42",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -20620,16 +20304,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 55,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-0ab40a91947f1f066c17635642375091-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-95edd30e509a950bb517635642389965-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-582b8a71a86af5c05917635642404141-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-887186450a871f937517635642418077-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-a23023ef7d2aa7e17117635642436120-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-b82867189ed8828f1017635642451273-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-7fd352b9ddbab12a7a17635642469905-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-36b72b03d764637e8517635642484231-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-5d6612e749cd42aff617635642502624-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-4090ab7f68dc21a21d17635642517043-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20654,6 +20331,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCGO401P",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-BCGO401P",
       "blingId": "BCGO401P",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20708,14 +20386,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-292c6234045e0310e317635641575585-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-957e10d9cf01eb549917635641590087-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-3f97baf7ef0ac24d3f17635641605989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-c47b46ed4aba00f0b517635641621424-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-d902285d5382a071ac17635641641578-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-9a814d83caf4ca146d17635641655824-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/2816f9595f2c519efcd01220b6c450ae-6d359cd5d603023c1317635641675340-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/5a9bcb28daa53be37c808ca0979c68c2-dcb789f1b2877c6d1a17635641690255-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20740,6 +20412,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCOP400G",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BCOP400G",
       "blingId": "BCOP400G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20794,16 +20467,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20828,6 +20495,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CSM500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CSM500GG",
       "blingId": "CSM500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20882,16 +20550,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -20916,6 +20578,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCO500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CCO500GG",
       "blingId": "CCO500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -20970,28 +20633,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-c857fcdabde63bd0b317635642616457-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-44e0a293b46214c96e17635642631740-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce216560bf8ff8145617635642648402-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-7f78596a54850d41c817635642662807-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-16df6aa88858f6bbb317635642681983-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-79e2b0cee941cf374e17635642697445-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-ce18a18dae1552791b17635642716481-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-04903e8b4cd3ac57cd17635642730931-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-9fc5e0bcbb95aabb3217635642750263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c71c4a05323552aa8a17635642766474-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-5396533958b997527c17635642785019-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-c0694150c855dd5ef817635642800407-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-fac3eee35ef25b47ab17635642820347-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-2f256415ca788bfe1c17635642836901-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-78c4b8de337e3b419c17635642855382-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-18c537d109f53139b317635642872276-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-982789d6486d3b390117635642891236-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-882f14d13dcabeea8917635642905907-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-7b28eb66e5b3b7f7ce17635642922932-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-9870edaa968a8adaa717635642936265-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/ff4ac0fcc66e3ee861e4959271c807a4-1a6ab7a1635af09f8a17635642955968-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/97c72fe0e4abbf42799892103ca16fb0-54d9602cf39b7fd77417635642970695-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "40",
@@ -21016,6 +20661,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "TNTNP43",
       "barcode": "789430000000",
+      "nuvemshopId": "BLING-TNTNP43",
       "blingId": "TNTNP43",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -21070,16 +20716,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 51,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-76bfc2f6f270cdf3de17635642193977-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-dc3fa38905ae6b251517635642212172-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-716e711596df3dfd1817635642227102-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-293eb6ca52a0208f9917635642242568-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-492b18094c470ef48817635642262396-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-886f2778ac72ece18b17635642278945-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-d9bcef781d633df4a817635642298985-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-a190cb34fddda7604a17635642314996-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/41e8f87788e6b482c44d273865e3eb9e-072590ecf8401cb88517635642332733-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d8fe8bac71e9c13ac7ec88c93a6721fb-c5c21898a4aa0ca29317635642347901-1024-1024.jpg"
+      "/src/assets/images/product_sneaker_chunky_1793275503077.jpg",
+      "/assets/aistudio/SaveClip.App_846207181_18118610126469989_4433467057000224093_n_b01c3d11.jpg",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -21104,6 +20744,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "THMG43",
       "barcode": "789430000000",
+      "nuvemshopId": "BLING-THMG43",
       "blingId": "THMG43",
       "weightGrams": 920,
       "dimensionsCm": {
@@ -21158,16 +20799,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-0ab40a91947f1f066c17635642375091-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-95edd30e509a950bb517635642389965-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-582b8a71a86af5c05917635642404141-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-887186450a871f937517635642418077-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-a23023ef7d2aa7e17117635642436120-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-b82867189ed8828f1017635642451273-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-7fd352b9ddbab12a7a17635642469905-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-36b72b03d764637e8517635642484231-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/89f9c7de95b83558aa62ee00f544e3a3-5d6612e749cd42aff617635642502624-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/cf0252b62269d69485d7ffaf29a36ab9-4090ab7f68dc21a21d17635642517043-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21192,6 +20826,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCTSB400GG",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BCTSB400GG",
       "blingId": "BCTSB400GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21246,16 +20881,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 44,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "38",
@@ -21286,6 +20913,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTSR400T48",
       "barcode": "789400480000",
+      "nuvemshopId": "BLING-BTSR400T48",
       "blingId": "BTSR400T48",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21356,16 +20984,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 29,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3576c560904b8343b6ccf18e5e641f21-14ba80d7cf2503f7d617635641659390-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50fa8b68a36e2f08675dcc635bc63cba-f2fc0098db4f69ee6e17635641673566-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3576c560904b8343b6ccf18e5e641f21-e7a084776b8f0782d717635641687625-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50fa8b68a36e2f08675dcc635bc63cba-efdbf522a17715bc8917635641702495-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3576c560904b8343b6ccf18e5e641f21-6ce1c816948245fb6e17635641719085-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50fa8b68a36e2f08675dcc635bc63cba-6f5fefdab56f8b76c517635641735061-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3576c560904b8343b6ccf18e5e641f21-0e24959b413429b4bb17635641755391-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50fa8b68a36e2f08675dcc635bc63cba-c501f13a2b8643eaf117635641770845-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/3576c560904b8343b6ccf18e5e641f21-f4e18aebbe37d23d4717635641788780-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/50fa8b68a36e2f08675dcc635bc63cba-9181ba783cdc9f5a0217635641804492-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21390,6 +21011,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BCOJC400G",
       "barcode": "789400000000",
+      "nuvemshopId": "BLING-BCOJC400G",
       "blingId": "BCOJC400G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21444,16 +21066,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 37,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/031f0c69efb26af452678d330d9748b8-16845a77ddb585093017635641410761-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a18dfedf49eb4e4501ae949ce17244da-93166be853abba4b4b17635641427167-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/031f0c69efb26af452678d330d9748b8-03552149932ca03d9d17635641443273-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a18dfedf49eb4e4501ae949ce17244da-11b2b447c33db4917f17635641458709-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/031f0c69efb26af452678d330d9748b8-7d5674736fb7220f9417635641479918-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a18dfedf49eb4e4501ae949ce17244da-11bcd2c7155e5c6a6b17635641495309-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/031f0c69efb26af452678d330d9748b8-ecf019c78573bc8f6117635641514842-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a18dfedf49eb4e4501ae949ce17244da-5f0614e46b410e8b5e17635641530476-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/031f0c69efb26af452678d330d9748b8-5ae2945e26a455c25217635641551141-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a18dfedf49eb4e4501ae949ce17244da-7f8c6a1efd94180bea17635641566507-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21478,6 +21093,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCO402GG",
       "barcode": "789402000000",
+      "nuvemshopId": "BLING-CCO402GG",
       "blingId": "CCO402GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21532,11 +21148,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 45,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c241c1156f22541575d003adabd427c2-5d7cece5816ddb2faa17635641328923-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c241c1156f22541575d003adabd427c2-90006160ce8e9b99a417635641344963-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c241c1156f22541575d003adabd427c2-d4b80feb7322faec9f17635641363715-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c241c1156f22541575d003adabd427c2-4d0745af094dbc463f17635641382194-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/c241c1156f22541575d003adabd427c2-b9d1328dac02f2a7ce17635641401645-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21561,6 +21175,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCO401GG",
       "barcode": "789401000000",
+      "nuvemshopId": "BLING-CCO401GG",
       "blingId": "CCO401GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21615,16 +21230,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 43,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-99fd717adcb3d4d3be17635641275028-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-3e1db23aec0e84656317635641290313-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-b8b2dced691287b5b817635641306546-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-e2160a615a86af5d8017635641323263-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-ad593652e51db659a417635641341949-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-610edc685a7b88d1c617635641358356-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-0533c93684615f3fb617635641379173-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-9477f8d5179514557317635641394348-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/060c597476df8f2ee3461e6e120f1151-bff13ee49dacb267ae17635641412541-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/7700b14e4c495783636e8fb5acbbef23-50bde5c23cb2e660fc17635641429206-1024-1024.jpg"
+      "/src/assets/images/product_cargo_heavy_1793275501361.jpg",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21649,6 +21257,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCOP404GG",
       "barcode": "789404000000",
+      "nuvemshopId": "BLING-CCOP404GG",
       "blingId": "CCOP404GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21703,16 +21312,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -21736,6 +21339,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPX502GG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CPX502GG",
       "blingId": "CPX502GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21782,16 +21386,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -21815,6 +21413,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPX501GG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CPX501GG",
       "blingId": "CPX501GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21861,16 +21460,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 27,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M",
@@ -21894,6 +21487,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CPX500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CPX500GG",
       "blingId": "CPX500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -21940,16 +21534,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 41,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -21977,6 +21565,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCR501M",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CCR501M",
       "blingId": "CCR501M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22023,16 +21612,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 49,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22056,6 +21639,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCR500G",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CCR500G",
       "blingId": "CCR500G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22102,16 +21686,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22136,6 +21714,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCB502GG",
       "barcode": "789502000000",
+      "nuvemshopId": "BLING-CCB502GG",
       "blingId": "CCB502GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22190,16 +21769,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 48,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22224,6 +21797,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCB501GG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-CCB501GG",
       "blingId": "CCB501GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22278,16 +21852,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 18,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22312,6 +21880,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "CCB500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-CCB500GG",
       "blingId": "CCB500GG",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22366,9 +21935,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 15,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -22390,6 +21959,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BAC101",
       "barcode": "789101000000",
+      "nuvemshopId": "BLING-BAC101",
       "blingId": "BAC101",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22420,9 +21990,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 22,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -22444,6 +22014,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BC101",
       "barcode": "789101000000",
+      "nuvemshopId": "BLING-BC101",
       "blingId": "BC101",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22474,9 +22045,9 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 42,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/28b2eaed81af06c28fd6b30bf6afe462-89f77a3c6ba219ca4017859526445929-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/707ee9bde782426fe9a79f02ee2e6f24-1519f009c8db746a6917859526482735-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/933d8bc5633429fc10831e85978b51a6-0d7858b99fbccca88f17859526510785-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "Tamanho Único"
@@ -22498,6 +22069,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "BTS102",
       "barcode": "789102000000",
+      "nuvemshopId": "BLING-BTS102",
       "blingId": "BTS102",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22528,7 +22100,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 46,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fd6a4414ac1ae8a3e976ebc637cc961e-2873502d46fd0d099817637413920516-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22553,6 +22126,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "C501GG",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-C501GG",
       "blingId": "C501GG",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22607,7 +22181,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 53,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/115e7dbdde7d4e187305bd7eb02fa520-064199306494f42f4817637413863748-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22632,6 +22207,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "C500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-C500GG",
       "blingId": "C500GG",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22686,7 +22262,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 59,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/fd6a4414ac1ae8a3e976ebc637cc961e-2873502d46fd0d099817637413920516-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22711,6 +22288,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "R501G",
       "barcode": "789501000000",
+      "nuvemshopId": "BLING-R501G",
       "blingId": "R501G",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22765,7 +22343,8 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 51,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/115e7dbdde7d4e187305bd7eb02fa520-064199306494f42f4817637413863748-1024-1024.jpg"
+      "https://images.unsplash.com/photo-1611591475819-79b8b73c4631?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22794,6 +22373,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "R500GG",
       "barcode": "789500000000",
+      "nuvemshopId": "BLING-R500GG",
       "blingId": "R500GG",
       "weightGrams": 140,
       "dimensionsCm": {
@@ -22848,8 +22428,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 34,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a3be6f02ec6880c0eef79291ef18dec5-a5cf0c07d7f65f99fc17642578122222-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a98435496d90c21753506043cbd1b9aa-5834bcf16db81e074a17642578136795-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22878,6 +22460,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "O503G",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-O503G",
       "blingId": "O503G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -22932,16 +22515,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.9,
     "reviewsCount": 31,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-5972b7df6a6f45a52d17642587512967-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-598267697feadadf8817642587528583-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-10e18b39652482e4a317642587547868-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-402244abc4eee0774317642587563854-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-f8bc84296eff9a4bd017642587583989-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-de939b51bf8d6e633d17642587599200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-16c73b597edc19524317642587617278-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-a0b3a193c011a5e98217642587632353-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/a4203f8ed63d0939ccae2b85aea78837-63fc2fa66cc98953e017642587650200-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/b08a7b1edf3f867fac8d39f2dd58195c-0867bd85b2cad155ef17642587666083-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -22966,6 +22543,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OLV515G",
       "barcode": "789515000000",
+      "nuvemshopId": "BLING-OLV515G",
       "blingId": "OLV515G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -23020,11 +22598,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.8,
     "reviewsCount": 23,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-df83683e211a8179a217642587435395-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-f2a70520782e80ea7817642587451266-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-ca7c7856949ad3137e17642587472124-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-34395167e182d44daf17642587490609-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/9787da74660ce40bfe84c8617314ada7-6b088fac3ef027625817642587508971-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -23053,6 +22630,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OLV514G",
       "barcode": "789514000000",
+      "nuvemshopId": "BLING-OLV514G",
       "blingId": "OLV514G",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -23107,16 +22685,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 57,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "P",
@@ -23140,6 +22712,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTS509M",
       "barcode": "789509000000",
+      "nuvemshopId": "BLING-OTS509M",
       "blingId": "OTS509M",
       "weightGrams": 360,
       "dimensionsCm": {
@@ -23186,16 +22759,10 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "rating": 4.7,
     "reviewsCount": 61,
     "images": [
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-61f391a64aa00b71ca17721385371668-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-a206de5610a0eb346917721385403110-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-37dae52fac6d8d0f1b17721385432762-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-687fa67647ca06de2a17721385463511-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-25534ea192a977027917721385497558-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-86517a81ee8770f47c17721385527314-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-d6eaa14d42b7ade66617721385560456-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-7fb78a65b72623491017721385591790-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/95c61fd511a5a4fb28318ba14869e4ec-e470fc4c0a660b476417721385625215-1024-1024.jpg",
-      "https://dcdn-us.mitiendanube.com/stores/006/486/155/products/d174a1c6d42e442c01f0faa7ca64d9a7-9a722808e0c8158b1017721385656549-1024-1024.jpg"
+      "/src/assets/images/lookview_fullkit_model_1793275500631.jpg",
+      "/src/assets/images/hero_streetwear_urban_1793275500555.jpg",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=85"
     ],
     "sizes": [
       "M MOVEL PLANEJADO",
@@ -23224,6 +22791,7 @@ export const BLING_STOCK_PRODUCTS: Product[] = [
     "integration": {
       "sku": "OTS503GG",
       "barcode": "789503000000",
+      "nuvemshopId": "BLING-OTS503GG",
       "blingId": "OTS503GG",
       "weightGrams": 360,
       "dimensionsCm": {

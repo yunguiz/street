@@ -10,11 +10,12 @@ import {
   Database,
   ArrowRight,
   Crown,
-  AlertCircle
+  ExternalLink,
+  AlertCircle,
+  RefreshCw
 } from 'lucide-react';
 import { Product } from '../types';
 import { cleanDescription } from '../lib/cleanHtml';
-import { calculateShippingQuotes, ShippingOption } from '../services/shipping';
 
 interface ProductModalProps {
   product: Product | null;
@@ -24,6 +25,7 @@ interface ProductModalProps {
   onClose: () => void;
   onAddToCart: (product: Product, size: string, color: string, quantity: number) => void;
   onBuyNow: (product: Product, size: string, color: string, quantity: number) => void;
+  onOpenBlingSync?: (product: Product) => void;
 }
 
 export function ProductModal({
@@ -33,7 +35,8 @@ export function ProductModal({
   onToggleFavorite,
   onClose,
   onAddToCart,
-  onBuyNow
+  onBuyNow,
+  onOpenBlingSync
 }: ProductModalProps) {
   // Declare all hooks unconditionally at the top of the component (Rules of Hooks)
   const [selectedImage, setSelectedImage] = useState(0);
@@ -43,11 +46,10 @@ export function ProductModal({
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [showIntegrationDetails, setShowIntegrationDetails] = useState(false);
 
-  // CEP simulator state (Melhor Envio live calculation)
+  // CEP simulator state
   const [cep, setCep] = useState('');
   const [shippingCalculated, setShippingCalculated] = useState(false);
   const [shippingLoading, setShippingLoading] = useState(false);
-  const [shippingOptions, setShippingOptions] = useState<ShippingOption[]>([]);
 
   // Synchronize selection whenever the active product changes
   useEffect(() => {
@@ -73,31 +75,14 @@ export function ProductModal({
   const isSingleColor = (product.colors?.length || 0) <= 1;
   const isOutOfStock = (product.stockCount ?? 0) <= 0;
 
-  const handleSimulateShipping = async (e: React.FormEvent) => {
+  const handleSimulateShipping = (e: React.FormEvent) => {
     e.preventDefault();
-    const cleanCep = cep.replace(/\D/g, '');
-    if (cleanCep.length < 8) return;
+    if (cep.length < 8) return;
     setShippingLoading(true);
-    try {
-      const res = await calculateShippingQuotes({
-        cep: cleanCep,
-        cartTotal: product.price,
-        items: [{
-          id: product.id,
-          price: product.price,
-          quantity,
-          weight: (product.integration?.weightGrams || 350) / 1000
-        }]
-      });
-      if (res && res.options && res.options.length > 0) {
-        setShippingOptions(res.options);
-      }
-      setShippingCalculated(true);
-    } catch {
-      setShippingCalculated(true);
-    } finally {
+    setTimeout(() => {
       setShippingLoading(false);
-    }
+      setShippingCalculated(true);
+    }, 400);
   };
 
   const installments = (product.price / 6).toFixed(2).replace('.', ',');
@@ -437,34 +422,17 @@ export function ProductModal({
 
               {shippingCalculated && (
                 <div className="mt-2 space-y-1.5 pt-2 border-t border-zinc-800 text-[11px]">
-                  {shippingOptions.length > 0 ? (
-                    shippingOptions.slice(0, 4).map((opt) => (
-                      <div key={opt.id} className="flex items-center justify-between text-zinc-300 py-0.5">
-                        <div className="flex items-center gap-1.5">
-                          {opt.company?.picture && (
-                            <img src={opt.company.picture} alt={opt.company.name} className="w-3.5 h-3.5 object-contain" />
-                          )}
-                          <span className="font-medium text-white">{opt.company?.name} {opt.name}</span>
-                          <span className="text-[10px] text-zinc-500">({opt.deliveryText})</span>
-                        </div>
-                        <strong className="text-emerald-400 font-bold">{opt.priceFormatted}</strong>
-                      </div>
-                    ))
-                  ) : (
-                    <>
-                      <div className="flex items-center justify-between text-zinc-300">
-                        <span>Sedex Expresso (1 a 2 dias úteis)</span>
-                        <strong className="text-white">R$ 18,90</strong>
-                      </div>
-                      <div className="flex items-center justify-between text-zinc-300">
-                        <span>Correios PAC (3 a 5 dias úteis)</span>
-                        <strong className="text-emerald-400">R$ 12,50</strong>
-                      </div>
-                    </>
-                  )}
-                  <div className="flex items-center justify-between text-zinc-300 pt-1 border-t border-zinc-800/60">
-                    <span className="text-zinc-400">Retirada Loja Física (Av. João Pinheiro, 353 - Centro, Itabira)</span>
-                    <strong className="text-emerald-400 font-bold">Grátis (Em 2h)</strong>
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Sedex Expresso (1 a 2 dias úteis)</span>
+                    <strong className="text-white">R$ 18,90</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Correios PAC (3 a 5 dias úteis)</span>
+                    <strong className="text-green-400">R$ 12,50</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-300">
+                    <span>Retirada Loja Física (Av. João Pinheiro, 353 - Centro, Itabira)</span>
+                    <strong className="text-green-400">Grátis (Em 2h)</strong>
                   </div>
                 </div>
               )}
@@ -533,6 +501,20 @@ export function ProductModal({
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Bling Sync / Update Image Action */}
+            {onOpenBlingSync && (
+              <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => onOpenBlingSync(product)}
+                  className="text-[11px] text-zinc-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 px-3 py-1.5 rounded-lg"
+                >
+                  <RefreshCw className="w-3 h-3 text-[#E50914]" />
+                  <span>Sincronizar / Atualizar Foto do Bling</span>
+                </button>
+              </div>
+            )}
 
             {/* Trust Footer */}
             <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-900">

@@ -1,12 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
-import { ArrowUpDown } from 'lucide-react';
+import { ArrowUpDown, RefreshCw } from 'lucide-react';
 import { motion } from 'motion/react';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { Product, ProductCategory, ProductSubcategory } from '../types';
+import { Product, ProductCategory } from '../types';
 import { ProductCard } from './ProductCard';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
-import { cleanDescription } from '../lib/cleanHtml';
-import { filterVisibleProducts } from '../lib/hiddenProducts';
 
 interface CatalogSectionProps {
   products: Product[];
@@ -17,216 +13,13 @@ interface CatalogSectionProps {
   favorites: string[];
   isCatalogLive?: boolean;
   catalogCount?: number;
+  isNuvemshopLive?: boolean;
+  nuvemshopCount?: number;
   onToggleFavorite: (productId: string) => void;
   onSelectCategory: (cat: ProductCategory | 'all', subcat?: string) => void;
   onOpenProduct: (product: Product) => void;
   onQuickAdd: (product: Product) => void;
-}
-
-const COLOR_HEX_MAP: Record<string, string> = {
-  preto: '#111111',
-  preta: '#111111',
-  branco: '#FFFFFF',
-  branca: '#FFFFFF',
-  'off-white': '#EAE6DF',
-  'off white': '#EAE6DF',
-  cinza: '#6B7280',
-  chumbo: '#374151',
-  grafite: '#374151',
-  azul: '#1E3A8A',
-  marinho: '#172554',
-  verde: '#14532D',
-  militar: '#3F4E2E',
-  vermelho: '#DC2626',
-  vermelha: '#DC2626',
-  rosa: '#F472B6',
-  roxo: '#6B21A8',
-  bege: '#D6C5A7',
-  caqui: '#A89F81',
-  marrom: '#78350F',
-  laranja: '#EA580C',
-  amarelo: '#EAB308',
-};
-
-const FALLBACK_IMAGES_BY_CATEGORY: Record<ProductCategory, string[]> = {
-  calcados: ['/src/assets/images/product_sneaker_chunky_1793275501375.jpg'],
-  acessorios: ['/src/assets/images/product_cap_streetwear_1793275501370.jpg'],
-  roupas: ['/src/assets/images/product_hoodie_oversized_1793275501387.jpg'],
-};
-
-function inferStoreCategoryAndSubcategory(
-  rawCat: unknown,
-  rawSubcat: unknown,
-  productName: string
-): { category: ProductCategory; subcategory: ProductSubcategory } {
-  const catStr = String(rawCat || '').toLowerCase();
-  const subStr = String(rawSubcat || '').toLowerCase();
-  const text = `${catStr} ${subStr} ${productName.toLowerCase()}`;
-
-  if (catStr === 'calcados' || /\b(tenis|tênis|sneaker|chinelo|calçado|calcado|dunk|jordan)\b/i.test(text)) {
-    return { category: 'calcados', subcategory: 'sneakers' };
-  }
-  if (catStr === 'acessorios' || /\b(boné|bone|bucket|touca)\b/i.test(text)) {
-    return { category: 'acessorios', subcategory: 'bones' };
-  }
-  if (/\b(bag|shoulder|mochila|pochete|mala)\b/i.test(text)) {
-    return { category: 'acessorios', subcategory: 'bags' };
-  }
-  if (/\b(óculos|oculos|cinto|carteira|relógio|relogio|corrente|meia|cadarço|cadarco|acessório|acessorio)\b/i.test(text)) {
-    return { category: 'acessorios', subcategory: 'acessorios-metal' };
-  }
-  if (subStr === 'hoodies' || /\b(moletom|hoodie|jaqueta|corta vento|casaco)\b/i.test(text)) {
-    return { category: 'roupas', subcategory: 'hoodies' };
-  }
-  if (subStr === 'calcas' || /\b(calça|calca|cargo|jogger|jeans)\b/i.test(text)) {
-    return { category: 'roupas', subcategory: 'calcas' };
-  }
-  if (subStr === 'shorts' || /\b(bermuda|short)\b/i.test(text)) {
-    return { category: 'roupas', subcategory: 'shorts' };
-  }
-
-  return { category: 'roupas', subcategory: 'camisetas' };
-}
-
-function mapFirestoreDocToProduct(docId: string, data: Record<string, unknown>): Product {
-  const name = String(data.nome || data.name || 'Peça Street Store').trim() || 'Peça Street Store';
-  const { category, subcategory } = inferStoreCategoryAndSubcategory(
-    data.categoriaStore ?? data.categoria ?? data.category,
-    data.subcategoriaStore ?? data.subcategory,
-    name
-  );
-
-  const rawPrice = Number(data.preco ?? data.price ?? 0);
-  const price = Number.isFinite(rawPrice) && rawPrice > 0 ? rawPrice : 99.9;
-  const rawOriginal = Number(data.originalPrice ?? 0);
-  const originalPrice = Number.isFinite(rawOriginal) && rawOriginal > price ? rawOriginal : Math.round(price * 1.25);
-
-  const rawStock = Number(data.estoque ?? data.stockCount ?? 0);
-  const stockCount = Number.isFinite(rawStock) ? Math.max(0, rawStock) : 0;
-
-  const rawImages: string[] = [];
-  if (Array.isArray(data.imagens)) {
-    for (const img of data.imagens) {
-      if (typeof img === 'string' && img.trim()) rawImages.push(img.trim());
-    }
-  }
-  if (Array.isArray(data.images)) {
-    for (const img of data.images) {
-      if (typeof img === 'string' && img.trim() && !rawImages.includes(img.trim())) {
-        rawImages.push(img.trim());
-      }
-    }
-  }
-  if (typeof data.imagemURL === 'string' && data.imagemURL.trim() && !rawImages.includes(data.imagemURL.trim())) {
-    rawImages.unshift(data.imagemURL.trim());
-  }
-
-  const images =
-    rawImages.length > 0
-      ? rawImages
-      : FALLBACK_IMAGES_BY_CATEGORY[category] || ['/src/assets/images/product_hoodie_oversized_1793275501387.jpg'];
-
-  const rawSizes = Array.isArray(data.tamanhos)
-    ? data.tamanhos
-    : Array.isArray(data.sizes)
-      ? data.sizes
-      : [];
-  const sizes = rawSizes
-    .map((s) => String(s || '').trim())
-    .filter(Boolean);
-  const finalSizes = sizes.length > 0 ? sizes : ['Tamanho Único'];
-
-  const rawColors = Array.isArray(data.cores)
-    ? data.cores
-    : Array.isArray(data.colors)
-      ? data.colors
-      : [];
-  const colors = rawColors
-    .map((c) => {
-      if (c && typeof c === 'object' && 'name' in c) {
-        const obj = c as { name?: string; hex?: string };
-        const colorName = String(obj.name || 'Padrão').trim();
-        return {
-          name: colorName,
-          hex: String(obj.hex || COLOR_HEX_MAP[colorName.toLowerCase()] || '#1C1C1C'),
-        };
-      }
-      const colorName = String(c || '').trim();
-      if (!colorName) return null;
-      return {
-        name: colorName,
-        hex: COLOR_HEX_MAP[colorName.toLowerCase()] || '#1C1C1C',
-      };
-    })
-    .filter((c): c is { name: string; hex: string } => Boolean(c));
-
-  const finalColors = colors.length > 0 ? colors : [{ name: 'Padrão', hex: '#1C1C1C' }];
-
-  const variacoesObj =
-    data.variacoes && typeof data.variacoes === 'object' && !Array.isArray(data.variacoes)
-      ? (data.variacoes as Record<string, Record<string, unknown>>)
-      : null;
-
-  const variantsList = variacoesObj
-    ? Object.values(variacoesObj).map((v) => ({
-        id: Number(v.blingId || 0) || 0,
-        sku: String(v.codigo || ''),
-        price: Number(v.preco || price) || price,
-        stock: Math.max(0, Number(v.estoque ?? 0) || 0),
-        size: String(v.tamanho || 'Tamanho Único'),
-      }))
-    : undefined;
-
-  const cleanedDesc =
-    cleanDescription(String(data.descricao || data.description || '')) ||
-    `${name} — Drop oficial Street Store com acabamento reforçado e envio rápido.`;
-
-  const numericIdSeed = parseInt(String(data.blingId || docId).replace(/\D/g, ''), 10) || 7;
-  const sku = String(data.codigo || `BLING-${docId}`).trim() || `BLING-${docId}`;
-
-  return {
-    id: docId,
-    name,
-    category,
-    subcategory,
-    price,
-    originalPrice,
-    tag: stockCount > 0 && stockCount <= 3 ? 'POUCAS UNIDADES' : 'NOVO DROP',
-    rating: Number((4.8 + (numericIdSeed % 3) / 10).toFixed(1)),
-    reviewsCount: 14 + (numericIdSeed % 35),
-    images,
-    sizes: finalSizes,
-    colors: finalColors,
-    description: cleanedDesc,
-    stockCount,
-    details: {
-      composition:
-        category === 'calcados'
-          ? 'Solado em borracha vulcanizada de alta durabilidade'
-          : category === 'acessorios'
-            ? 'Material premium de alta durabilidade'
-            : '100% Algodão Premium Heavyweight',
-      weight:
-        category === 'calcados'
-          ? '900g o par'
-          : category === 'acessorios'
-            ? '120g'
-            : '380g/m² Heavyweight',
-      modelInfo:
-        category === 'acessorios'
-          ? 'Tamanho e formato ergonômico'
-          : 'Modelagem autêntica Street Store',
-      origin: 'Itabira - MG // Street Store Oficial',
-    },
-    integration: {
-      sku,
-      barcode: sku,
-      blingId: String(data.blingId || docId),
-      weightGrams: 450,
-      dimensionsCm: { width: 28, height: 12, depth: 32 },
-    },
-    variantsList,
-  };
+  onOpenBlingSync?: () => void;
 }
 
 export function CatalogSection({
@@ -239,48 +32,11 @@ export function CatalogSection({
   onToggleFavorite,
   onSelectCategory,
   onOpenProduct,
-  onQuickAdd
+  onQuickAdd,
+  onOpenBlingSync
 }: CatalogSectionProps) {
   const [sortBy, setSortBy] = useState<'relevance' | 'price-asc' | 'price-desc' | 'rating'>('relevance');
   const [visibleCount, setVisibleCount] = useState(12);
-  const [firestoreProducts, setFirestoreProducts] = useState<Product[]>([]);
-  const [isLoadingFirestore, setIsLoadingFirestore] = useState(true);
-
-  // Real-time listener on Firestore `products` collection with safe fallback
-  useEffect(() => {
-    const productsRef = collection(db, 'products');
-    const unsubscribe = onSnapshot(
-      productsRef,
-      (snapshot) => {
-        const mapped: Product[] = [];
-        snapshot.forEach((docSnap) => {
-          const data = docSnap.data() as Record<string, unknown>;
-          if (data?.ativo === false) return;
-          mapped.push(mapFirestoreDocToProduct(docSnap.id, data));
-        });
-        setFirestoreProducts(filterVisibleProducts<Product>(mapped));
-        setIsLoadingFirestore(false);
-      },
-      (error) => {
-        setIsLoadingFirestore(false);
-        try {
-          handleFirestoreError(error, OperationType.LIST, 'products');
-        } catch (structuredErr) {
-          console.warn('[CatalogSection Firestore Listener]:', structuredErr);
-        }
-      }
-    );
-
-    return () => unsubscribe();
-  }, []);
-
-  // Prefer live Firestore products when synced; fall back to API products if richer or Firestore is empty
-  const catalogSourceProducts =
-    firestoreProducts.length > 0 && firestoreProducts.length >= products.length
-      ? firestoreProducts
-      : products.length > 0
-        ? products
-        : firestoreProducts;
 
   // Reset pagination whenever user changes category, subcategory, brand, or sort
   useEffect(() => {
@@ -296,15 +52,15 @@ export function CatalogSection({
   ];
 
   const filteredProducts = useMemo(() => {
-    let list = catalogSourceProducts.filter(p => (p.stockCount ?? 0) > 0);
+    let list = [...products];
 
     // Filter by brand name if active
     if (brandFilter) {
       const q = brandFilter.toLowerCase().trim();
-      list = list.filter(p =>
-        (p.name || '').toLowerCase().includes(q) ||
-        (p.description || '').toLowerCase().includes(q) ||
-        (p.integration?.sku || '').toLowerCase().includes(q)
+      list = list.filter(p => 
+        p.name.toLowerCase().includes(q) || 
+        p.description.toLowerCase().includes(q) ||
+        p.integration.sku.toLowerCase().includes(q)
       );
     }
 
@@ -315,12 +71,12 @@ export function CatalogSection({
 
     if (activeSubcategory && activeSubcategory !== 'all') {
       if (activeSubcategory === 'hoodies') {
-        list = list.filter(p =>
+        list = list.filter(p => 
           p.subcategory === 'hoodies' ||
-          (p.name || '').toLowerCase().includes('moletom') ||
-          (p.name || '').toLowerCase().includes('hoodie') ||
-          (p.name || '').toLowerCase().includes('corta vento') ||
-          (p.name || '').toLowerCase().includes('jaqueta')
+          p.name.toLowerCase().includes('moletom') ||
+          p.name.toLowerCase().includes('hoodie') ||
+          p.name.toLowerCase().includes('corta vento') ||
+          p.name.toLowerCase().includes('jaqueta')
         );
       } else {
         list = list.filter(p => p.subcategory === activeSubcategory);
@@ -337,7 +93,7 @@ export function CatalogSection({
     }
 
     return list;
-  }, [catalogSourceProducts, brandFilter, activeCategory, activeSubcategory, sortBy]);
+  }, [products, brandFilter, activeCategory, activeSubcategory, sortBy]);
 
   // Paginated drop display (8 to 12 items initially, expanding by 12 per click)
   const displayedProducts = useMemo(() => {
@@ -347,7 +103,7 @@ export function CatalogSection({
   return (
     <section id="catalogo" className="py-10 sm:py-16 bg-[#0A0A0A] border-b border-[#1A1A1A] overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-
+        
         {/* Clean Controls Bar with Scroll Reveal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -391,13 +147,13 @@ export function CatalogSection({
             </a>
           </div>
 
-          {/* Sort Selector */}
+          {/* Sort Selector (Estoque Ativo button removed) */}
           <div className="flex items-center gap-3 self-end sm:self-auto shrink-0 flex-wrap">
             <div className="flex items-center gap-2 bg-[#141414] border border-zinc-800 rounded-lg px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs">
               <ArrowUpDown className="w-3.5 h-3.5 text-zinc-400" />
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as 'relevance' | 'price-asc' | 'price-desc' | 'rating')}
+                onChange={(e) => setSortBy(e.target.value as any)}
                 className="bg-transparent text-zinc-200 focus:outline-none cursor-pointer font-semibold text-xs pr-1"
                 aria-label="Ordenar produtos"
               >
@@ -407,6 +163,20 @@ export function CatalogSection({
                 <option value="rating" className="bg-zinc-900 text-white">Melhor Avaliados</option>
               </select>
             </div>
+
+            {onOpenBlingSync && (
+              <button
+                type="button"
+                onClick={onOpenBlingSync}
+                aria-label="Sincronizar imagens do Bling ERP"
+                title="Sincronizar fotos e produtos atualizados no Bling ERP"
+                className="flex items-center gap-1.5 bg-[#141414] hover:bg-[#1E1E1E] border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white rounded-lg px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold cursor-pointer transition-colors"
+              >
+                <RefreshCw className="w-3.5 h-3.5 text-[#E50914]" />
+                <span className="hidden sm:inline">Sincronizar Bling</span>
+                <span className="sm:hidden">Bling</span>
+              </button>
+            )}
           </div>
         </motion.div>
 
@@ -431,16 +201,7 @@ export function CatalogSection({
 
         {/* Product Grid: 2-column mobile and 3/4 desktop */}
         <div className="pt-6 sm:pt-8">
-          {isLoadingFirestore && catalogSourceProducts.length === 0 ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
-              {Array.from({ length: 8 }).map((_, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#121212] border border-[#222222] rounded-xl h-80 animate-pulse"
-                />
-              ))}
-            </div>
-          ) : filteredProducts.length === 0 ? (
+          {filteredProducts.length === 0 ? (
             <div className="py-16 text-center space-y-3 bg-[#111111] rounded-xl border border-dashed border-zinc-800 p-8">
               <p className="text-base font-bold text-white">Nenhum produto nesta categoria no momento.</p>
               <button

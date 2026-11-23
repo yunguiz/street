@@ -101,14 +101,11 @@ export async function createDirectPix(params: {
   shippingAddress?: {
     street?: string;
     number?: string;
-    complement?: string;
     neighborhood?: string;
     city?: string;
     state?: string;
     zip?: string;
   };
-  shippingServiceId?: number;
-  shippingCarrier?: string;
 }): Promise<MercadoPagoPixResponse> {
   try {
     const res = await fetch('/api/mercadopago/create-pix', {
@@ -136,8 +133,8 @@ export async function getPaymentStatus(paymentId: string | number): Promise<{
   status?: string;
   statusDetail?: string;
   dateApproved?: string;
-  orderNumber?: string;
-  orderId?: number;
+  nuvemOrderNumber?: string;
+  nuvemOrderId?: number;
   message?: string;
   error?: string;
 }> {
@@ -160,8 +157,8 @@ export async function confirmPixPayment(paymentId: string | number): Promise<{
   status?: string;
   statusDetail?: string;
   message?: string;
-  orderNumber?: string;
-  orderId?: number;
+  nuvemOrderNumber?: string;
+  nuvemOrderId?: number;
   error?: string;
 }> {
   try {
@@ -211,14 +208,11 @@ export interface TransparentCardPaymentParams {
   shippingAddress?: {
     street?: string;
     number?: string;
-    complement?: string;
     neighborhood?: string;
     city?: string;
     state?: string;
     zip?: string;
   };
-  shippingServiceId?: number;
-  shippingCarrier?: string;
 }
 
 export interface TransparentCardPaymentResponse {
@@ -230,8 +224,8 @@ export interface TransparentCardPaymentResponse {
   installments?: number;
   paymentMethodId?: string;
   dateApproved?: string;
-  orderNumber?: string;
-  orderId?: number;
+  nuvemOrderNumber?: string;
+  nuvemOrderId?: number;
   error?: string;
 }
 

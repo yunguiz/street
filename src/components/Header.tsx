@@ -1,19 +1,16 @@
 import { useState } from 'react';
-import { ShoppingBag, Search, Menu, X, Crown, Truck, UserPlus, User, LogOut } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, Crown, Truck, HelpCircle, RefreshCw } from 'lucide-react';
 import { ProductCategory } from '../types';
-import { CustomerProfile } from '../services/auth';
 
 interface HeaderProps {
   cartCount: number;
   favoritesCount: number;
-  currentUser: CustomerProfile | null;
-  onOpenAuth: (mode?: 'register' | 'login') => void;
-  onLogout: () => void;
   onOpenCart: () => void;
   onOpenFavorites: () => void;
   onOpenSearch: () => void;
   onOpenTracking: () => void;
   onOpenPolicies?: (tab: 'faq' | 'shipping' | 'returns') => void;
+  onOpenBlingSync?: () => void;
   onSelectCategory: (cat: ProductCategory | 'all', subcat?: string) => void;
   activeCategory: ProductCategory | 'all';
 }
@@ -21,40 +18,39 @@ interface HeaderProps {
 export function Header({
   cartCount,
   favoritesCount,
-  currentUser,
-  onOpenAuth,
-  onLogout,
   onOpenCart,
   onOpenFavorites,
   onOpenSearch,
   onOpenTracking,
   onOpenPolicies,
+  onOpenBlingSync,
   onSelectCategory,
   activeCategory
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const firstName = currentUser?.name?.trim().split(/\s+/)[0] || 'Cliente';
 
   const navLinks = [
+    { label: 'Drops', cat: 'all' as const, href: '#catalogo' },
     { label: 'NOVIDADES NA STREET', href: '#arara-virtual', highlight: true },
     { label: 'Moletoms', cat: 'roupas' as const, subcat: 'hoodies', href: '#catalogo' },
     { label: 'Cargos', cat: 'roupas' as const, subcat: 'calcas', href: '#catalogo' },
     { label: 'Camisetas', cat: 'roupas' as const, subcat: 'camisetas', href: '#catalogo' },
+    { label: 'FEEDBACKS & DROPS', href: '#social-proof' },
     { label: 'PARCEIROS OFICIAIS', href: '#parceiros' },
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#000000]/95 backdrop-blur-md border-b border-[#1A1A1A] overflow-x-clip">
-      <div className="max-w-7xl mx-auto px-2.5 sm:px-5 lg:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 lg:gap-4">
+    <header className="sticky top-0 z-40 bg-[#000000]/95 backdrop-blur-md border-b border-[#1A1A1A]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 lg:h-22 flex items-center justify-between gap-2 sm:gap-6">
         
-        {/* Left: Brand Logo (Responsive scaling for all screens) */}
+        {/* Left: Brand Logo (Responsive scaling for small screens) */}
         <div className="flex items-center shrink-0">
           <a
             href="#"
             className="flex items-center focus:outline-none transition-transform hover:scale-105 active:scale-95 duration-200"
             aria-label="Street Store Página Inicial"
           >
-            <div className="h-9 sm:h-12 lg:h-14 w-24 sm:w-32 lg:w-36 xl:w-40 flex items-center">
+            <div className="h-10 sm:h-14 lg:h-16 w-28 sm:w-44 md:w-52 flex items-center">
               <img
                 src="/assets/aistudio/nova-logo_0b1a92f5.png"
                 alt="Street Store Oficial"
@@ -65,7 +61,7 @@ export function Header({
         </div>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 text-[11px] 2xl:text-xs font-bold tracking-normal 2xl:tracking-wider min-w-0">
+        <nav className="hidden lg:flex items-center gap-7 text-xs font-bold tracking-wider">
           {navLinks.map((item) => {
             const isActive = 'cat' in item && activeCategory === item.cat;
             return (
@@ -97,57 +93,45 @@ export function Header({
           })}
         </nav>
 
-        {/* Right: Search, Rastrear, Cadastro, Favoritos & Sacola */}
-        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+        {/* Right: Search, Rastrear, Favoritos & Sacola */}
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <button
             onClick={onOpenSearch}
             aria-label="Buscar produtos"
-            className="p-1.5 sm:p-2 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors cursor-pointer shrink-0"
+            className="p-1.5 sm:p-2 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors cursor-pointer"
           >
-            <Search className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+            <Search className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           <button
             onClick={onOpenTracking}
             aria-label="Acompanhar Pedido"
             title="Acompanhar Pedido & Rastreamento"
-            className="hidden md:inline-flex items-center gap-1.5 h-8 sm:h-9 px-2.5 text-[11px] font-bold uppercase tracking-wider text-zinc-300 hover:text-white bg-[#141414] hover:bg-[#1E1E1E] border border-zinc-800 rounded-lg transition-colors whitespace-nowrap cursor-pointer shrink-0"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white bg-[#141414] hover:bg-[#1E1E1E] border border-zinc-800 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
           >
             <Truck className="w-3.5 h-3.5 text-emerald-400" />
             <span>RASTREAR</span>
           </button>
 
-          {/* Customer Register / Account Button */}
-          {currentUser ? (
-            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-              <div
-                title={currentUser.email}
-                className="hidden sm:inline-flex items-center gap-1.5 h-8 sm:h-9 px-2.5 bg-[#141414] border border-zinc-800 rounded-lg text-[11px] font-bold text-zinc-200"
-              >
-                <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span className="max-w-[76px] truncate">{firstName}</span>
-              </div>
-              <button
-                type="button"
-                onClick={onLogout}
-                aria-label="Sair da conta"
-                title="Sair da conta"
-                className="h-8 sm:h-9 px-2 sm:px-2.5 bg-[#141414] hover:bg-zinc-800 border border-zinc-800 rounded-lg text-zinc-300 hover:text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-1 transition-colors cursor-pointer shrink-0"
-              >
-                <LogOut className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">Sair</span>
-              </button>
-            </div>
-          ) : (
+          <button
+            onClick={() => onOpenPolicies && onOpenPolicies('faq')}
+            aria-label="Ajuda, Dúvidas Frequentes, Entregas e Trocas"
+            title="Ajuda, FAQ, Entregas & Devoluções"
+            className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white bg-[#141414] hover:bg-[#1E1E1E] border border-zinc-800 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-yellow-400" />
+            <span>AJUDA / FAQ</span>
+          </button>
+
+          {onOpenBlingSync && (
             <button
-              type="button"
-              onClick={() => onOpenAuth('register')}
-              aria-label="Cadastrar ou entrar"
-              title="Cadastro de Cliente"
-              className="h-8 sm:h-9 inline-flex items-center gap-1.5 px-2 sm:px-2.5 text-[11px] font-black uppercase tracking-wider text-white bg-[#141414] hover:bg-zinc-800 border border-zinc-700 hover:border-[#E50914] rounded-lg transition-colors whitespace-nowrap cursor-pointer shrink-0"
+              onClick={onOpenBlingSync}
+              aria-label="Sincronizar Bling ERP"
+              title="Sincronizar fotos e produtos atualizados do Bling ERP"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white bg-[#141414] hover:bg-[#1E1E1E] border border-zinc-800 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
             >
-              <UserPlus className="w-3.5 h-3.5 text-[#E50914]" />
-              <span className="hidden sm:inline">CADASTRAR</span>
+              <RefreshCw className="w-3.5 h-3.5 text-[#E50914]" />
+              <span>BLING SYNC</span>
             </button>
           )}
 
@@ -156,7 +140,7 @@ export function Header({
             onClick={onOpenFavorites}
             aria-label={`Ver peças favoritas (${favoritesCount})`}
             title={favoritesCount > 0 ? `${favoritesCount} peça(s) favorita(s)` : "Ver peças favoritas"}
-            className="relative h-8 sm:h-9 px-2 sm:px-2.5 text-zinc-300 hover:text-yellow-400 bg-[#141414] hover:bg-[#1A1A1A] border border-zinc-800 hover:border-yellow-500/40 rounded-lg transition-all duration-200 cursor-pointer group flex items-center justify-center gap-1 shrink-0"
+            className="relative h-8 sm:h-9 px-2 sm:px-3 text-zinc-300 hover:text-yellow-400 bg-[#141414] hover:bg-[#1A1A1A] border border-zinc-800 hover:border-yellow-500/40 rounded-lg transition-all duration-200 cursor-pointer group flex items-center justify-center gap-1 sm:gap-1.5 shrink-0"
           >
             <Crown className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all duration-300 ${
               favoritesCount > 0
@@ -170,33 +154,33 @@ export function Header({
             )}
           </button>
 
-          {/* Sacola Button */}
+          {/* Sacola Button matching screenshot & mobile-friendly */}
           <button
             onClick={onOpenCart}
             aria-label={`Ver sacola com ${cartCount} itens`}
-            className="h-8 sm:h-9 flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 rounded-lg bg-[#E50914] hover:bg-[#c90812] text-white font-black text-[11px] uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md shadow-red-950/50 whitespace-nowrap cursor-pointer shrink-0"
+            className="h-8 sm:h-9 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 rounded-lg bg-[#E50914] hover:bg-[#c90812] text-white font-black text-xs uppercase tracking-wider transition-all duration-200 active:scale-95 shadow-md shadow-red-950/50 whitespace-nowrap cursor-pointer shrink-0"
           >
             <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span className="hidden sm:inline">SACOLA</span>
-            <span className="bg-black/40 text-white text-[10px] font-black rounded px-1.5 py-0.5 tabular-nums">
+            <span className="bg-black/40 text-white text-[10px] sm:text-[11px] font-black rounded px-1.5 py-0.5 tabular-nums">
               {cartCount}
             </span>
           </button>
 
-          {/* Mobile / Tablet Menu Button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu de navegação"
-            className="xl:hidden p-1.5 sm:p-2 text-zinc-300 hover:text-white rounded-lg transition-colors cursor-pointer shrink-0"
+            className="lg:hidden p-1.5 sm:p-2 text-zinc-300 hover:text-white rounded-lg transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile / Tablet Nav Drawer */}
+      {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#0A0A0A] border-b border-[#222222] px-4 pt-3 pb-6 space-y-3">
+        <div className="lg:hidden bg-[#0A0A0A] border-b border-[#222222] px-4 pt-3 pb-6 space-y-3">
           <div className="space-y-1">
             {navLinks.map((item) => (
               <a
@@ -217,38 +201,6 @@ export function Header({
           </div>
 
           <div className="pt-3 border-t border-zinc-800 space-y-2">
-            {currentUser ? (
-              <div className="flex items-center justify-between px-3 py-2.5 rounded-lg bg-[#141414] border border-zinc-800">
-                <div className="min-w-0">
-                  <p className="text-xs font-bold text-white truncate">{currentUser.name}</p>
-                  <p className="text-[11px] text-zinc-400 truncate">{currentUser.email}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onLogout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-2.5 py-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-zinc-200 flex items-center gap-1 cursor-pointer shrink-0 ml-2"
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                  <span>Sair</span>
-                </button>
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenAuth('register');
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#181818] border border-[#E50914]/60 text-white font-black text-xs uppercase tracking-wider hover:bg-zinc-800 transition-colors cursor-pointer"
-              >
-                <UserPlus className="w-4 h-4 text-[#E50914]" />
-                <span>Cadastrar / Entrar</span>
-              </button>
-            )}
-
             <button
               onClick={() => {
                 onOpenTracking();
@@ -258,6 +210,17 @@ export function Header({
             >
               <Truck className="w-4 h-4 text-emerald-400" />
               <span>Acompanhar Pedido</span>
+            </button>
+
+            <button
+              onClick={() => {
+                if (onOpenPolicies) onOpenPolicies('faq');
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#181818] border border-zinc-700 text-yellow-400 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-colors cursor-pointer"
+            >
+              <HelpCircle className="w-4 h-4" />
+              <span>Dúvidas & Ajuda (FAQ)</span>
             </button>
 
             <div className="grid grid-cols-2 gap-2">
@@ -291,6 +254,19 @@ export function Header({
               <Crown className="w-4 h-4 fill-yellow-400" />
               <span>Peças Favoritas ({favoritesCount})</span>
             </button>
+
+            {onOpenBlingSync && (
+              <button
+                onClick={() => {
+                  onOpenBlingSync();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#181818] border border-zinc-700 text-zinc-200 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800 transition-colors cursor-pointer"
+              >
+                <RefreshCw className="w-4 h-4 text-[#E50914]" />
+                <span>Sincronizar Imagens Bling ERP</span>
+              </button>
+            )}
 
             <button
               onClick={() => {
